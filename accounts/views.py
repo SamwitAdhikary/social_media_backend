@@ -26,6 +26,8 @@ from django.utils.encoding import force_bytes
 
 
 def get_tokens_for_user(user):
+    """Generate JWT access and refresh tokens for user authentication"""
+
     refresh = RefreshToken.for_user(user)
     return {
         'refresh': str(refresh),
@@ -34,24 +36,37 @@ def get_tokens_for_user(user):
 
 
 def generate_otp():
+    """Generates a 6-digit random numeric OTP for email verification"""
     return str(random.randint(100000, 999999))
 
 
 class RegisterView(generics.CreateAPIView):
+    """
+    Handles user registration with:
+    - Account creation
+    - OTP generation
+    - Email verification setup
+    - JWT token return
+    """
+
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):
+        """Processes user registration an initiates email verification"""
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
 
+        # Generates and store verification OTP
         otp = generate_otp()
         user.email_otp = otp
         user.otp_create_at = timezone.now()
         user.is_verified = False
         user.save()
 
+        # Send verification email
         send_mail(
             subject="Your OTP for Email Verification",
             message=f"Your OTP is: {otp}. It is valid for 10 minutes.",
@@ -60,6 +75,7 @@ class RegisterView(generics.CreateAPIView):
             fail_silently=False,
         )
 
+        # Return authentication tokens
         jwt_token = get_tokens_for_user(user)
         return Response({
             "message": "Registration successful. An OTP has been sent to your email for verification.",
@@ -69,9 +85,17 @@ class RegisterView(generics.CreateAPIView):
 
 
 class VerifyEmailOTPView(APIView):
+    """
+    Handles email verification process:
+    - Validates OTP against user record
+    - Marks email as verified
+    """
+
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):
+        """Verifies OTP and activates user account"""
+
         email = request.data.get("email")
         otp = request.data.get("otp")
         if not email or not otp:
@@ -82,14 +106,17 @@ class VerifyEmailOTPView(APIView):
         except User.DoesNotExist:
             return Response({"error": "User not found."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Check OTP expiraton (10 minutes)
         if user.otp_created_at:
             elapsed = (timezone.now() - user.otp_created_at).total_seconds()
             if elapsed > 600:
                 return Response({'error': "OTP expired. Please request a new one."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Validate OTP match
         if user.email_otp != otp:
             return Response({'error': 'Invalid OTP'}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Activate user account
         user.is_verified = True
         user.email_otp = ''
         user.otp_created_at = None
@@ -99,9 +126,15 @@ class VerifyEmailOTPView(APIView):
 
 
 class ResendOTPView(APIView):
+    """
+    Handles OTP resend request for email verification
+    """
+
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):
+        """Generates and sends new OTP to user's email"""
+
         email = request.data.get('email')
         if not email:
             return Response({'error': 'Email is required.'}, status=status.HTTP_400_BAD_REQUEST)
@@ -114,11 +147,13 @@ class ResendOTPView(APIView):
         if user.is_verified:
             return Response({"message": "User is already verified."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Generate and store new OTP
         otp = generate_otp()
         user.email_otp = otp
         user.otp_created_at = timezone.now()
         user.save()
 
+        # Resend verification email
         send_mail(
             subject="Your OTP for Email Verification",
             message=f"Your new OTP is: {otp}. It is valid for 10 minutes.",
@@ -131,25 +166,36 @@ class ResendOTPView(APIView):
 
 
 class LoginView(APIView):
+    """
+    Handles user authentication:
+    - Email/password verification
+    - 2FA validation (if enabled)
+    - JWT token generation
+    """
+
     permission_classes = [permissions.AllowAny]
     serializer_class = LoginSerializer
 
     def post(self, request, *args, **kwargs):
+        """Authenticates user and returns JWT tokens"""
+
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
 
+        # Handle 2FA if enabled
         if user.is_2fa_enabled:
             otp = request.data.get("otp")
             if not otp:
                 return Response({"error": "OTP is required for two-factor authentication."}, status=status.HTTP_400_BAD_REQUEST)
 
+            # TOTP validation
             totp = pyotp.TOTP(user.otp_secret_key)
             current_valid_otp = totp.now()
-            print(f"[DEBUG] Current valid OTP for user {user.username}: {current_valid_otp}")
             if not totp.verify(otp, valid_window=1):
                 return Response({"error": "Invalid OTP. Please try again."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Generate authentication tokens
         token = get_tokens_for_user(user)
         return Response({
             "token": token,
@@ -158,12 +204,20 @@ class LoginView(APIView):
 
 
 class ProfileDetailView(generics.RetrieveAPIView):
+    """
+    Provides profile details view with:
+    - Privacy-aware data exposure
+    - Blocked user filtering
+    """
+
     permission_classes = [permissions.IsAuthenticated]
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     lookup_field = 'username'
 
     def get_queryset(self):
+        """Filters out profiles form blocked/blocking users"""
+
         user = self.request.user
 
         blocked_users = BlockedUser.objects.filter(
@@ -175,6 +229,8 @@ class ProfileDetailView(generics.RetrieveAPIView):
         return Profile.objects.exclude(user__in=blocked_users).exclude(user__in=users_who_blocked_me)
 
     def get_object(self):
+        """Checks for blocking relationships before returning profile"""
+
         obj = super().get_object()
         if obj.user in BlockedUser.objects.filter(blocker=self.request.user).values_list('blocked', flat=True) or obj.user in BlockedUser.objects.filter(blocked=self.request.user).values_list('blocker', flat=True):
             raise NotFound("This profile is not available.")
@@ -182,30 +238,48 @@ class ProfileDetailView(generics.RetrieveAPIView):
 
 
 class ProfileUpdateView(generics.RetrieveUpdateAPIView):
+    """
+    Handles profile updates:
+    - Only allows profile owner to make changes
+    - Maintains data consistency
+    """
+
     permission_classes = [permissions.IsAuthenticated]
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     lookup_field = 'username'
 
     def get_object(self):
+        """Ensures only profile owner can update"""
+
         obj = super().get_object()
         if self.request.user != obj.user:
             raise PermissionDenied("You can only update your own profile.")
         return obj
 
     def get_serializer_context(self):
+        """Adds request context to serializer"""
+
         context = super().get_serializer_context()
         context['request'] = self.request
         return context
 
 
 class UserPagination(PageNumberPagination):
+    """Custom pagination settings for user listings"""
+
     page_size = 10
     page_size_query_param = 'page_size'
     max_page_size = 50
 
 
 class UserSearchView(generics.ListAPIView):
+    """
+    Provides user search functionality:
+    - Filters blocked users
+    - Search by username or full name
+    """
+
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     pagination_class = UserPagination
@@ -213,6 +287,8 @@ class UserSearchView(generics.ListAPIView):
     search_fields = ['username', 'profile__full_name']
 
     def get_queryset(self):
+        """Filters search results based on blocking relationships"""
+
         user = self.request.user
         query = self.request.query_params.get('search', '')
 
@@ -228,9 +304,15 @@ class UserSearchView(generics.ListAPIView):
 
 
 class BlockedUserView(APIView):
+    """
+    Handles user blocking functionality
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
+        """Creates a blocking relationship between users"""
+
         blocked_user_id = request.data.get('blocked_user_id')
 
         if not blocked_user_id:
@@ -249,9 +331,15 @@ class BlockedUserView(APIView):
 
 
 class UnblockUserView(APIView):
+    """
+    Handles removal of blocking relationships
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
+        """Removes existing block between users"""
+
         blocked_user_id = request.data.get("blocked_user_id")
 
         if not blocked_user_id:
@@ -272,19 +360,31 @@ class UnblockUserView(APIView):
 
 
 class BlockedUserListView(APIView):
+    """
+    Provides listing of blocked users
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
+        """Returns paginated list of blocked users"""
+
         blocked_users = BlockedUser.objects.filter(blocker=request.user)
         serializer = BlockedUserSerializer(blocked_users, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class PasswordResetRequestView(generics.GenericAPIView):
+    """
+    Handles password reset initiation
+    """
+
     permission_classes = [permissions.AllowAny]
     serializer_class = PasswordResetRequestSerializer
 
     def post(self, request, *args, **kwargs):
+        """Generates and sends password reset link"""
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         email = serializer.validated_data['email']
@@ -294,6 +394,7 @@ class PasswordResetRequestView(generics.GenericAPIView):
         uid = urlsafe_base64_encode(force_bytes(user.pk))
         reset_link = f"{request.scheme}://{request.get_host()}/accounts/password-reset-confirm/?uid={uid}&token={token}"
 
+        # Send password reset email
         subject = "Password Reset Request"
         message = f"Hi {user.username},\n\nPlease click the link below to reset your password:\n{reset_link}\n\nIf you did not request a password reset, please ignore this email."
         from_email = settings.DEFAULT_FROM_EMAIL
@@ -305,10 +406,16 @@ class PasswordResetRequestView(generics.GenericAPIView):
 
 
 class PasswordResetConfirmView(generics.GenericAPIView):
+    """
+    Handles password reset confirmation
+    """
+
     permission_classes = [permissions.AllowAny]
     serializer_class = PasswordResetConfirmSerializer
 
     def post(self, request, *args, **kwargs):
+        """Validates reset token and updates password"""
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -316,13 +423,21 @@ class PasswordResetConfirmView(generics.GenericAPIView):
 
 
 class ChangePasswordView(generics.UpdateAPIView):
+    """
+    Handles password changes for authenticated users
+    """
+
     serializer_class = ChangePasswordSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, queryset=None):
+        """Returns the requesting user instance"""
+
         return self.request.user
 
     def update(self, request, *arg, **kwargs):
+        """Validates and updates user password"""
+
         user = self.get_object()
         serializer = self.get_serializer(
             data=request.data, context={'request': request})
@@ -332,12 +447,19 @@ class ChangePasswordView(generics.UpdateAPIView):
 
 
 class Enable2FAView(APIView):
+    """
+    Handles Two-Factor Authentication setup
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
+        """Generates and store 2FA secret, returns QR code"""
+
         user = request.user
         otp_auth_url = user.get_otp_auth_url()
 
+        # Generate QR code
         qr = qrcode.QRCode(
             # version=None,
             error_correction=qrcode.constants.ERROR_CORRECT_H,
@@ -346,24 +468,27 @@ class Enable2FAView(APIView):
         )
         qr.add_data(otp_auth_url)
         qr.make(fit=True)
-        img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
+        img = qr.make_image(fill_color="black",
+                            back_color="white").convert("RGB")
 
+        # Save QR to buffer
         buffer = io.BytesIO()
         img.save(buffer, format="PNG")
         buffer.seek(0)
 
+        # Upload to S3 Storage
         s3_storage = S3Boto3Storage(
             bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
         file_name = f"2fa_qrcodes/{user.id}_{int(timezone.now().timestamp())}.png"
         content_file = ContentFile(buffer.getvalue(), name=file_name)
-        
 
         try:
             saved_path = s3_storage.save(file_name, content_file)
             qr_code_url = s3_storage.url(saved_path)
         except Exception as e:
             return Response({"error": f"Error uploading QR code {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
+        # Enable 2FA for user
         user.is_2fa_enabled = True
         user.save()
 

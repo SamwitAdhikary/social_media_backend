@@ -8,12 +8,21 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 class RegisterSerializer(serializers.ModelSerializer):
+    """
+    Handles user registration with:
+    - Email validation
+    - Password hashing
+    - Automatic profile creation
+    """
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
+        """Creates user with hashed password and initial profile"""
+
         user = User(**validated_data)
         user.set_password(validated_data['password'])
         user.save()
@@ -21,10 +30,19 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
     
 class LoginSerializer(serializers.Serializer):
+    """
+    Handles user authentication:
+    - Validates email/password combination
+    - Integrates with Django's authentication system
+    - Returns user instance if credentials are valid
+    """
+
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
+        """Performs authentication and returns validated data with user instance"""
+
         email = data.get("email")
         password = data.get("password")
         user = authenticate(email=email, password=password)
@@ -34,6 +52,13 @@ class LoginSerializer(serializers.Serializer):
         return data
     
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Serializes profile data with privacy-aware field exposure:
+    - Controls data visibility based on privacy settings
+    - Shows basic info to public/full info to friends
+    - Always shows complete data to profile owner
+    """
+
     class Meta:
         model = Profile
         fields = [
@@ -55,6 +80,13 @@ class ProfileSerializer(serializers.ModelSerializer):
         read_only_fields = ['user', 'username']
 
     def to_representation(self, instance):
+        """
+        Custom representation based on viewer's relationship and privacy settings:
+        1. Profile owner sees all fields
+        2. Friends see extended info (if privacy allows)
+        3. Public sees everything
+        """
+
         representation = super().to_representation(instance)
         request = self.context.get('request')
 
@@ -96,11 +128,20 @@ class ProfileSerializer(serializers.ModelSerializer):
         }
     
 class UserSerializer(serializers.ModelSerializer):
+    """
+    Serializes user data with privacy considerations:
+    - Shows minimal info (ID, username, avatar) to non-friends
+    - Shows full profile data to friends/self
+    - Adds profile-related fields to user representation
+    """
+
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
     def to_representation(self, instance):
+        """Enhances user data with profile information and privacy checks"""
+
         request = self.context.get("request")
 
         privacy = instance.profile.privacy_settings.get("profile_visibility", 'public')
@@ -119,24 +160,47 @@ class UserSerializer(serializers.ModelSerializer):
         return ret
     
 class BlockedUserSerializer(serializers.ModelSerializer):
+    """
+    Serializes blocked user relationships:
+    - Shows blocker/blocked user IDs
+    - Tracks creation time of block
+    - Used for listing/displaying block relationships
+    """
+
     class Meta:
         model = BlockedUser
         fields = '__all__'
 
 class PasswordResetRequestSerializer(serializers.Serializer):
+    """
+    Handles password reset initiation:
+    - Validates email exists in active users
+    - Triggers password reset email flow
+    """
+
     email = serializers.EmailField()
 
     def validate_email(self, value):
+        """Ensures email belongs to an active user account"""
+
         if not User.objects.filter(email__iexact=value, is_active=True).exists():
             raise serializers.ValidationError("No active user with this email was found.")
         return value
     
 class PasswordResetConfirmSerializer(serializers.Serializer):
+    """
+    Handles password reset confirmation:
+    - Validates UID/token combination
+    - Sets new password if validation succeeds
+    - Uses Django's password reset token generator
+    """
+
     uid = serializers.CharField()
     token = serializers.CharField()
     new_password = serializers.CharField(min_length=8, write_only=True)
 
     def validate(self, data):
+        """Verifies reset token validity and user existence"""
         try:
             uid = urlsafe_base64_decode(data['uid']).decode()
             user = User.objects.get(pk=uid)
@@ -150,6 +214,7 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
         return data
     
     def save(self):
+        """Updates user password after successful validation"""
         user = self.validated_data['user']
         new_password = self.validated_data['new_password']
         user.set_password(new_password)
@@ -157,22 +222,34 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
         return user
     
 class ChangePasswordSerializer(serializers.Serializer):
+    """Handles password change for authenticated users:
+    - Validates old password correctness
+    - Ensures new password confirmation matches
+    - Updates password in database
+    """
+
     old_password = serializers.CharField(required=True, write_only=True)
     new_password = serializers.CharField(required=True, write_only=True, min_length=8)
     confirm_new_password = serializers.CharField(required=True, write_only=True, min_length=8)
 
     def validate_old_password(self, value):
+        """Verifies current password matches user's actual password"""
+
         user = self.context['request'].user
         if not user.check_password(value):
             raise serializers.ValidationError("old password is not correct.")
         return value
     
     def validate(self, data):
+        """Ensures new password fields match"""
+
         if data['new_password'] != data['confirm_new_password']:
             raise serializers.ValidationError("New password fields didn't match.")
         return data
     
     def save(self, **kwargs):
+        """Updates user's password after validation"""
+
         user = self.context['request'].user
         user.set_password(self.validated_data['new_password'])
         user.save()

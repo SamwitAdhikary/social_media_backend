@@ -6,6 +6,13 @@ import pyotp
 
 # Create your models here.
 class User(AbstractUser):
+    """
+    Custom User Model with extended features:
+    - Email verification via OTP
+    - Two-Factor Authentication (2FA) support
+    - OTP secret key storage
+    """
+
     email = models.EmailField(unique=True)
     is_verified = models.BooleanField(default=False)
     email_otp = models.CharField(max_length=6, blank=True, null=True)
@@ -31,18 +38,29 @@ class User(AbstractUser):
     )
 
     def generate_otp_secret(self):
+        """Generates base32 secret for TOTP if not exists"""
+
         if not self.otp_secret_key:
             self.otp_secret_key = pyotp.random_base32()
             self.save()
         return self.otp_secret_key
     
     def get_otp_auth_url(self):
+        """Generates provisioning URI for authenticator apps"""
+
         secret = self.generate_otp_secret()
         account_name = self.username.replace(":", "")
         totp = pyotp.TOTP(secret)
         return totp.provisioning_uri(name=account_name, issuer_name="InstaClone")
 
 class Profile(models.Model):
+    """
+    User Profile Model storing:
+    - Personal information
+    - Privacy settings
+    - Media URLs
+    """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     full_name = models.CharField(max_length=255)
     username = models.CharField(max_length=150, unique=True)
@@ -63,6 +81,12 @@ class Profile(models.Model):
         return self.username
     
 class BlockedUser(models.Model):
+    """
+    Tracks user blocking relationships
+    - blocker: User who initiated block
+    - blocked: User who was blocked
+    """
+
     blocker = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blocking')
     blocked = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blocked')
     created_at = models.DateTimeField(auto_now_add=True)
