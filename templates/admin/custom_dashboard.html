@@ -1,0 +1,53 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="background: #007bff; padding: 20px; color: white; border-radius: 5px; min-width: 200px;">
+        <h2>{{ total_users}}</h2>
+        <p>Total Users</p>
+    </div>
+
+    <div style="background: #28a745; padding: 20px; color: white; border-radius: 5px; min-width: 200px;">
+        <h2>{{ active_users }}</h2>
+        <p>Active Users</p>
+    </div>
+
+    <div style="background: #ffc107; padding: 20px; color: black; border-radius: 5px; min-width: 200px;">
+        <h2>{{ total_posts }}</h2>
+        <p>Total Posts</p>
+    </div>
+
+    <div style="background: #17a2b8; padding: 20px; color: white; border-radius: 5px; min-width: 200px;">
+        <h2>{{ total_groups }}</h2>
+        <p>Total Groups</p>
+    </div>
+
+    <div style="background: #dc3545; padding: 20px; color: white; border-radius: 5px; min-width: 200px;">
+        <h2>{{ pending_requests }}</h2>
+        <p>Pending Join Requests</p>
+    </div>
+
+    <div style="border: 1px solid #ddd; padding: 10px; width: 200px;">
+        <h3>New Users (Last 7 Days)</h3>
+        <p>{{ new_users_last_week }}</p>
+    </div>
+</div>
+
+<h3>🔥 Top 5 Most Liked Posts</h3>
+<ul>
+    {% for post in top_posts %}
+        <li>{{ post.content }} - {{ post.like_count }} Likes</li>
+    {% endfor %}
+</ul>
+
+<h3>💬 Most Commented Posts</h3>
+<ul>
+    {% for post in most_commented_posts %}
+        <li>{{ post.content }} - {{ post.comment_count }} Comments</li>
+    {% endfor %}
+</ul>
+{% endblock %}

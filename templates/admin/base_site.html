@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block title %}{{ site_title|default:"Your App Admin" }}{% endblock %}
+
+{% block branding %}
+<div id="branding">
+    <h1 id="site-name">
+        <a href="{% url 'admin_dashboard' %}">
+            Admin Dashboard
+        </a>
+    </h1>
+</div>
+{% endblock %}
+
+{% block nav-global %}
+<div id="user-tools">
+    {% if user.is_active and user.is_authenticated %}
+        {% trans 'Welcome,' %} <strong>{{ user.get_short_name|default:user.username }}</strong>.
+        <a href="{% url 'admin:password_change' %}">{% trans 'Change Password' %}</a> |
+        <a href="{% url 'admin:logout' %}">{% trans 'Log Out' %}</a> |
+        <a href="dashboard/">Dashboard</a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+    {% if title %}
+        <h1 id="content-main-title">{{ title }}</h1>
+    {% endif %}
+    {% block content_title %}{% endblock %}
+    {% block content_body %}
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+<div id="footer">
+    <p>{% trans 'Django administration' %} &copy; {{ current_year }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,565 @@
+INFO 2025-03-12 20:12:56,145 autoreload 8544 15864 Watching for file changes with StatReloader
+INFO 2025-03-12 20:13:14,893 runserver 8544 9728 [mHTTP POST /api/accounts/login/ 200 [0.82, 127.0.0.1:49663][0m
+WARNING 2025-03-12 20:13:37,999 log 8544 9732 Bad Request: /api/accounts/login/
+WARNING 2025-03-12 20:13:37,999 runserver 8544 9728 [31;1mHTTP POST /api/accounts/login/ 400 [0.90, 127.0.0.1:49663][0m
+INFO 2025-03-12 20:13:53,333 runserver 8544 9728 [mHTTP POST /api/accounts/login/ 200 [0.90, 127.0.0.1:49663][0m
+INFO 2025-03-12 20:15:20,987 runserver 8544 9728 [mHTTP GET /admin/dashboard/ 200 [0.10, 127.0.0.1:49681][0m
+INFO 2025-03-12 20:15:21,033 runserver 8544 9728 [36mHTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:49681][0m
+INFO 2025-03-12 20:15:21,051 runserver 8544 9728 [36mHTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:49681][0m
+INFO 2025-03-12 20:15:21,052 runserver 8544 9728 [36mHTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49683][0m
+INFO 2025-03-12 20:15:21,053 runserver 8544 9728 [36mHTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:49682][0m
+WARNING 2025-03-12 20:15:22,078 log 8544 13148 Not Found: /favicon.ico
+WARNING 2025-03-12 20:15:22,080 runserver 8544 9728 [33mHTTP GET /favicon.ico 404 [0.02, 127.0.0.1:49682][0m
+INFO 2025-03-13 00:19:03,483 autoreload 10068 13308 Watching for file changes with StatReloader
+INFO 2025-03-13 00:33:04,618 autoreload 9104 4248 Watching for file changes with StatReloader
+INFO 2025-03-13 00:33:41,729 runserver 9104 6328 [mHTTP POST /api/accounts/password-reset/ 200 [4.57, 127.0.0.1:54822][0m
+INFO 2025-03-13 00:34:32,703 runserver 9104 6328 [mHTTP POST /api/accounts/login/ 200 [1.23, 127.0.0.1:54822][0m
+INFO 2025-03-13 00:53:16,595 autoreload 12972 13576 Watching for file changes with StatReloader
+INFO 2025-03-13 00:53:54,531 runserver 12972 15032 [mHTTP POST /api/accounts/login/ 200 [1.06, 127.0.0.1:57327][0m
+ERROR 2025-03-13 00:55:16,048 log 12972 10916 Internal Server Error: /api/stories/create/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\fields.py", line 1870, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py", line 14, in get_media_url
+    if obj.media_file:
+       ^^^^^^^^^^^^^^
+AttributeError: 'Story' object has no attribute 'media_file'. Did you mean: 'media_files'?
+ERROR 2025-03-13 00:55:16,081 runserver 12972 15032 [35;1mHTTP POST /api/stories/create/ 500 [0.13, 127.0.0.1:57340][0m
+INFO 2025-03-13 00:56:00,003 autoreload 12972 13576 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:56:01,480 autoreload 11584 4504 Watching for file changes with StatReloader
+INFO 2025-03-13 00:56:04,782 autoreload 11584 4504 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:56:06,303 autoreload 11680 6912 Watching for file changes with StatReloader
+INFO 2025-03-13 00:56:09,243 runserver 11680 13372 [mHTTP POST /api/stories/create/ 201 [0.03, 127.0.0.1:57362][0m
+INFO 2025-03-13 00:59:21,574 autoreload 11680 6912 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:59:23,140 autoreload 10560 6320 Watching for file changes with StatReloader
+INFO 2025-03-13 00:59:25,105 autoreload 10560 6320 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:59:27,221 autoreload 6428 4572 Watching for file changes with StatReloader
+INFO 2025-03-13 00:59:31,617 autoreload 6428 4572 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:59:32,980 autoreload 13404 9700 Watching for file changes with StatReloader
+INFO 2025-03-13 00:59:34,818 autoreload 13404 9700 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:59:36,110 autoreload 11136 1752 Watching for file changes with StatReloader
+INFO 2025-03-13 00:59:51,181 autoreload 11136 1752 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:59:54,834 autoreload 5540 3808 Watching for file changes with StatReloader
+INFO 2025-03-13 00:59:57,931 autoreload 5540 3808 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 00:59:59,422 autoreload 16152 12448 Watching for file changes with StatReloader
+INFO 2025-03-13 01:00:02,518 autoreload 16152 12448 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 01:00:05,057 autoreload 2040 7388 Watching for file changes with StatReloader
+INFO 2025-03-13 01:00:07,725 autoreload 2040 7388 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 01:00:09,436 autoreload 6340 9528 Watching for file changes with StatReloader
+INFO 2025-03-13 01:00:15,732 autoreload 6340 9528 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 01:00:17,798 autoreload 5448 13920 Watching for file changes with StatReloader
+INFO 2025-03-13 01:00:22,180 autoreload 5448 13920 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 01:00:23,718 autoreload 8076 7048 Watching for file changes with StatReloader
+INFO 2025-03-13 01:00:26,991 autoreload 8076 7048 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 01:00:30,660 autoreload 8088 6716 Watching for file changes with StatReloader
+INFO 2025-03-13 01:00:59,150 autoreload 8088 6716 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:01,079 autoreload 3592 10576 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:03,587 autoreload 3592 10576 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:07,587 autoreload 3836 14824 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:09,818 autoreload 3836 14824 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:11,201 autoreload 10216 15508 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:14,143 autoreload 10216 15508 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:15,366 autoreload 7008 9732 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:22,823 autoreload 7008 9732 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:24,331 autoreload 8576 14112 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:26,967 autoreload 8576 14112 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:30,065 autoreload 5596 2916 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:36,216 autoreload 5596 2916 C:\Users\samwi\Desktop\APPLICATION\social_network\urls.py changed, reloading.
+INFO 2025-03-13 01:01:38,909 autoreload 16120 8288 Watching for file changes with StatReloader
+INFO 2025-03-13 01:01:53,359 autoreload 3484 8660 Watching for file changes with StatReloader
+INFO 2025-03-13 01:02:03,948 runserver 3484 15936 [mHTTP POST /api/stories/create/ 201 [0.03, 127.0.0.1:57566][0m
+INFO 2025-03-13 01:02:59,386 runserver 3484 15936 [mHTTP POST /api/stories/create/ 201 [0.02, 127.0.0.1:57566][0m
+INFO 2025-03-13 01:10:03,062 autoreload 3484 8660 C:\Users\samwi\Desktop\APPLICATION\stories\serializers.py changed, reloading.
+INFO 2025-03-13 01:10:04,422 autoreload 8524 13252 Watching for file changes with StatReloader
+INFO 2025-03-13 01:12:25,189 views 8524 13056 Manually saved file to S3: https://instabucket.s3.ap-south-1.amazonaws.com/media/post_media/tree_image.jpg
+INFO 2025-03-13 01:12:25,461 views 8524 13056 Thumbnail saved to S3: https://instabucket.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_tree_image.jpg
+INFO 2025-03-13 01:12:25,492 runserver 8524 8760 [mHTTP POST /api/posts/ 201 [1.94, 127.0.0.1:57728][0m
+INFO 2025-03-13 01:13:03,987 runserver 8524 8760 [mHTTP POST /api/stories/create/ 201 [0.02, 127.0.0.1:57728][0m
+INFO 2025-03-13 01:14:00,222 runserver 8524 8760 [mHTTP POST /api/stories/create/ 201 [0.02, 127.0.0.1:57728][0m
+INFO 2025-03-13 01:16:40,792 autoreload 16040 12004 Watching for file changes with StatReloader
+INFO 2025-03-13 01:16:47,263 runserver 16040 9240 [mHTTP POST /api/stories/create/ 201 [0.05, 127.0.0.1:57801][0m
+INFO 2025-03-13 01:38:41,659 autoreload 12776 3656 Watching for file changes with StatReloader
+INFO 2025-03-13 01:38:56,890 runserver 12776 10752 [mHTTP POST /api/stories/create/ 201 [1.29, 127.0.0.1:58365][0m
+INFO 2025-03-13 01:39:50,984 runserver 12776 10752 [mHTTP POST /api/stories/create/ 201 [1.17, 127.0.0.1:58365][0m
+INFO 2025-03-13 01:43:18,450 runserver 12776 10752 [mHTTP POST /api/stories/create/ 201 [1.58, 127.0.0.1:58627][0m
+INFO 2025-03-13 01:52:25,573 autoreload 11444 15916 Watching for file changes with StatReloader
+INFO 2025-03-13 01:53:06,768 runserver 11444 13696 [mHTTP POST /api/stories/create/ 201 [1.13, 127.0.0.1:58749][0m
+INFO 2025-03-13 01:55:29,777 autoreload 11444 15916 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:55:31,516 autoreload 9968 12424 Watching for file changes with StatReloader
+INFO 2025-03-13 01:55:47,755 autoreload 9968 12424 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:55:49,937 autoreload 9688 3836 Watching for file changes with StatReloader
+INFO 2025-03-13 01:55:58,386 autoreload 3892 4100 Watching for file changes with StatReloader
+INFO 2025-03-13 01:56:05,208 runserver 3892 10872 [mHTTP POST /api/stories/create/ 201 [1.70, 127.0.0.1:58816][0m
+INFO 2025-03-13 01:57:05,220 autoreload 3892 4100 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:08,558 autoreload 15028 6568 Watching for file changes with StatReloader
+INFO 2025-03-13 01:57:22,201 autoreload 15028 6568 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:23,894 autoreload 9164 5656 Watching for file changes with StatReloader
+INFO 2025-03-13 01:57:28,086 autoreload 9164 5656 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:31,096 autoreload 740 9528 Watching for file changes with StatReloader
+INFO 2025-03-13 01:57:34,454 autoreload 740 9528 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:35,815 autoreload 2204 15664 Watching for file changes with StatReloader
+INFO 2025-03-13 01:57:40,480 autoreload 2204 15664 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:42,399 autoreload 10504 12844 Watching for file changes with StatReloader
+INFO 2025-03-13 01:57:45,242 autoreload 10504 12844 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:46,827 autoreload 5080 1540 Watching for file changes with StatReloader
+INFO 2025-03-13 01:57:54,072 autoreload 5080 1540 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:57:55,529 autoreload 13656 4684 Watching for file changes with StatReloader
+INFO 2025-03-13 01:58:37,294 autoreload 13656 4684 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:58:39,856 autoreload 10856 13324 Watching for file changes with StatReloader
+INFO 2025-03-13 01:58:43,196 autoreload 10856 13324 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:58:44,556 autoreload 7712 6788 Watching for file changes with StatReloader
+INFO 2025-03-13 01:58:50,035 autoreload 7712 6788 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:58:51,787 autoreload 2488 13992 Watching for file changes with StatReloader
+INFO 2025-03-13 01:58:58,478 autoreload 2488 13992 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:59:02,454 autoreload 13668 6148 Watching for file changes with StatReloader
+INFO 2025-03-13 01:59:06,038 autoreload 13668 6148 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:59:08,076 autoreload 6464 13768 Watching for file changes with StatReloader
+INFO 2025-03-13 01:59:10,993 autoreload 6464 13768 C:\Users\samwi\Desktop\APPLICATION\stories\views.py changed, reloading.
+INFO 2025-03-13 01:59:12,917 autoreload 10492 10908 Watching for file changes with StatReloader
+INFO 2025-03-13 02:00:47,971 autoreload 15916 11444 Watching for file changes with StatReloader
+INFO 2025-03-13 02:01:17,031 runserver 15916 15108 [mHTTP POST /api/stories/create/ 201 [0.08, 127.0.0.1:58990][0m
+INFO 2025-03-13 02:01:19,788 runserver 15916 15108 [mHTTP POST /api/stories/create/ 201 [0.02, 127.0.0.1:58990][0m
+INFO 2025-03-14 13:58:23,752 autoreload 3628 17588 Watching for file changes with StatReloader
+WARNING 2025-03-14 13:58:28,636 log 3628 2352 Unauthorized: /api/stories/create/
+WARNING 2025-03-14 13:58:28,637 runserver 3628 7064 [31;1mHTTP POST /api/stories/create/ 401 [0.02, 127.0.0.1:50779][0m
+INFO 2025-03-14 13:58:34,362 runserver 3628 7064 [mHTTP POST /api/accounts/login/ 200 [0.90, 127.0.0.1:50779][0m
+INFO 2025-03-14 13:58:59,787 runserver 3628 7064 [mHTTP POST /api/stories/create/ 201 [1.92, 127.0.0.1:50779][0m
+WARNING 2025-03-14 13:59:41,535 log 3628 2352 Method Not Allowed: /api/stories/list/
+WARNING 2025-03-14 13:59:41,536 runserver 3628 7064 [31;1mHTTP POST /api/stories/list/ 405 [0.01, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:00:37,879 runserver 3628 7064 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:01:16,153 runserver 3628 7064 [mHTTP POST /api/accounts/login/ 200 [0.92, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:01:42,732 runserver 3628 7064 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:01:45,007 runserver 3628 7064 [mHTTP GET /api/stories/list/ 200 [0.03, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:02:42,955 runserver 3628 7064 [mHTTP GET /api/connections/friends/ 200 [0.01, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:02:59,728 runserver 3628 7064 [mHTTP POST /api/accounts/login/ 200 [0.92, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:03:17,805 runserver 3628 7064 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:03:19,241 runserver 3628 7064 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:50779][0m
+INFO 2025-03-14 14:16:20,881 autoreload 2448 8280 Watching for file changes with StatReloader
+INFO 2025-03-14 14:16:26,390 runserver 2448 13396 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:16:41,454 runserver 2448 13396 [mHTTP POST /api/accounts/login/ 200 [1.22, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:16:51,282 runserver 2448 13396 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:17:05,045 runserver 2448 13396 [mHTTP POST /api/accounts/login/ 200 [0.89, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:17:16,451 runserver 2448 13396 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:17:19,868 runserver 2448 13396 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:17:41,075 runserver 2448 13396 [mHTTP POST /api/accounts/login/ 200 [0.86, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:17:59,756 runserver 2448 13396 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:51373][0m
+INFO 2025-03-14 14:24:52,386 autoreload 14080 14228 Watching for file changes with StatReloader
+INFO 2025-03-14 14:25:04,967 runserver 14080 11164 [mHTTP GET /api/stories/list/ 200 [0.04, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:25:17,385 runserver 14080 11164 [mHTTP POST /api/accounts/login/ 200 [0.93, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:25:43,014 runserver 14080 11164 [mHTTP GET /api/connections/friends/ 200 [0.01, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:26:13,347 runserver 14080 11164 [mHTTP POST /api/stories/create/ 201 [0.02, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:26:28,864 runserver 14080 11164 [mHTTP POST /api/stories/create/ 201 [2.22, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:26:49,466 runserver 14080 11164 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:27:22,401 runserver 14080 11164 [mHTTP POST /api/accounts/login/ 200 [1.35, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:27:32,940 runserver 14080 11164 [mHTTP GET /api/stories/list/ 200 [0.04, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:27:43,427 runserver 14080 11164 [mHTTP GET /api/connections/friends/ 200 [0.01, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:27:59,698 runserver 14080 11164 [mHTTP POST /api/accounts/login/ 200 [0.87, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:28:12,738 runserver 14080 11164 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:28:37,480 runserver 14080 11164 [mHTTP POST /api/accounts/login/ 200 [0.94, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:28:51,759 runserver 14080 11164 [mHTTP GET /api/connections/followers/ 200 [0.02, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:29:53,415 runserver 14080 11164 [mHTTP POST /api/accounts/login/ 200 [1.81, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:30:08,038 runserver 14080 11164 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:51558][0m
+INFO 2025-03-14 14:32:11,071 autoreload 14132 10460 Watching for file changes with StatReloader
+INFO 2025-03-14 14:32:14,182 runserver 14132 16964 [mHTTP GET /api/stories/list/ 200 [0.04, 127.0.0.1:55163][0m
+INFO 2025-03-14 15:51:43,530 autoreload 8828 1768 Watching for file changes with StatReloader
+INFO 2025-03-14 15:51:47,478 runserver 8828 12848 [mHTTP POST /api/accounts/login/ 200 [1.10, 127.0.0.1:60101][0m
+INFO 2025-03-14 15:52:07,244 runserver 8828 12848 [mHTTP POST /api/accounts/enable-2fa/ 200 [0.08, 127.0.0.1:60101][0m
+WARNING 2025-03-14 15:52:13,714 log 8828 15632 Not Found: //totp/InstaClone:samwitadhikary2@gmail.com
+WARNING 2025-03-14 15:52:13,715 runserver 8828 12848 [33mHTTP GET //totp/InstaClone:samwitadhikary2%40gmail.com?secret=KJMUERKMIREUYSCEGNEEUVSQKRBDKMSEIZEESRRVKZBFSNCEJVCA%3D%3D%3D%3D&issuer=InstaClone 404 [0.02, 127.0.0.1:60118][0m
+WARNING 2025-03-14 15:52:14,956 log 8828 15632 Not Found: /favicon.ico
+WARNING 2025-03-14 15:52:14,957 runserver 8828 12848 [33mHTTP GET /favicon.ico 404 [0.02, 127.0.0.1:60118][0m
+INFO 2025-03-14 16:31:14,985 autoreload 16676 14368 Watching for file changes with StatReloader
+ERROR 2025-03-14 16:31:19,349 log 16676 7996 Internal Server Error: /api/accounts/enable-2fa/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\views.py", line 316, in post
+    return HttpResponse(buffer.getvalue(), content='image/png')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: HttpResponse.__init__() got multiple values for argument 'content'
+ERROR 2025-03-14 16:31:19,367 runserver 16676 14488 [35;1mHTTP POST /api/accounts/enable-2fa/ 500 [0.15, 127.0.0.1:60368][0m
+INFO 2025-03-14 16:31:50,975 autoreload 16676 14368 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 16:31:52,418 autoreload 10380 14796 Watching for file changes with StatReloader
+INFO 2025-03-14 16:31:55,185 runserver 10380 6840 [mHTTP POST /api/accounts/enable-2fa/ 200 [0.05, 127.0.0.1:60389][0m
+INFO 2025-03-14 16:39:17,668 autoreload 10380 14796 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 16:39:19,100 autoreload 17884 13644 Watching for file changes with StatReloader
+INFO 2025-03-14 16:39:33,472 autoreload 17884 13644 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-14 16:39:34,829 autoreload 4760 17308 Watching for file changes with StatReloader
+WARNING 2025-03-14 16:40:19,181 log 4760 18128 Unauthorized: /api/accounts/enable-2fa/qr/
+WARNING 2025-03-14 16:40:19,183 runserver 4760 11740 [31;1mHTTP GET /api/accounts/enable-2fa/qr/ 401 [0.05, 127.0.0.1:60485][0m
+INFO 2025-03-14 16:40:19,487 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/jquery-3.7.1.min.js 200 [0.24, 127.0.0.1:60489][0m
+INFO 2025-03-14 16:40:19,489 runserver 4760 11740 [mHTTP GET /static/rest_framework/css/default.css 200 [0.24, 127.0.0.1:60488][0m
+INFO 2025-03-14 16:40:19,499 runserver 4760 11740 [mHTTP GET /static/rest_framework/css/bootstrap.min.css 200 [0.26, 127.0.0.1:60485][0m
+INFO 2025-03-14 16:40:19,506 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/csrf.js 200 [0.02, 127.0.0.1:60489][0m
+INFO 2025-03-14 16:40:19,507 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/bootstrap.min.js 200 [0.01, 127.0.0.1:60488][0m
+INFO 2025-03-14 16:40:19,515 runserver 4760 11740 [mHTTP GET /static/rest_framework/css/bootstrap-tweaks.css 200 [0.27, 127.0.0.1:60486][0m
+INFO 2025-03-14 16:40:19,523 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/prettify-min.js 200 [0.02, 127.0.0.1:60485][0m
+INFO 2025-03-14 16:40:19,525 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/ajax-form.js 200 [0.27, 127.0.0.1:60490][0m
+INFO 2025-03-14 16:40:19,526 runserver 4760 11740 [mHTTP GET /static/rest_framework/css/prettify.css 200 [0.28, 127.0.0.1:60487][0m
+INFO 2025-03-14 16:40:19,531 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/default.js 200 [0.02, 127.0.0.1:60489][0m
+INFO 2025-03-14 16:40:19,533 runserver 4760 11740 [mHTTP GET /static/rest_framework/js/load-ajax-form.js 200 [0.02, 127.0.0.1:60488][0m
+INFO 2025-03-14 16:40:19,560 runserver 4760 11740 [mHTTP GET /static/rest_framework/img/grid.png 200 [0.01, 127.0.0.1:60488][0m
+WARNING 2025-03-14 16:40:20,506 log 4760 18128 Not Found: /favicon.ico
+WARNING 2025-03-14 16:40:20,507 runserver 4760 11740 [33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:60488][0m
+INFO 2025-03-14 17:06:35,811 autoreload 4676 18376 Watching for file changes with StatReloader
+WARNING 2025-03-14 17:06:41,064 log 4676 18076 Method Not Allowed: /api/accounts/enable-2fa/
+WARNING 2025-03-14 17:06:41,065 runserver 4676 2868 [31;1mHTTP POST /api/accounts/enable-2fa/ 405 [0.02, 127.0.0.1:60804][0m
+INFO 2025-03-14 17:06:55,398 autoreload 4676 18376 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:06:56,972 autoreload 1540 3136 Watching for file changes with StatReloader
+INFO 2025-03-14 17:07:06,875 runserver 1540 8668 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.54, 127.0.0.1:60827][0m
+INFO 2025-03-14 17:15:03,363 autoreload 4832 7008 Watching for file changes with StatReloader
+INFO 2025-03-14 17:15:09,727 runserver 4832 3572 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.14, 127.0.0.1:61017][0m
+INFO 2025-03-14 17:20:54,865 autoreload 4832 7008 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:20:56,334 autoreload 18364 13856 Watching for file changes with StatReloader
+INFO 2025-03-14 17:21:47,344 autoreload 18364 13856 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:21:48,924 autoreload 18040 3528 Watching for file changes with StatReloader
+INFO 2025-03-14 17:21:56,593 autoreload 18040 3528 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:22:00,428 autoreload 16464 17020 Watching for file changes with StatReloader
+INFO 2025-03-14 17:22:21,977 autoreload 16464 17020 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:22:23,882 autoreload 18292 5712 Watching for file changes with StatReloader
+INFO 2025-03-14 17:22:26,516 autoreload 18292 5712 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:22:27,699 autoreload 17464 12424 Watching for file changes with StatReloader
+INFO 2025-03-14 17:22:34,971 autoreload 17464 12424 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:22:37,315 autoreload 18220 10616 Watching for file changes with StatReloader
+INFO 2025-03-14 17:22:42,190 autoreload 18220 10616 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:22:45,689 autoreload 15676 2752 Watching for file changes with StatReloader
+INFO 2025-03-14 17:22:52,968 autoreload 15676 2752 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:22:54,454 autoreload 12728 18056 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:01,005 autoreload 12728 18056 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:02,171 autoreload 17368 15568 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:05,500 autoreload 17368 15568 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:06,772 autoreload 3792 10296 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:21,402 autoreload 3792 10296 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:23,239 autoreload 17124 8660 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:25,977 autoreload 17124 8660 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:27,743 autoreload 17856 10084 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:30,822 autoreload 17856 10084 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:32,918 autoreload 4916 10328 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:38,924 autoreload 4916 10328 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:40,484 autoreload 10848 3336 Watching for file changes with StatReloader
+INFO 2025-03-14 17:23:47,182 autoreload 10848 3336 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:23:48,580 autoreload 14316 18268 Watching for file changes with StatReloader
+INFO 2025-03-14 17:24:18,791 autoreload 13076 4724 Watching for file changes with StatReloader
+INFO 2025-03-14 17:24:24,216 runserver 13076 15264 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.00, 127.0.0.1:61247][0m
+INFO 2025-03-14 17:31:58,282 autoreload 13076 4724 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:31:59,738 autoreload 12972 17372 Watching for file changes with StatReloader
+INFO 2025-03-14 17:32:06,391 autoreload 12972 17372 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:32:07,807 autoreload 2572 12828 Watching for file changes with StatReloader
+INFO 2025-03-14 17:32:17,793 autoreload 2572 12828 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:32:19,314 autoreload 14424 18288 Watching for file changes with StatReloader
+INFO 2025-03-14 17:32:24,756 autoreload 14424 18288 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:32:26,066 autoreload 16908 6788 Watching for file changes with StatReloader
+INFO 2025-03-14 17:32:29,447 autoreload 16908 6788 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:32:30,686 autoreload 11572 14992 Watching for file changes with StatReloader
+INFO 2025-03-14 17:32:54,873 runserver 11572 11852 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.01, 127.0.0.1:61385][0m
+INFO 2025-03-14 17:41:14,183 autoreload 11572 14992 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:41:15,883 autoreload 13020 18016 Watching for file changes with StatReloader
+INFO 2025-03-14 17:42:14,144 autoreload 16748 12432 Watching for file changes with StatReloader
+INFO 2025-03-14 17:42:19,736 runserver 16748 532 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.03, 127.0.0.1:61487][0m
+INFO 2025-03-14 17:42:23,946 runserver 16748 532 [mHTTP POST /api/accounts/enable-2fa/ 200 [0.91, 127.0.0.1:61487][0m
+INFO 2025-03-14 17:52:17,415 autoreload 16748 12432 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:52:19,598 autoreload 18404 16616 Watching for file changes with StatReloader
+INFO 2025-03-14 17:52:22,387 autoreload 18404 16616 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:52:24,736 autoreload 16156 17012 Watching for file changes with StatReloader
+INFO 2025-03-14 17:52:28,207 autoreload 16156 17012 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:52:29,654 autoreload 17264 2352 Watching for file changes with StatReloader
+INFO 2025-03-14 17:52:32,090 autoreload 17264 2352 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:52:33,554 autoreload 7520 14560 Watching for file changes with StatReloader
+INFO 2025-03-14 17:52:36,154 autoreload 7520 14560 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:52:37,401 autoreload 15600 2864 Watching for file changes with StatReloader
+INFO 2025-03-14 17:52:50,601 autoreload 15600 2864 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:52:51,910 autoreload 2184 10000 Watching for file changes with StatReloader
+INFO 2025-03-14 17:52:59,694 autoreload 2184 10000 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:53:01,173 autoreload 5600 916 Watching for file changes with StatReloader
+INFO 2025-03-14 17:53:05,534 autoreload 5600 916 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:53:06,939 autoreload 12852 11544 Watching for file changes with StatReloader
+INFO 2025-03-14 17:53:08,450 autoreload 12852 11544 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 17:53:09,763 autoreload 10504 13940 Watching for file changes with StatReloader
+INFO 2025-03-14 17:53:47,384 runserver 10504 1940 [mHTTP POST /api/accounts/enable-2fa/ 200 [0.95, 127.0.0.1:61678][0m
+INFO 2025-03-14 17:57:54,493 autoreload 10504 13940 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 17:57:55,982 autoreload 13052 2488 Watching for file changes with StatReloader
+INFO 2025-03-14 17:58:23,531 runserver 13052 16708 [mHTTP POST /api/accounts/enable-2fa/ 200 [0.98, 127.0.0.1:61736][0m
+INFO 2025-03-14 18:04:35,817 autoreload 13052 2488 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 18:04:37,258 autoreload 7812 18132 Watching for file changes with StatReloader
+INFO 2025-03-14 18:04:45,525 runserver 7812 13292 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.12, 127.0.0.1:64072][0m
+INFO 2025-03-14 18:05:18,055 autoreload 7812 18132 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 18:05:19,441 autoreload 10264 17912 Watching for file changes with StatReloader
+INFO 2025-03-14 18:05:24,893 runserver 10264 9792 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.18, 127.0.0.1:64108][0m
+INFO 2025-03-14 18:10:52,638 autoreload 10264 17912 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 18:10:54,102 autoreload 10920 9864 Watching for file changes with StatReloader
+INFO 2025-03-14 18:12:42,608 autoreload 9624 6736 Watching for file changes with StatReloader
+ERROR 2025-03-14 18:12:53,695 log 9624 12576 Internal Server Error: /api/accounts/enable-2fa/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\views.py", line 337, in post
+    otp_auth_url = user.get_otp_auth_url()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\models.py", line 40, in get_otp_auth_url
+    secret = self.generate_otp_secret()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\models.py", line 35, in generate_otp_secret
+    self.otp_secret_key = pyotp.random_base32(length=20)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\pyotp\__init__.py", line 18, in random_base32
+    raise ValueError("Secrets should be at least 160 bits")
+ValueError: Secrets should be at least 160 bits
+ERROR 2025-03-14 18:12:53,711 runserver 9624 5880 [35;1mHTTP POST /api/accounts/enable-2fa/ 500 [0.08, 127.0.0.1:64198][0m
+INFO 2025-03-14 18:13:41,185 autoreload 9624 6736 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-14 18:13:42,709 autoreload 17384 8620 Watching for file changes with StatReloader
+INFO 2025-03-14 18:13:46,778 runserver 17384 16608 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.09, 127.0.0.1:64223][0m
+INFO 2025-03-14 18:16:22,925 runserver 17384 16608 [mHTTP POST /api/accounts/login/ 200 [1.02, 127.0.0.1:64256][0m
+INFO 2025-03-14 18:19:47,202 runserver 17384 16608 [mHTTP POST /api/accounts/login/ 200 [0.91, 127.0.0.1:62170][0m
+INFO 2025-03-14 18:24:32,787 autoreload 17384 8620 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:24:35,108 autoreload 1812 4544 Watching for file changes with StatReloader
+INFO 2025-03-14 18:24:44,527 autoreload 1812 4544 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:24:47,143 autoreload 13500 10628 Watching for file changes with StatReloader
+INFO 2025-03-14 18:24:54,723 autoreload 13500 10628 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:24:57,166 autoreload 8720 6524 Watching for file changes with StatReloader
+INFO 2025-03-14 18:25:00,653 autoreload 8720 6524 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:25:03,942 autoreload 12500 2640 Watching for file changes with StatReloader
+INFO 2025-03-14 18:25:45,956 runserver 12500 17588 [mHTTP POST /api/accounts/enable-2fa/ 200 [0.98, 127.0.0.1:62261][0m
+INFO 2025-03-14 18:27:35,697 autoreload 12500 2640 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:27:38,178 autoreload 11200 9068 Watching for file changes with StatReloader
+INFO 2025-03-14 18:27:41,353 autoreload 11200 9068 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:27:45,348 autoreload 5012 9596 Watching for file changes with StatReloader
+INFO 2025-03-14 18:27:50,267 autoreload 5012 9596 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:27:51,797 autoreload 13824 4764 Watching for file changes with StatReloader
+INFO 2025-03-14 18:27:54,644 autoreload 13824 4764 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:27:56,146 autoreload 6628 12400 Watching for file changes with StatReloader
+INFO 2025-03-14 18:28:00,052 autoreload 6628 12400 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:28:01,951 autoreload 4444 10024 Watching for file changes with StatReloader
+INFO 2025-03-14 18:28:06,799 autoreload 4444 10024 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:28:08,565 autoreload 17708 11428 Watching for file changes with StatReloader
+INFO 2025-03-14 18:28:12,513 autoreload 17708 11428 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:28:14,291 autoreload 17172 8496 Watching for file changes with StatReloader
+INFO 2025-03-14 18:29:09,736 autoreload 17172 8496 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-14 18:29:11,442 autoreload 16432 8680 Watching for file changes with StatReloader
+WARNING 2025-03-14 18:29:44,128 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 18:29:44,129 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [1.08, 127.0.0.1:62396][0m
+INFO 2025-03-14 18:30:09,190 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [0.83, 127.0.0.1:62396][0m
+WARNING 2025-03-14 18:30:19,105 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 18:30:19,106 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [0.92, 127.0.0.1:62396][0m
+INFO 2025-03-14 18:30:32,253 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [1.04, 127.0.0.1:62396][0m
+WARNING 2025-03-14 18:31:13,566 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 18:31:13,567 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [0.95, 127.0.0.1:62396][0m
+INFO 2025-03-14 18:31:31,112 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [0.82, 127.0.0.1:62396][0m
+INFO 2025-03-14 18:32:08,646 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [0.82, 127.0.0.1:62396][0m
+INFO 2025-03-14 18:37:45,425 runserver 16432 9776 [mHTTP POST /api/accounts/register/ 201 [6.99, 127.0.0.1:62508][0m
+INFO 2025-03-14 18:39:08,800 runserver 16432 9776 [mHTTP POST /api/accounts/verify-email-otp/ 200 [0.03, 127.0.0.1:62516][0m
+WARNING 2025-03-14 18:40:44,881 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 18:40:44,884 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [1.05, 127.0.0.1:62522][0m
+INFO 2025-03-14 18:40:51,177 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [1.26, 127.0.0.1:62522][0m
+INFO 2025-03-14 18:43:01,847 runserver 16432 9776 [mHTTP GET /api/accounts/profile/samwit/ 200 [0.02, 127.0.0.1:62530][0m
+INFO 2025-03-14 18:43:30,233 runserver 16432 9776 [mHTTP GET /api/accounts/profile/cloud/ 200 [0.03, 127.0.0.1:62530][0m
+INFO 2025-03-14 18:43:35,122 runserver 16432 9776 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 127.0.0.1:62530][0m
+INFO 2025-03-14 18:43:49,122 runserver 16432 9776 [mHTTP GET /api/accounts/profile/nilu/ 200 [0.02, 127.0.0.1:62530][0m
+WARNING 2025-03-14 18:44:31,562 log 16432 10412 Forbidden: /api/accounts/profile/samwit/update/
+WARNING 2025-03-14 18:44:31,564 runserver 16432 9776 [31;1mHTTP PUT /api/accounts/profile/samwit/update/ 403 [0.01, 127.0.0.1:62530][0m
+INFO 2025-03-14 18:44:46,531 runserver 16432 9776 [mHTTP PUT /api/accounts/profile/nilu/update/ 200 [0.02, 127.0.0.1:62530][0m
+INFO 2025-03-14 18:46:48,166 views 16432 15428 Manually saved file to S3: https://instabucket.s3.ap-south-1.amazonaws.com/media/post_media/peacock-feather.jpg
+INFO 2025-03-14 18:46:48,552 views 16432 15428 Thumbnail saved to S3: https://instabucket.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_peacock-feather.jpg
+INFO 2025-03-14 18:46:48,596 runserver 16432 9776 [mHTTP POST /api/posts/ 201 [2.54, 127.0.0.1:62540][0m
+INFO 2025-03-14 18:51:18,388 runserver 16432 9776 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.28, 127.0.0.1:62661][0m
+INFO 2025-03-14 18:52:39,785 runserver 16432 9776 [mHTTP GET /api/posts/feed/?sort=relevant 200 [0.34, 127.0.0.1:62668][0m
+INFO 2025-03-14 18:53:20,390 runserver 16432 9776 [mHTTP GET /api/posts/feed/?sort=chrnological 200 [0.43, 127.0.0.1:62668][0m
+INFO 2025-03-14 18:53:52,664 runserver 16432 9776 [mHTTP POST /api/connections/request/ 200 [0.02, 127.0.0.1:62668][0m
+INFO 2025-03-14 18:54:09,283 runserver 16432 9776 [mHTTP GET /api/connections/sent/ 200 [0.01, 127.0.0.1:62668][0m
+WARNING 2025-03-14 18:54:58,381 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 18:54:58,382 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [1.04, 127.0.0.1:62668][0m
+INFO 2025-03-14 18:55:42,434 runserver 16432 9776 [mHTTP GET /api/connections/friends/ 200 [0.01, 127.0.0.1:62668][0m
+INFO 2025-03-14 18:57:15,618 runserver 16432 9776 [mHTTP GET /api/groups/1/members/ 200 [0.02, 127.0.0.1:62716][0m
+INFO 2025-03-14 18:58:08,356 runserver 16432 9776 [mHTTP GET /api/groups/1/ 200 [0.04, 127.0.0.1:62716][0m
+INFO 2025-03-14 18:59:47,488 runserver 16432 9776 [mHTTP POST /api/posts/40/react/ 200 [0.04, 127.0.0.1:62741][0m
+INFO 2025-03-14 19:00:08,416 runserver 16432 9776 [mHTTP GET /api/posts/feed/?sort=chrnological 200 [0.62, 127.0.0.1:62741][0m
+INFO 2025-03-14 19:00:52,129 runserver 16432 9776 [mHTTP POST /api/posts/40/comment/ 201 [0.03, 127.0.0.1:62741][0m
+INFO 2025-03-14 19:01:07,499 runserver 16432 9776 [mHTTP GET /api/posts/feed/?sort=chrnological 200 [0.35, 127.0.0.1:62741][0m
+INFO 2025-03-14 19:02:21,370 runserver 16432 9776 [mHTTP POST /api/posts/40/comment/ 201 [0.03, 127.0.0.1:62758][0m
+INFO 2025-03-14 19:02:42,467 runserver 16432 9776 [mHTTP GET /api/posts/feed/?sort=chrnological 200 [0.32, 127.0.0.1:62758][0m
+INFO 2025-03-14 19:03:44,220 runserver 16432 9776 [mHTTP GET /api/notifications/ 200 [0.02, 127.0.0.1:62768][0m
+INFO 2025-03-14 19:04:09,646 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [1.48, 127.0.0.1:62768][0m
+INFO 2025-03-14 19:04:29,836 runserver 16432 9776 [mHTTP POST /api/posts/40/react/ 200 [0.03, 127.0.0.1:62768][0m
+INFO 2025-03-14 19:04:36,437 runserver 16432 9776 [mHTTP GET /api/notifications/ 200 [0.01, 127.0.0.1:62768][0m
+INFO 2025-03-14 19:05:43,221 runserver 16432 9776 [mHTTP PUT /api/notifications/21/read/ 200 [0.02, 127.0.0.1:62777][0m
+INFO 2025-03-14 19:05:49,500 runserver 16432 9776 [mHTTP GET /api/notifications/ 200 [0.02, 127.0.0.1:62777][0m
+INFO 2025-03-14 19:07:32,722 runserver 16432 9776 [mHTTP GET /api/accounts/search/?search=samwit 200 [0.03, 127.0.0.1:62784][0m
+INFO 2025-03-14 19:08:34,022 runserver 16432 9776 [mHTTP POST /api/accounts/block-user/ 201 [0.02, 127.0.0.1:62789][0m
+INFO 2025-03-14 19:08:53,019 runserver 16432 9776 [mHTTP GET /api/accounts/search/?search=for 200 [0.02, 127.0.0.1:62789][0m
+INFO 2025-03-14 19:10:50,154 runserver 16432 9776 [mHTTP GET /api/accounts/blocked-users/ 200 [0.01, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:11:34,798 runserver 16432 9776 [mHTTP GET /api/groups/search/?search=Django 200 [0.06, 127.0.0.1:62797][0m
+WARNING 2025-03-14 19:12:00,985 log 16432 10412 Unauthorized: /api/posts/hashtag/search/
+WARNING 2025-03-14 19:12:00,987 runserver 16432 9776 [31;1mHTTP GET /api/posts/hashtag/search/?search=django 401 [0.02, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:12:09,302 runserver 16432 9776 [mHTTP GET /api/posts/hashtag/search/?search=django 200 [0.03, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:12:32,930 runserver 16432 9776 [mHTTP POST /api/connections/follow/ 201 [0.03, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:13:26,467 runserver 16432 9776 [mHTTP GET /api/connections/followers/ 200 [0.01, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:14:01,523 runserver 16432 9776 [mHTTP GET /api/connections/following/ 200 [0.01, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:14:35,909 runserver 16432 9776 [mHTTP GET /api/posts/40/comment/ 200 [0.01, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:15:21,932 runserver 16432 9776 [mHTTP POST /api/accounts/password-reset/ 200 [4.11, 127.0.0.1:62797][0m
+INFO 2025-03-14 19:17:56,009 runserver 16432 9776 [mHTTP POST /api/stories/create/ 201 [0.03, 127.0.0.1:62824][0m
+INFO 2025-03-14 19:18:07,674 runserver 16432 9776 [mHTTP POST /api/stories/create/ 201 [1.73, 127.0.0.1:62824][0m
+INFO 2025-03-14 19:19:44,036 runserver 16432 9776 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:62832][0m
+INFO 2025-03-14 19:20:29,271 runserver 16432 9776 [mHTTP POST /api/accounts/enable-2fa/ 200 [1.05, 127.0.0.1:62832][0m
+WARNING 2025-03-14 19:25:10,333 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 19:25:10,335 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [1.02, 127.0.0.1:62846][0m
+INFO 2025-03-14 19:26:02,024 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [0.98, 127.0.0.1:62846][0m
+WARNING 2025-03-14 19:26:15,721 log 16432 10412 Bad Request: /api/accounts/login/
+WARNING 2025-03-14 19:26:15,722 runserver 16432 9776 [31;1mHTTP POST /api/accounts/login/ 400 [1.02, 127.0.0.1:62846][0m
+INFO 2025-03-14 19:28:01,586 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [1.01, 127.0.0.1:62867][0m
+INFO 2025-03-14 19:28:23,921 runserver 16432 9776 WebSocket HANDSHAKING /ws/notifications/ [127.0.0.1:62872]
+INFO 2025-03-14 19:28:23,930 runserver 16432 9776 WebSocket CONNECT /ws/notifications/ [127.0.0.1:62872]
+INFO 2025-03-14 19:28:49,951 runserver 16432 9776 [mHTTP POST /api/accounts/login/ 200 [1.31, 127.0.0.1:62867][0m
+INFO 2025-03-14 19:29:14,704 runserver 16432 9776 [mHTTP POST /api/posts/40/react/ 200 [0.03, 127.0.0.1:62867][0m
+INFO 2025-03-14 19:30:49,279 runserver 16432 9776 [mHTTP GET /admin/dashboard/ 200 [0.15, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:30:49,347 runserver 16432 9776 [36mHTTP GET /static/admin/css/base.css 304 [0.02, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:30:49,360 runserver 16432 9776 [36mHTTP GET /static/admin/css/responsive.css 304 [0.03, 127.0.0.1:62886][0m
+INFO 2025-03-14 19:30:49,361 runserver 16432 9776 [36mHTTP GET /static/admin/css/dark_mode.css 304 [0.03, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:30:49,363 runserver 16432 9776 [36mHTTP GET /static/admin/js/theme.js 304 [0.03, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:12,494 runserver 16432 9776 [mHTTP GET /admin/ 200 [0.05, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:12,531 runserver 16432 9776 [36mHTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:12,563 runserver 16432 9776 [36mHTTP GET /static/admin/css/nav_sidebar.css 304 [0.02, 127.0.0.1:62886][0m
+INFO 2025-03-14 19:31:12,566 runserver 16432 9776 [36mHTTP GET /static/admin/css/dark_mode.css 304 [0.03, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:12,568 runserver 16432 9776 [36mHTTP GET /static/admin/css/responsive.css 304 [0.03, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:31:12,569 runserver 16432 9776 [36mHTTP GET /static/admin/js/theme.js 304 [0.03, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:31:12,574 runserver 16432 9776 [36mHTTP GET /static/admin/css/dashboard.css 304 [0.02, 127.0.0.1:62891][0m
+INFO 2025-03-14 19:31:12,589 runserver 16432 9776 [36mHTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:62891][0m
+INFO 2025-03-14 19:31:12,601 runserver 16432 9776 [36mHTTP GET /static/admin/img/icon-addlink.svg 304 [0.01, 127.0.0.1:62891][0m
+INFO 2025-03-14 19:31:12,602 runserver 16432 9776 [36mHTTP GET /static/admin/img/icon-changelink.svg 304 [0.01, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:31:18,915 runserver 16432 9776 [mHTTP GET /admin/notifications/notification/ 200 [0.11, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:31:18,949 runserver 16432 9776 [36mHTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:31:18,976 runserver 16432 9776 [36mHTTP GET /static/admin/css/dark_mode.css 304 [0.02, 127.0.0.1:62891][0m
+INFO 2025-03-14 19:31:18,976 runserver 16432 9776 [36mHTTP GET /static/admin/js/theme.js 304 [0.02, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:31:18,978 runserver 16432 9776 [36mHTTP GET /static/admin/css/nav_sidebar.css 304 [0.02, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:18,981 runserver 16432 9776 [36mHTTP GET /static/admin/css/changelists.css 304 [0.02, 127.0.0.1:62886][0m
+INFO 2025-03-14 19:31:18,983 runserver 16432 9776 [36mHTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:31:18,984 runserver 16432 9776 [36mHTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:62892][0m
+INFO 2025-03-14 19:31:19,010 runserver 16432 9776 [36mHTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:62891][0m
+INFO 2025-03-14 19:31:19,013 runserver 16432 9776 [36mHTTP GET /static/admin/js/core.js 304 [0.02, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:19,015 runserver 16432 9776 [36mHTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:62886][0m
+INFO 2025-03-14 19:31:19,017 runserver 16432 9776 [36mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.02, 127.0.0.1:62883][0m
+INFO 2025-03-14 19:31:19,019 runserver 16432 9776 [36mHTTP GET /static/admin/js/urlify.js 304 [0.02, 127.0.0.1:62892][0m
+INFO 2025-03-14 19:31:19,035 runserver 16432 9776 [36mHTTP GET /static/admin/js/prepopulate.js 304 [0.02, 127.0.0.1:62891][0m
+INFO 2025-03-14 19:31:19,037 runserver 16432 9776 [36mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:19,085 runserver 16432 9776 [36mHTTP GET /static/admin/js/nav_sidebar.js 304 [0.01, 127.0.0.1:62887][0m
+INFO 2025-03-14 19:31:19,087 runserver 16432 9776 [mHTTP GET /admin/jsi18n/ 200 [0.10, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:31:19,108 runserver 16432 9776 [36mHTTP GET /static/admin/js/filters.js 304 [0.01, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:31:19,176 runserver 16432 9776 [36mHTTP GET /static/admin/img/tooltag-add.svg 304 [0.01, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:31:22,162 runserver 16432 9776 [mHTTP GET /admin/ 200 [0.02, 127.0.0.1:62884][0m
+INFO 2025-03-14 19:33:30,978 autoreload 16432 8680 C:\Users\samwi\Desktop\APPLICATION\connections\views.py changed, reloading.
+INFO 2025-03-14 19:33:33,562 autoreload 4244 1612 Watching for file changes with StatReloader
