@@ -615,3 +615,162 @@ WARNING 2025-03-15 01:53:02,068 log 2900 9284 Method Not Allowed: /api/posts/40/
 WARNING 2025-03-15 01:53:02,069 runserver 2900 11704 [31;1mHTTP POST /api/posts/40/unsave/ 405 [0.01, 127.0.0.1:55649][0m
 INFO 2025-03-15 01:53:20,116 runserver 2900 11704 [mHTTP DELETE /api/posts/40/unsave/ 200 [0.02, 127.0.0.1:55649][0m
 INFO 2025-03-15 01:53:41,202 runserver 2900 11704 [mHTTP GET /api/posts/saved-posts/ 200 [0.01, 127.0.0.1:55649][0m
+INFO 2025-03-15 02:29:48,028 autoreload 9752 2760 Watching for file changes with StatReloader
+INFO 2025-03-15 02:30:05,707 runserver 9752 12200 [mHTTP GET /api/posts/user/samwit/posts/ 200 [0.23, 127.0.0.1:56503][0m
+WARNING 2025-03-15 02:30:18,218 log 9752 5036 Not Found: /api/posts/user/for/posts/
+WARNING 2025-03-15 02:30:18,219 runserver 9752 12200 [33mHTTP GET /api/posts/user/for/posts/ 404 [0.01, 127.0.0.1:56503][0m
+ERROR 2025-03-15 02:31:03,429 log 9752 5036 Internal Server Error: /api/posts/user/cloud/posts/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 289, in get_queryset
+    return Post.objects.filter(user=viewed_user, visibilty='public').order_by('-created_at')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'visibilty' into field. Choices are: comments, content, created_at, group, group_id, hashtags, id, media, reactions, saved_by_users, updated_at, user, user_id, visibility
+ERROR 2025-03-15 02:31:03,469 runserver 9752 12200 [35;1mHTTP GET /api/posts/user/cloud/posts/ 500 [0.14, 127.0.0.1:56503][0m
+INFO 2025-03-15 02:33:42,020 autoreload 9752 2760 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:33:43,592 autoreload 10044 13680 Watching for file changes with StatReloader
+INFO 2025-03-15 02:33:46,084 runserver 10044 10472 [mHTTP GET /api/posts/user/cloud/posts/ 200 [0.04, 127.0.0.1:56539][0m
+INFO 2025-03-15 02:33:59,105 runserver 10044 10472 [mHTTP GET /api/posts/user/sonali/posts/ 200 [0.07, 127.0.0.1:56539][0m
+INFO 2025-03-15 02:35:52,407 runserver 10044 10472 [mHTTP POST /api/accounts/login/ 200 [1.13, 127.0.0.1:56554][0m
+INFO 2025-03-15 02:36:13,899 runserver 10044 10472 [mHTTP GET /api/posts/user/sonali/posts/ 200 [0.07, 127.0.0.1:56554][0m
+INFO 2025-03-15 02:37:18,338 runserver 10044 10472 [32mHTTP GET /api/posts/38/delete 301 [0.02, 127.0.0.1:56561][0m
+WARNING 2025-03-15 02:37:18,349 log 10044 8904 Method Not Allowed: /api/posts/38/delete/
+WARNING 2025-03-15 02:37:18,350 runserver 10044 10472 [31;1mHTTP GET /api/posts/38/delete/ 405 [0.01, 127.0.0.1:56561][0m
+ERROR 2025-03-15 02:37:22,178 log 10044 8904 Internal Server Error: /api/posts/38/delete
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/posts/38/delete/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-15 02:37:22,196 runserver 10044 10472 [35;1mHTTP POST /api/posts/38/delete 500 [0.06, 127.0.0.1:56561][0m
+WARNING 2025-03-15 02:37:33,422 log 10044 8904 Method Not Allowed: /api/posts/38/delete/
+WARNING 2025-03-15 02:37:33,424 runserver 10044 10472 [31;1mHTTP POST /api/posts/38/delete/ 405 [0.02, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:37:38,569 runserver 10044 10472 [mHTTP DELETE /api/posts/38/delete/ 204 [0.03, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:38:03,715 runserver 10044 10472 [mHTTP GET /api/posts/user/sonali/posts/ 200 [0.04, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:38:17,209 runserver 10044 10472 [mHTTP GET /api/posts/user/samwit/posts/ 200 [0.23, 127.0.0.1:56561][0m
+WARNING 2025-03-15 02:38:26,242 log 10044 8904 Not Found: /api/posts/39/delete/
+WARNING 2025-03-15 02:38:26,244 runserver 10044 10472 [33mHTTP DELETE /api/posts/39/delete/ 404 [0.01, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:38:46,743 runserver 10044 10472 [mHTTP DELETE /api/posts/37/delete/ 204 [0.03, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:38:55,072 runserver 10044 10472 [mHTTP GET /api/posts/user/samwit/posts/ 200 [0.22, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:39:11,584 runserver 10044 10472 [mHTTP GET /api/posts/user/sonali/posts/ 200 [0.01, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:39:20,183 runserver 10044 10472 [mHTTP GET /api/posts/user/nilu/posts/ 200 [0.03, 127.0.0.1:56561][0m
+WARNING 2025-03-15 02:39:43,134 log 10044 8904 Not Found: /api/posts/user/for/posts/
+WARNING 2025-03-15 02:39:43,135 runserver 10044 10472 [33mHTTP GET /api/posts/user/for/posts/ 404 [0.02, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:39:47,908 runserver 10044 10472 [mHTTP GET /api/posts/user/cloud/posts/ 200 [0.03, 127.0.0.1:56561][0m
+WARNING 2025-03-15 02:39:55,295 log 10044 8904 Not Found: /api/posts/4/delete/
+WARNING 2025-03-15 02:39:55,297 runserver 10044 10472 [33mHTTP DELETE /api/posts/4/delete/ 404 [0.01, 127.0.0.1:56561][0m
+INFO 2025-03-15 02:41:21,151 autoreload 10044 13680 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:41:25,179 autoreload 276 12192 Watching for file changes with StatReloader
+INFO 2025-03-15 02:41:32,100 autoreload 276 12192 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:41:35,695 autoreload 3672 10560 Watching for file changes with StatReloader
+INFO 2025-03-15 02:41:45,472 autoreload 3672 10560 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:41:49,802 autoreload 1648 9464 Watching for file changes with StatReloader
+INFO 2025-03-15 02:41:53,868 autoreload 1648 9464 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:41:58,290 autoreload 4880 12072 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:04,052 autoreload 4880 12072 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:05,436 autoreload 14028 14920 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:10,437 autoreload 14028 14920 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:15,712 autoreload 15112 7680 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:20,479 autoreload 15112 7680 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:24,246 autoreload 5708 4664 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:26,186 autoreload 5708 4664 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:27,630 autoreload 1072 6504 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:33,631 autoreload 1072 6504 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:35,246 autoreload 7788 5612 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:39,360 autoreload 7788 5612 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:41,320 autoreload 3756 5628 Watching for file changes with StatReloader
+INFO 2025-03-15 02:42:45,460 autoreload 3756 5628 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-15 02:42:46,881 autoreload 1944 9608 Watching for file changes with StatReloader
+WARNING 2025-03-15 02:42:51,787 log 1944 2004 Not Found: /api/posts/4/delete/
+WARNING 2025-03-15 02:42:51,789 runserver 1944 12916 [33mHTTP DELETE /api/posts/4/delete/ 404 [0.02, 127.0.0.1:56710][0m
+INFO 2025-03-15 02:43:01,522 runserver 1944 12916 [mHTTP GET /api/posts/user/sonali/posts/ 200 [0.01, 127.0.0.1:56710][0m
+INFO 2025-03-15 02:43:21,865 runserver 1944 12916 [mHTTP POST /api/accounts/login/ 200 [1.48, 127.0.0.1:56710][0m
+INFO 2025-03-15 02:43:38,360 runserver 1944 12916 [mHTTP GET /api/posts/user/sonali/posts/ 200 [0.01, 127.0.0.1:56710][0m
+INFO 2025-03-15 02:43:42,469 runserver 1944 12916 [mHTTP GET /api/posts/user/cloud/posts/ 200 [0.03, 127.0.0.1:56710][0m
+WARNING 2025-03-15 02:44:00,779 log 1944 2004 Not Found: /api/posts/1/delete/
+WARNING 2025-03-15 02:44:00,780 runserver 1944 12916 [33mHTTP DELETE /api/posts/1/delete/ 404 [0.01, 127.0.0.1:56710][0m
+INFO 2025-03-15 02:44:06,433 runserver 1944 12916 [mHTTP DELETE /api/posts/4/delete/ 200 [0.02, 127.0.0.1:56710][0m
+INFO 2025-03-15 02:44:10,837 runserver 1944 12916 [mHTTP GET /api/posts/user/cloud/posts/ 200 [0.01, 127.0.0.1:56710][0m

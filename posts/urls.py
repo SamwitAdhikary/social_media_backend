@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import PostCreateView, FeedView, ReactionView, CommentView, HashtagSearchView, ToggleCommentVisibilityView, SavePostView, UnsavePostView, SavedPostListView
+from .views import PostCreateView, FeedView, ReactionView, CommentView, HashtagSearchView, ToggleCommentVisibilityView, SavePostView, UnsavePostView, SavedPostListView, PostDeleteView, UserPostListView
 
 urlpatterns = [
     path('', PostCreateView.as_view(), name='post-create'),
     path('feed/', FeedView.as_view(), name='feed'),
+    path('<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
     path('<int:post_id>/react/', ReactionView.as_view(), name='post-react'),
     path('<int:post_id>/comment/', CommentView.as_view(), name='post-comment'),
     path('hashtag/search/', HashtagSearchView.as_view(), name='hashtag-search'),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('<int:post_id>/save/', SavePostView.as_view(), name='save_post'),
     path('<int:post_id>/unsave/', UnsavePostView.as_view(), name='unsave_post'),
     path('saved-posts/', SavedPostListView.as_view(), name='get_saved_posts'),
+    path('user/<str:username>/posts/', UserPostListView.as_view(), name='user-post'),
 ]

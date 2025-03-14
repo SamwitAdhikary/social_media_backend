@@ -6,8 +6,9 @@ from django.shortcuts import get_object_or_404
 from PIL import Image
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
-from accounts.models import BlockedUser
+from accounts.models import BlockedUser, User
 from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer
 from .models import Post, Hashtag, PostMedia, SavedPost
 from django.utils import timezone
@@ -234,6 +235,65 @@ class ToggleCommentVisibilityView(APIView):
             "message": f"Comment {'hidden' if comment.is_hidden else 'unhidden'} successfully.",
             "is_hidden": comment.is_hidden
         }, status=status.HTTP_200_OK)
+    
+class PostDeleteView(generics.DestroyAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Post.objects.filter(user=self.request.user)
+    
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response({
+            "message": "Post deleted successfully."
+        }, status=status.HTTP_200_OK)
+
+class UserPostListView(generics.ListAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        username = self.kwargs.get("username")
+        try:
+            viewed_user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            raise NotFound("User Not Found.")
+
+        blocked_by_user = set(BlockedUser.objects.filter(blocker=self.request.user).values_list('blocked', flat=True))
+        blocked_by_others = set(BlockedUser.objects.filter(blocked=self.request.user).values_list('blocker', flat=True))
+        if viewed_user.id in blocked_by_user or viewed_user.id in blocked_by_others:
+            raise NotFound("This profile is not available")
+        
+        privacy = 'public'
+
+        if viewed_user.profile.privacy_settings:
+            privacy = viewed_user.profile.privacy_settings.get("profile_visibility", "public")
+
+        if privacy == "public":
+            return Post.objects.filter(user=viewed_user, visibility='public').order_by('-created_at')
+
+        is_friend = Connection.objects.filter(
+            Q(requester=self.request.user, target=viewed_user) |
+            Q(requester=viewed_user, target=self.request.user),
+            status='accepted',
+            connection_type='friend'
+        ).exists()
+
+        is_follower = Connection.objects.filter(
+            requester=self.request.user,
+            target=viewed_user,
+            status='accepted',
+            connection_type='follower'
+        ).exists()
+
+        if is_friend or is_follower:
+            return Post.objects.filter(user=viewed_user).filter(
+                Q(visibility='public') | Q(visibility='friends')
+            ).order_by('-created_at')
+        else:
+            return Post.objects.filter(user=viewed_user, visibility='public').order_by('-created_at')
     
 class SavePostView(APIView):
     permission_classes = [permissions.IsAuthenticated]
