@@ -8,8 +8,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser
-from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer
-from .models import Post, Hashtag, PostMedia
+from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer
+from .models import Post, Hashtag, PostMedia, SavedPost
 from django.utils import timezone
 from django.db.models import Q, Count, Case, When, Value, F, IntegerField
 from posts.models import Comment
@@ -234,3 +234,50 @@ class ToggleCommentVisibilityView(APIView):
             "message": f"Comment {'hidden' if comment.is_hidden else 'unhidden'} successfully.",
             "is_hidden": comment.is_hidden
         }, status=status.HTTP_200_OK)
+    
+class SavePostView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, post_id):
+        try:
+            post = Post.objects.get(id=post_id)
+        except Post.DoesNotExist:
+            return Response({"error": "Post not found."}, status=status.HTTP_404_NOT_FOUND)
+        
+        blocked_users = BlockedUser.objects.filter(blocker=request.user).values_list('blocked', flat=True)
+        users_who_blocked_me = BlockedUser.objects.filter(blocked=request.user).values_list('blocker', flat=True)
+
+        if post.user.id in list(blocked_users) or post.user.id in list(users_who_blocked_me):
+            return Response({"error": "You cannot save a post from a blocked user."}, status=status.HTTP_403_FORBIDDEN)
+
+        if post.visibility == 'private' and post.user != request.user:
+            return Response({"error": "You cannot save a private post."}, status=status.HTTP_403_FORBIDDEN)
+
+        saved_post, created = SavedPost.objects.get_or_create(user=request.user, post=post)
+        if created:
+            return Response({"message": "Post saved successfully."}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"message": "Post already saved."}, status=status.HTTP_200_OK)
+
+class UnsavePostView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, post_id):
+        try:
+            saved_post = SavedPost.objects.get(user=request.user, post_id=post_id)
+            saved_post.delete()
+            return Response({"message": "Post unsaved successfully"}, status=status.HTTP_200_OK)
+        except SavedPost.DoesNotExist:
+            return Response({"error": "Post is not saved."}, status=status.HTTP_404_NOT_FOUND)
+
+class SavedPostListView(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = SavedPostSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = SavedPost.objects.filter(user=user).select_related('post', 'post__user')
+        blocked_by_user = BlockedUser.objects.filter(blocker=user).values_list('blocked', flat=True)
+        blocked_by_others = BlockedUser.objects.filter(blocked=user).values_list('blocker', flat=True)
+        queryset = queryset.exclude(post__user__in=list(blocked_by_user) + list(blocked_by_others))
+        return queryset

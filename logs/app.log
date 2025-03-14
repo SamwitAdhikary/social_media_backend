@@ -563,3 +563,55 @@ INFO 2025-03-14 19:31:19,176 runserver 16432 9776 [36mHTTP GET /static/admin/im
 INFO 2025-03-14 19:31:22,162 runserver 16432 9776 [mHTTP GET /admin/ 200 [0.02, 127.0.0.1:62884][0m
 INFO 2025-03-14 19:33:30,978 autoreload 16432 8680 C:\Users\samwi\Desktop\APPLICATION\connections\views.py changed, reloading.
 INFO 2025-03-14 19:33:33,562 autoreload 4244 1612 Watching for file changes with StatReloader
+INFO 2025-03-14 21:15:00,286 autoreload 17876 18120 Watching for file changes with StatReloader
+INFO 2025-03-14 21:15:22,237 runserver 17876 8632 [mHTTP OPTIONS /api/accounts/login/ 200 [0.00, 127.0.0.1:55720][0m
+INFO 2025-03-14 21:16:18,309 runserver 17876 8632 [mHTTP OPTIONS /api/accounts/login/ 200 [0.00, 127.0.0.1:52411][0m
+INFO 2025-03-14 23:50:53,398 autoreload 17876 18120 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:50:56,017 autoreload 10024 12024 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:01,652 autoreload 10024 12024 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:03,955 autoreload 15948 5340 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:06,990 autoreload 15948 5340 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:09,809 autoreload 9240 11376 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:12,483 autoreload 9240 11376 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:15,141 autoreload 1956 8128 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:18,093 autoreload 1956 8128 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:19,355 autoreload 3436 8284 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:22,721 autoreload 3436 8284 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:23,992 autoreload 17136 12444 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:25,453 autoreload 17136 12444 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:26,773 autoreload 15164 11592 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:32,108 autoreload 15164 11592 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:34,619 autoreload 2348 8668 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:38,798 autoreload 2348 8668 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:40,245 autoreload 5688 15508 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:45,930 autoreload 5688 15508 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:49,247 autoreload 17616 2700 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:50,999 autoreload 17616 2700 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:53,961 autoreload 14928 7048 Watching for file changes with StatReloader
+INFO 2025-03-14 23:51:55,536 autoreload 14928 7048 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:51:59,990 autoreload 12816 15948 Watching for file changes with StatReloader
+INFO 2025-03-14 23:52:02,265 autoreload 12816 15948 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:52:04,319 autoreload 9240 2656 Watching for file changes with StatReloader
+INFO 2025-03-14 23:52:11,018 autoreload 9240 2656 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:52:12,431 autoreload 15816 7140 Watching for file changes with StatReloader
+INFO 2025-03-14 23:52:14,635 autoreload 15816 7140 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:52:16,321 autoreload 10296 3232 Watching for file changes with StatReloader
+INFO 2025-03-14 23:52:22,342 autoreload 10296 3232 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:52:25,929 autoreload 16196 5592 Watching for file changes with StatReloader
+INFO 2025-03-14 23:52:30,556 autoreload 16196 5592 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:52:32,844 autoreload 7488 11420 Watching for file changes with StatReloader
+INFO 2025-03-14 23:52:37,656 autoreload 7488 11420 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-14 23:52:39,055 autoreload 3132 5888 Watching for file changes with StatReloader
+INFO 2025-03-15 01:48:26,637 autoreload 2900 1736 Watching for file changes with StatReloader
+INFO 2025-03-15 01:49:32,270 runserver 2900 11704 [mHTTP POST /api/accounts/login/ 200 [1.28, 127.0.0.1:55610][0m
+WARNING 2025-03-15 01:50:41,944 log 2900 9284 Not Found: /api/post/40/save/
+WARNING 2025-03-15 01:50:41,944 runserver 2900 11704 [33mHTTP POST /api/post/40/save/ 404 [0.02, 127.0.0.1:55649][0m
+WARNING 2025-03-15 01:50:56,726 log 2900 9284 Forbidden: /api/posts/40/save/
+WARNING 2025-03-15 01:50:56,727 runserver 2900 11704 [31;1mHTTP POST /api/posts/40/save/ 403 [0.02, 127.0.0.1:55649][0m
+INFO 2025-03-15 01:51:15,034 runserver 2900 11704 [mHTTP POST /api/accounts/login/ 200 [0.86, 127.0.0.1:55649][0m
+INFO 2025-03-15 01:51:27,317 runserver 2900 11704 [mHTTP POST /api/posts/40/save/ 201 [0.02, 127.0.0.1:55649][0m
+INFO 2025-03-15 01:52:03,688 runserver 2900 11704 [mHTTP GET /api/posts/saved-posts/ 200 [0.05, 127.0.0.1:55649][0m
+WARNING 2025-03-15 01:53:02,068 log 2900 9284 Method Not Allowed: /api/posts/40/unsave/
+WARNING 2025-03-15 01:53:02,069 runserver 2900 11704 [31;1mHTTP POST /api/posts/40/unsave/ 405 [0.01, 127.0.0.1:55649][0m
+INFO 2025-03-15 01:53:20,116 runserver 2900 11704 [mHTTP DELETE /api/posts/40/unsave/ 200 [0.02, 127.0.0.1:55649][0m
+INFO 2025-03-15 01:53:41,202 runserver 2900 11704 [mHTTP GET /api/posts/saved-posts/ 200 [0.01, 127.0.0.1:55649][0m

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, PostMedia, Reaction, Comment, Hashtag
+from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost
 from accounts.serializers import UserSerializer
 
 class PostMediaSerializer(serializers.ModelSerializer):
@@ -79,3 +79,10 @@ class PostSerializer(serializers.ModelSerializer):
             hashtag, created = Hashtag.objects.get_or_create(name=tag.lower())
             hashtag.posts.add(post)
         return post
+    
+class SavedPostSerializer(serializers.ModelSerializer):
+    post = PostSerializer(read_only=True)
+
+    class Meta:
+        model = SavedPost
+        fields = ['id', 'post', 'saved_at']
