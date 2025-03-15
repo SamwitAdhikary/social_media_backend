@@ -9,9 +9,14 @@ from rest_framework.pagination import PageNumberPagination
 
 
 # Create your views here.
-
-
 class GroupListCreateView(generics.CreateAPIView):
+    """
+    Handles group creation:
+    - Requires authentication
+    - Automatically sets creator
+    - Validates group data
+    """
+    
     serializer_class = GroupDetailSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -19,16 +24,31 @@ class GroupListCreateView(generics.CreateAPIView):
         return Group.objects.all()
 
     def perform_create(self, serializer):
+        """Associates group with creating user"""
+
         serializer.save(created_by=self.request.user)
 
 
 class GroupDetailView(generics.RetrieveAPIView):
+    """
+    Provides group detail view:
+    - Includes members, posts, and metadata
+    - Respects group privacy settings
+    """
+
     queryset = Group.objects.all()
     serializer_class = GroupDetailSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
 class JoinGroupView(APIView):
+    """
+    Handles group joining logic:
+    - Public groups: Auto-approve
+    - Private/Secret: Require approval
+    - Prevents duplicate memberships
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, group_id):
@@ -38,6 +58,7 @@ class JoinGroupView(APIView):
         if GroupMembership.objects.filter(group=group, user=user).exists():
             return Response({"detail": "You are already a member of this group."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Public group handling
         if group.privacy == 'public':
             membership = GroupMembership.objects.create(
                 group=group, user=user, status='approved', role='member'
@@ -45,6 +66,7 @@ class JoinGroupView(APIView):
             serializer = GroupMembershipSerializer(membership)
             return Response({"detail": "Joined group successfully.", "membership": serializer.data}, status=status.HTTP_201_CREATED)
 
+        # Private/Secret group handling
         elif group.privacy in ['private', 'secret']:
             membership = GroupMembership.objects.create(
                 group=group, user=user, status='pending', role='member'
@@ -56,11 +78,18 @@ class JoinGroupView(APIView):
 
 
 class ApproveJoinRequestView(APIView):
+    """
+    Admin-only endpoint for:
+    - Approving pending join requests
+    - Validates admin privileges
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, membership_id):
         membership = get_object_or_404(GroupMembership, id=membership_id)
 
+        # Authorization check
         if request.user != membership.group.created_by:
             return Response({"detail": "You are not authorized to approve requests."}, status=status.HTTP_403_FORBIDDEN)
 
@@ -70,6 +99,12 @@ class ApproveJoinRequestView(APIView):
 
 
 class GroupMembersView(generics.ListAPIView):
+    """
+    Lists approved group members:
+    - Paginated results
+    - Includes member roles
+    """
+
     serializer_class = GroupMembershipSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -79,11 +114,22 @@ class GroupMembersView(generics.ListAPIView):
 
 
 class GroupPagination(PageNumberPagination):
+    """
+    Custom pagination settings for group listings
+    """
+
     page_size = 10
     page_size_query_param = 'page_size'
     max_page_size = 50
 
 class GroupSearchView(generics.ListAPIView):
+    """
+    Group search functionality:
+    - Search by name/description
+    - Respects privacy settings
+    - Paginated results
+    """
+
     serializer_class = GroupDetailSerializer
     permission_classes = [permissions.IsAuthenticated]
     pagination_class = GroupPagination
@@ -91,6 +137,8 @@ class GroupSearchView(generics.ListAPIView):
     search_fields = ['name', 'description']
 
     def get_queryset(self):
+        """Filters groups based on search query and privacy"""
+
         query = self.request.query_params.get('search', '')
         return Group.objects.filter(
             Q(name__icontains=query) |

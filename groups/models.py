@@ -4,10 +4,21 @@ from accounts.models import User
 
 # Create your models here.
 class Group(models.Model):
+    """
+    Represents user-created groups with configuratble privacy settings
+
+    Attributes:
+    - PRIVACY_CHOICES: Visibility levels for group content
+    - created_by: Group owner/creator
+    - name: Group display name
+    - privacy: Controls who can find/join the group
+    - memberships: Relationship to GroupMembership model
+    """
+
     PRIVACY_CHOICES = [
-        ('public', 'Public'),
-        ('private', 'Private'),
-        ('secret', 'Secret'),
+        ('public', 'Public'),   # Visible to all, open joining
+        ('private', 'Private'), # Visible but requires approval
+        ('secret', 'Secret'),   # Hidden from searches
     ]
 
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_groups')
@@ -19,10 +30,17 @@ class Group(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 class GroupMembership(models.Model):
+    """
+    Tracks user participation in groups with:
+    - Membership status (pending/approved/rejected)
+    - User roles (member/admin/moderator)
+    - Join timestamps
+    """
+
     ROLE_CHOICES = [
-        ('member', 'Member'),
-        ('admin', 'Admin'),
-        ('moderator', 'Moderator'),
+        ('member', 'Member'),           # Awaiting Approval
+        ('admin', 'Admin'),             # Active member
+        ('moderator', 'Moderator'),     # Denied membership
     ]
 
     STATUS_CHOICES = [
