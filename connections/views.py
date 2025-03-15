@@ -13,7 +13,15 @@ from rest_framework.pagination import PageNumberPagination
 
 # Create your views here.
 class ConnectionRequestView(APIView):
+    """
+    Handles sending new connection requests
+    - Creates friend/follow request
+    - Requires authentication
+    """
+
     def post(self, request):
+        """Create a new connection request"""
+
         serializer = ConnectionSerializer(
             data={'requester': request.user.id, **request.data})
         serializer.is_valid(raise_exception=True)
@@ -22,7 +30,15 @@ class ConnectionRequestView(APIView):
 
 
 class ConnectionResponseView(APIView):
+    """
+    Handles response to connection requests
+    - Accept/decline pending requests
+    - Updates connection status
+    """
+
     def post(self, request):
+        """Update  status of existing connection"""
+
         connection_id = request.data.get('connection_id')
         status_val = request.data.get('status')
         connection = get_object_or_404(Connection, id=connection_id)
@@ -32,6 +48,12 @@ class ConnectionResponseView(APIView):
 
 
 class ReceivedRequestsView(generics.ListAPIView):
+    """
+    List pending connection requests received by current user
+    - Filters by 'pending' status
+    - Paginates results
+    """
+
     serializer_class = ConnectionSerializer
 
     def get_queryset(self):
@@ -39,6 +61,12 @@ class ReceivedRequestsView(generics.ListAPIView):
 
 
 class SentRequestsView(generics.ListAPIView):
+    """
+    Lists connection requests sent by current user
+    - Filterable by status (pending/accepted/rejected)
+    - Paginated results
+    """
+
     serializer_class = ConnectionSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -51,6 +79,12 @@ class SentRequestsView(generics.ListAPIView):
 
 
 class FriendListView(generics.ListAPIView):
+    """
+    List all accepted friendships for current user
+    - Combines both directions of friend relationships
+    - Excludes pending/declined requests
+    """
+
     serializer_class = ConnectionSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -61,15 +95,24 @@ class FriendListView(generics.ListAPIView):
 
 
 class FollowUserView(APIView):
+    """
+    Handles user following functionality
+    - Creates follower relationships
+    - Prevents invalid following scenarios
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
+        """Creates new follower relationship"""
+
         target_id = request.data.get('target_id')
         if not target_id:
             return Response({"error": "Target user id is required."}, status=status.HTTP_400_BAD_REQUEST)
 
         target = get_object_or_404(User, id=target_id)
 
+        # Validate request
         if request.user == target:
             return Response({"error": "You cannot follow yourself."}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -92,6 +135,7 @@ class FollowUserView(APIView):
         ).exists():
             return Response({"error": "You already follow this user."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Create follow relationship
         Connection.objects.create(
             requester=request.user,
             target=target,
@@ -103,15 +147,24 @@ class FollowUserView(APIView):
 
 
 class UnfollowUserView(APIView):
+    """
+    Handles unfollowing users
+    - Removes follower relationships
+    - Validates existing relationships
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
+        """Remove existing follower relationship"""
+
         target_id = request.data.get("target_id")
         if not target_id:
             return Response({"error": "Target user id is required."}, status=status.HTTP_400_BAD_REQUEST)
 
         target = get_object_or_404(User, id=target_id)
 
+        # Validate request
         if request.user == target:
             return Response({"error": "You cannot unfollow yourself"}, status=status.HTTP_403_FORBIDDEN)
         
@@ -127,6 +180,7 @@ class UnfollowUserView(APIView):
         if BlockedUser.objects.filter(blocker=target, blocked=request.user).exists():
             return Response({"error": "You cannot unfollow this user because they have blocked you."}, status=status.HTTP_403_FORBIDDEN)
 
+        # Delete follow relationship
         follow_relation = Connection.objects.filter(
             requester=request.user,
             target=target,
@@ -141,12 +195,20 @@ class UnfollowUserView(APIView):
 
 
 class UserPagination(PageNumberPagination):
+    """Custom pagination settings for user lists"""
+
     page_size = 10
     page_size_query_param = 'page_size'
     max_page_size = 50
 
 
 class FollowersListView(generics.ListAPIView):
+    """
+    Lists users who follow the current user
+    - Paginated results
+    - Includes user details
+    """
+
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     pagination_class = UserPagination
@@ -162,6 +224,12 @@ class FollowersListView(generics.ListAPIView):
 
 
 class FollowingListView(generics.ListAPIView):
+    """
+    Lists users followed by the current user
+    - Paginated results
+    - Includes user details
+    """
+
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
     pagination_class = UserPagination

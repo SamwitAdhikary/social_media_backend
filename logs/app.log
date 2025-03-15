@@ -1682,3 +1682,5 @@ INFO 2025-03-15 05:16:47,981 autoreload 12808 11024 C:\Users\samwi\Desktop\APPLI
 INFO 2025-03-15 05:16:49,300 autoreload 14692 12448 Watching for file changes with StatReloader
 INFO 2025-03-15 05:18:11,159 autoreload 14692 12448 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
 INFO 2025-03-15 05:18:12,471 autoreload 6784 8888 Watching for file changes with StatReloader
+INFO 2025-03-15 05:19:48,323 autoreload 9872 9496 Watching for file changes with StatReloader
+INFO 2025-03-15 05:19:53,615 runserver 9872 6236 [mHTTP POST /api/accounts/login/ 200 [0.87, 127.0.0.1:62568][0m
