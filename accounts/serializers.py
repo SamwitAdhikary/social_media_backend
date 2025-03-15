@@ -143,10 +143,10 @@ class UserSerializer(serializers.ModelSerializer):
         """Enhances user data with profile information and privacy checks"""
 
         request = self.context.get("request")
-
+        force_full = self.context.get("force_full", False)
         privacy = instance.profile.privacy_settings.get("profile_visibility", 'public')
 
-        if privacy == 'friends' and (not request or request.user != instance):
+        if not force_full and privacy == 'friends' and (not request or request.user != instance):
             return {
                 "id": instance.id,
                 "username": instance.username,

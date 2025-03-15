@@ -1684,3 +1684,304 @@ INFO 2025-03-15 05:18:11,159 autoreload 14692 12448 C:\Users\samwi\Desktop\APPLI
 INFO 2025-03-15 05:18:12,471 autoreload 6784 8888 Watching for file changes with StatReloader
 INFO 2025-03-15 05:19:48,323 autoreload 9872 9496 Watching for file changes with StatReloader
 INFO 2025-03-15 05:19:53,615 runserver 9872 6236 [mHTTP POST /api/accounts/login/ 200 [0.87, 127.0.0.1:62568][0m
+INFO 2025-03-16 00:00:05,407 autoreload 14152 13900 Watching for file changes with StatReloader
+INFO 2025-03-16 00:00:47,090 runserver 14152 3616 [mHTTP POST /api/accounts/login/ 200 [1.39, 127.0.0.1:52208][0m
+WARNING 2025-03-16 00:01:01,131 log 14152 9484 Not Found: /api/accounts/profile/for/
+WARNING 2025-03-16 00:01:01,133 runserver 14152 3616 [33mHTTP GET /api/accounts/profile/for/ 404 [0.02, 127.0.0.1:52208][0m
+INFO 2025-03-16 00:01:08,036 runserver 14152 3616 [mHTTP GET /api/accounts/profile/cloud/ 200 [0.02, 127.0.0.1:52208][0m
+INFO 2025-03-16 00:01:34,716 runserver 14152 3616 [mHTTP GET /api/connections/friends/ 200 [0.02, 127.0.0.1:52208][0m
+ERROR 2025-03-16 00:01:56,162 log 14152 9484 Internal Server Error: /api/connections/request/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\connections\views.py", line 27, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 495, in to_internal_value
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 1079, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 1175, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'requester_details' was declared on serializer ConnectionSerializer, but has not been included in the 'fields' option.
+ERROR 2025-03-16 00:01:56,189 runserver 14152 3616 [35;1mHTTP POST /api/connections/request/ 500 [0.14, 127.0.0.1:52208][0m
+INFO 2025-03-16 00:04:27,564 autoreload 14152 13900 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:04:29,230 autoreload 8156 14000 Watching for file changes with StatReloader
+INFO 2025-03-16 00:04:32,234 runserver 8156 8952 [mHTTP POST /api/connections/request/ 200 [0.03, 127.0.0.1:52318][0m
+INFO 2025-03-16 00:05:16,978 runserver 8156 8952 [mHTTP POST /api/accounts/login/ 200 [1.01, 127.0.0.1:52318][0m
+INFO 2025-03-16 00:05:43,944 runserver 8156 8952 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:52318][0m
+INFO 2025-03-16 00:10:26,423 autoreload 8156 14000 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:10:28,734 autoreload 10992 1564 Watching for file changes with StatReloader
+INFO 2025-03-16 00:10:31,859 autoreload 10992 1564 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:10:33,257 autoreload 7588 15204 Watching for file changes with StatReloader
+INFO 2025-03-16 00:10:35,194 runserver 7588 15712 [mHTTP GET /api/connections/received/ 200 [0.04, 127.0.0.1:52454][0m
+INFO 2025-03-16 00:10:36,746 runserver 7588 15712 [mHTTP GET /api/connections/received/ 200 [0.01, 127.0.0.1:52454][0m
+INFO 2025-03-16 00:13:10,966 autoreload 7588 15204 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-16 00:13:14,222 autoreload 3220 17176 Watching for file changes with StatReloader
+INFO 2025-03-16 00:13:19,094 autoreload 3220 17176 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-16 00:13:21,394 autoreload 17112 11088 Watching for file changes with StatReloader
+INFO 2025-03-16 00:13:32,737 autoreload 17112 11088 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-16 00:13:34,407 autoreload 7320 6000 Watching for file changes with StatReloader
+INFO 2025-03-16 00:14:16,589 autoreload 7320 6000 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:14:17,894 autoreload 10748 16276 Watching for file changes with StatReloader
+INFO 2025-03-16 00:14:22,397 autoreload 10748 16276 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:14:24,674 autoreload 6208 16400 Watching for file changes with StatReloader
+INFO 2025-03-16 00:14:28,781 autoreload 6208 16400 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:14:31,513 autoreload 14764 10064 Watching for file changes with StatReloader
+INFO 2025-03-16 00:14:37,660 autoreload 14764 10064 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:14:40,304 autoreload 1724 7904 Watching for file changes with StatReloader
+INFO 2025-03-16 00:14:46,864 autoreload 1724 7904 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:14:48,237 autoreload 10164 4892 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:04,039 autoreload 10164 4892 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:05,685 autoreload 13508 15732 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:15,202 autoreload 13508 15732 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:16,971 autoreload 10064 3840 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:22,995 autoreload 10064 3840 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:25,009 autoreload 5900 6420 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:30,959 autoreload 5900 6420 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:32,899 autoreload 8268 7592 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:38,791 autoreload 8268 7592 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:41,794 autoreload 13048 10564 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:45,932 autoreload 13048 10564 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:47,211 autoreload 6296 12412 Watching for file changes with StatReloader
+INFO 2025-03-16 00:15:54,876 autoreload 6296 12412 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:15:58,500 autoreload 7072 14344 Watching for file changes with StatReloader
+INFO 2025-03-16 00:16:01,685 autoreload 7072 14344 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:16:05,751 autoreload 10760 13072 Watching for file changes with StatReloader
+INFO 2025-03-16 00:16:09,215 autoreload 10760 13072 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:16:10,639 autoreload 5948 13412 Watching for file changes with StatReloader
+INFO 2025-03-16 00:16:15,537 autoreload 5948 13412 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:16:17,281 autoreload 1008 15668 Watching for file changes with StatReloader
+INFO 2025-03-16 00:16:22,508 autoreload 1008 15668 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:16:25,918 autoreload 1360 13048 Watching for file changes with StatReloader
+INFO 2025-03-16 00:16:28,863 runserver 1360 15784 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:52876][0m
+INFO 2025-03-16 00:21:50,907 autoreload 1360 13048 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:21:52,848 autoreload 2604 4172 Watching for file changes with StatReloader
+INFO 2025-03-16 00:21:56,201 autoreload 2604 4172 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:21:59,560 autoreload 15184 10692 Watching for file changes with StatReloader
+INFO 2025-03-16 00:22:02,600 runserver 15184 724 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:52985][0m
+INFO 2025-03-16 00:22:23,208 autoreload 7136 8904 Watching for file changes with StatReloader
+INFO 2025-03-16 00:22:27,653 runserver 7136 2968 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53012][0m
+INFO 2025-03-16 00:23:40,778 autoreload 7136 8904 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:23:43,632 autoreload 8244 7516 Watching for file changes with StatReloader
+INFO 2025-03-16 00:23:48,033 autoreload 8244 7516 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:23:49,334 autoreload 15572 15700 Watching for file changes with StatReloader
+INFO 2025-03-16 00:23:53,879 autoreload 15572 15700 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:23:55,890 autoreload 16680 5260 Watching for file changes with StatReloader
+INFO 2025-03-16 00:24:01,318 autoreload 16680 5260 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:24:02,970 autoreload 13768 13716 Watching for file changes with StatReloader
+INFO 2025-03-16 00:24:14,089 autoreload 13768 13716 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:24:15,423 autoreload 11856 13160 Watching for file changes with StatReloader
+INFO 2025-03-16 00:24:31,355 runserver 11856 3932 [mHTTP GET /api/connections/received/ 200 [0.04, 127.0.0.1:53103][0m
+INFO 2025-03-16 00:54:45,338 autoreload 11856 13160 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:54:46,947 autoreload 2800 13816 Watching for file changes with StatReloader
+INFO 2025-03-16 00:54:50,943 autoreload 2800 13816 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:54:52,535 autoreload 3960 2200 Watching for file changes with StatReloader
+INFO 2025-03-16 00:54:57,053 runserver 3960 13844 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53243][0m
+INFO 2025-03-16 00:55:04,482 runserver 3960 13844 [mHTTP GET /api/connections/received/ 200 [0.02, 127.0.0.1:53243][0m
+INFO 2025-03-16 00:55:13,054 autoreload 3960 2200 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:55:14,768 autoreload 4880 12376 Watching for file changes with StatReloader
+INFO 2025-03-16 00:57:41,457 autoreload 4880 12376 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:57:44,145 autoreload 15668 14512 Watching for file changes with StatReloader
+INFO 2025-03-16 00:57:49,337 autoreload 15668 14512 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:57:51,451 autoreload 14396 3920 Watching for file changes with StatReloader
+INFO 2025-03-16 00:57:54,724 autoreload 14396 3920 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:57:56,017 autoreload 5136 16276 Watching for file changes with StatReloader
+INFO 2025-03-16 00:58:05,913 autoreload 5136 16276 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:58:07,312 autoreload 2860 15204 Watching for file changes with StatReloader
+INFO 2025-03-16 00:58:11,753 autoreload 2860 15204 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:58:13,086 autoreload 9012 5108 Watching for file changes with StatReloader
+INFO 2025-03-16 00:58:19,698 autoreload 9012 5108 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:58:21,567 autoreload 9352 10856 Watching for file changes with StatReloader
+INFO 2025-03-16 00:58:36,883 autoreload 9352 10856 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:58:38,269 autoreload 4528 3924 Watching for file changes with StatReloader
+INFO 2025-03-16 00:58:41,787 autoreload 4528 3924 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 00:58:43,374 autoreload 2524 2012 Watching for file changes with StatReloader
+INFO 2025-03-16 00:58:47,574 runserver 2524 9520 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53408][0m
+INFO 2025-03-16 00:59:31,453 autoreload 4520 520 Watching for file changes with StatReloader
+INFO 2025-03-16 00:59:35,797 runserver 4520 3192 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:59009][0m
+INFO 2025-03-16 01:22:56,048 autoreload 4520 520 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:22:57,916 autoreload 17236 9116 Watching for file changes with StatReloader
+INFO 2025-03-16 01:23:01,335 autoreload 17236 9116 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:23:03,014 autoreload 8256 15712 Watching for file changes with StatReloader
+INFO 2025-03-16 01:23:05,260 autoreload 8256 15712 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:23:06,665 autoreload 16812 3496 Watching for file changes with StatReloader
+INFO 2025-03-16 01:23:10,080 autoreload 16812 3496 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:23:12,608 autoreload 9960 8608 Watching for file changes with StatReloader
+INFO 2025-03-16 01:23:27,387 autoreload 9960 8608 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:23:29,288 autoreload 13104 2680 Watching for file changes with StatReloader
+INFO 2025-03-16 01:23:31,542 autoreload 13104 2680 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:23:33,026 autoreload 9552 14612 Watching for file changes with StatReloader
+INFO 2025-03-16 01:23:39,800 autoreload 9552 14612 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:23:41,484 autoreload 4896 16192 Watching for file changes with StatReloader
+INFO 2025-03-16 01:24:08,009 autoreload 4896 16192 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:24:10,168 autoreload 892 17364 Watching for file changes with StatReloader
+INFO 2025-03-16 01:24:14,224 autoreload 892 17364 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:24:15,601 autoreload 13156 6788 Watching for file changes with StatReloader
+INFO 2025-03-16 01:24:19,994 autoreload 13156 6788 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:24:21,769 autoreload 8436 4404 Watching for file changes with StatReloader
+INFO 2025-03-16 01:24:24,103 autoreload 8436 4404 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:24:25,766 autoreload 12352 8416 Watching for file changes with StatReloader
+INFO 2025-03-16 01:24:35,548 autoreload 12352 8416 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:24:37,046 autoreload 6460 11472 Watching for file changes with StatReloader
+INFO 2025-03-16 01:25:23,010 runserver 6460 17052 [mHTTP GET /api/connections/received/ 200 [0.04, 127.0.0.1:59320][0m
+INFO 2025-03-16 01:26:06,709 autoreload 6460 11472 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:08,467 autoreload 13364 15240 Watching for file changes with StatReloader
+INFO 2025-03-16 01:26:12,513 autoreload 13364 15240 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:13,903 autoreload 11808 6732 Watching for file changes with StatReloader
+INFO 2025-03-16 01:26:15,700 autoreload 11808 6732 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:17,030 autoreload 13884 4428 Watching for file changes with StatReloader
+INFO 2025-03-16 01:26:19,342 autoreload 13884 4428 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:20,861 autoreload 10424 12360 Watching for file changes with StatReloader
+INFO 2025-03-16 01:26:29,011 runserver 10424 6684 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53121][0m
+INFO 2025-03-16 01:26:47,932 autoreload 10424 12360 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:49,625 autoreload 7860 8828 Watching for file changes with StatReloader
+INFO 2025-03-16 01:26:52,805 autoreload 7860 8828 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:54,630 autoreload 5224 6424 Watching for file changes with StatReloader
+INFO 2025-03-16 01:26:56,884 autoreload 5224 6424 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:26:58,563 autoreload 9232 3056 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:02,583 autoreload 9232 3056 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:05,142 autoreload 3528 17032 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:10,013 autoreload 3528 17032 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:11,575 autoreload 2944 8340 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:16,489 autoreload 2944 8340 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:18,913 autoreload 10252 14344 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:23,413 autoreload 10252 14344 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:24,834 autoreload 14936 8628 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:35,152 autoreload 14936 8628 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:36,936 autoreload 2076 3112 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:43,423 autoreload 2076 3112 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:44,850 autoreload 12780 15084 Watching for file changes with StatReloader
+INFO 2025-03-16 01:27:55,220 autoreload 12780 15084 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:27:59,474 autoreload 5748 8756 Watching for file changes with StatReloader
+INFO 2025-03-16 01:28:02,751 autoreload 5748 8756 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:28:04,330 autoreload 16988 10680 Watching for file changes with StatReloader
+INFO 2025-03-16 01:28:06,029 runserver 16988 13140 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53304][0m
+INFO 2025-03-16 01:28:50,825 autoreload 16988 10680 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:28:52,372 autoreload 11220 7796 Watching for file changes with StatReloader
+INFO 2025-03-16 01:28:54,927 runserver 11220 7296 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53342][0m
+INFO 2025-03-16 01:34:26,164 autoreload 11220 7796 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:34:27,563 autoreload 16096 12524 Watching for file changes with StatReloader
+INFO 2025-03-16 01:34:33,434 autoreload 16096 12524 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:34:34,990 autoreload 13604 11192 Watching for file changes with StatReloader
+INFO 2025-03-16 01:34:36,927 autoreload 13604 11192 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:34:40,634 autoreload 15100 10748 Watching for file changes with StatReloader
+INFO 2025-03-16 01:34:43,630 autoreload 15100 10748 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:34:45,138 autoreload 14024 2732 Watching for file changes with StatReloader
+INFO 2025-03-16 01:34:47,786 autoreload 14024 2732 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:34:49,589 autoreload 11584 13068 Watching for file changes with StatReloader
+INFO 2025-03-16 01:35:09,994 autoreload 11584 13068 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:35:11,735 autoreload 12612 12216 Watching for file changes with StatReloader
+INFO 2025-03-16 01:35:16,491 autoreload 12612 12216 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:35:19,211 autoreload 10684 8852 Watching for file changes with StatReloader
+INFO 2025-03-16 01:35:24,057 autoreload 10684 8852 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:35:26,657 autoreload 10048 11248 Watching for file changes with StatReloader
+INFO 2025-03-16 01:35:32,403 autoreload 10048 11248 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:35:34,257 autoreload 13900 9008 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:05,486 autoreload 13900 9008 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:36:07,981 autoreload 10548 10320 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:16,401 autoreload 10548 10320 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:36:18,661 autoreload 9716 6476 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:26,906 autoreload 9716 6476 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:36:30,229 autoreload 9400 5444 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:36,265 autoreload 9400 5444 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:36:38,001 autoreload 13244 17252 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:43,048 autoreload 13244 17252 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:36:45,474 autoreload 3352 13508 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:49,755 autoreload 3352 13508 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:36:52,912 autoreload 1512 16924 Watching for file changes with StatReloader
+INFO 2025-03-16 01:36:58,778 autoreload 1512 16924 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:02,571 autoreload 6260 11376 Watching for file changes with StatReloader
+INFO 2025-03-16 01:37:09,388 autoreload 6260 11376 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:10,942 autoreload 2812 12272 Watching for file changes with StatReloader
+INFO 2025-03-16 01:37:15,750 autoreload 2812 12272 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:17,736 autoreload 1312 14344 Watching for file changes with StatReloader
+INFO 2025-03-16 01:37:20,626 autoreload 1312 14344 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:22,676 autoreload 9352 4952 Watching for file changes with StatReloader
+INFO 2025-03-16 01:37:40,716 autoreload 9352 4952 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:42,958 autoreload 4404 2948 Watching for file changes with StatReloader
+INFO 2025-03-16 01:37:47,010 autoreload 4404 2948 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:49,308 autoreload 1104 5108 Watching for file changes with StatReloader
+INFO 2025-03-16 01:37:54,002 autoreload 1104 5108 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:37:55,516 autoreload 2108 16544 Watching for file changes with StatReloader
+INFO 2025-03-16 01:38:06,860 autoreload 2108 16544 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:38:09,829 autoreload 4840 1700 Watching for file changes with StatReloader
+INFO 2025-03-16 01:38:19,623 runserver 4840 11464 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:53809][0m
+INFO 2025-03-16 01:46:52,621 autoreload 4840 1700 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:46:54,596 autoreload 17220 10908 Watching for file changes with StatReloader
+INFO 2025-03-16 01:46:59,716 autoreload 17220 10908 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:47:01,040 autoreload 1600 9860 Watching for file changes with StatReloader
+INFO 2025-03-16 01:47:15,944 autoreload 1600 9860 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:47:17,282 autoreload 14832 15384 Watching for file changes with StatReloader
+INFO 2025-03-16 01:47:29,296 autoreload 14832 15384 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:47:30,596 autoreload 8724 9232 Watching for file changes with StatReloader
+INFO 2025-03-16 01:47:32,859 autoreload 8724 9232 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:47:34,118 autoreload 3188 10744 Watching for file changes with StatReloader
+INFO 2025-03-16 01:47:43,640 autoreload 3188 10744 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:47:45,056 autoreload 14476 2108 Watching for file changes with StatReloader
+INFO 2025-03-16 01:47:55,136 autoreload 14476 2108 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:47:56,519 autoreload 8940 11588 Watching for file changes with StatReloader
+INFO 2025-03-16 01:47:58,878 autoreload 8940 11588 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:48:00,316 autoreload 12000 6888 Watching for file changes with StatReloader
+INFO 2025-03-16 01:48:06,968 autoreload 12000 6888 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:48:08,210 autoreload 14888 15384 Watching for file changes with StatReloader
+INFO 2025-03-16 01:48:12,364 autoreload 14888 15384 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:48:14,054 autoreload 5260 3660 Watching for file changes with StatReloader
+INFO 2025-03-16 01:48:25,195 autoreload 5260 3660 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:48:27,980 autoreload 1564 13020 Watching for file changes with StatReloader
+INFO 2025-03-16 01:48:31,045 autoreload 1564 13020 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:48:32,490 autoreload 16908 11376 Watching for file changes with StatReloader
+INFO 2025-03-16 01:48:37,930 autoreload 16908 11376 C:\Users\samwi\Desktop\APPLICATION\connections\serializers.py changed, reloading.
+INFO 2025-03-16 01:48:39,782 autoreload 16128 5976 Watching for file changes with StatReloader
+INFO 2025-03-16 01:48:42,008 runserver 16128 1728 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:54075][0m
+INFO 2025-03-16 02:10:35,846 runserver 16128 1728 [mHTTP GET /api/connections/received/ 200 [0.02, 127.0.0.1:54152][0m
