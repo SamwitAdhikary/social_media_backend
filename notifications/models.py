@@ -5,6 +5,13 @@ from accounts.models import User
 # Create your models here.
 
 class Notification(models.Model):
+    """
+    Stores user notifications with:
+    - Type-specific handling (likes, comments, etc)
+    - Read/unread status tracking
+    - Reference to related objects
+    """
+
     NOTIFICATION_TYPES = [
         ('friend_request', 'Friend Request'),
         ('like', 'Like'),

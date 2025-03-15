@@ -16,6 +16,8 @@ User = get_user_model()
 
 @database_sync_to_async
 def get_user_for_token(token):
+    """Validates JWT and returns authenticated user"""
+
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
         user = User.objects.get(id=payload.get("user_id"))
@@ -25,6 +27,12 @@ def get_user_for_token(token):
     
 
 class JWTAuthMiddleware(BaseMiddleware):
+    """
+    WebSocket authentication middleware:
+    - Extracts JWT from query parameters
+    - Validates and sets user in connection scope
+    """
+
     async def __call__(self, scope, receive, send):
         query_string = scope.get("query_string", b"").decode("utf-8")
         token = None

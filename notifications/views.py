@@ -9,6 +9,13 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 
 class NotificationListView(generics.ListAPIView):
+    """
+    Lists authenticated user's notifications:
+    - Ordered by creation date (newest first)
+    - Includes pagination
+    - Filters out read notifications
+    """
+
     serializer_class = NotificationSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -16,6 +23,12 @@ class NotificationListView(generics.ListAPIView):
         return Notification.objects.filter(user=self.request.user).order_by('-created_at')
 
 class MarkNotificationReadView(APIView):
+    """
+    Updates notification read status:
+    - Requires notification ownership
+    - Marks single notification as read
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def put(self, request, notification_id):
