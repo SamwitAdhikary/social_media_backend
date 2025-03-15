@@ -29,17 +29,27 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 class PostCreateView(generics.CreateAPIView):
+    """
+    Handles post creation with media uploads:
+    - Processes multiple media files
+    - Generates thumbnails for images
+    - Stores files in S3-compatible storage
+    """
+
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
     parser_classes = (MultiPartParser, FormParser)
 
     def perform_create(self, serializer):
+        """Processes and uploads media files to cloud storage"""
+
         media_files = self.request.FILES.getlist('media_files')
         post = serializer.save(user=self.request.user)
 
         s3_storage = S3Boto3Storage(bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
 
         for file in media_files:
+            # Media processing logic
             media_type = 'image' if file.name.lower().endswith(("jpg", "jpeg", 'png', "gif")) else "video"
 
             try:
@@ -77,11 +87,18 @@ class PostCreateView(generics.CreateAPIView):
                 logger.error(f"Error uploading file {file.name}: {e}")
 
 class FeedView(generics.ListAPIView):
+    """
+    Personalized post feed:
+    - Combines privacy settings and social connections
+    - Multiple sorting algorithms
+    - Blocked content filtering
+    """
+
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-
+        """Complex query logic for personalized feed"""
         user = self.request.user
 
         friends_requester = Connection.objects.filter(requester=user, status__in='accepted', connection_type='friend').values_list('target', flat=True)
@@ -126,7 +143,12 @@ class FeedView(generics.ListAPIView):
             return base_qs.order_by("-created_at")
     
 class ReactionView(APIView):
+    """
+    Handles post reactions and notifications
+    """
+
     def post(self, request, post_id):
+        """Creates reaction and sends real-time notification"""
         serializer = ReactionSerializer(data={'post': post_id, **request.data})
         serializer.is_valid(raise_exception=True)
         reaction = serializer.save(user=request.user)
@@ -154,9 +176,14 @@ class ReactionView(APIView):
         return Response({'message': 'Reaction recorder'}, status=status.HTTP_200_OK)
 
 class CommentView(APIView):
+    """
+    Manages post comments and nested replies
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, post_id):
+        """Creates comment and notifies relevant users"""
         data = {'post': post_id, **request.data}
         serializer = CommentSerializer(data=data, context={'request': request})
         if serializer.is_valid():
@@ -196,6 +223,7 @@ class CommentView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, post_id):
+        """Retrieves comments with privacy checks"""
         post_owner = request.user
         comments = Comment.objects.filter(post_id=post_id, parent=None).order_by('-created_at')
 
@@ -211,6 +239,9 @@ class HashtagPagination(PageNumberPagination):
     max_page_size = 50
 
 class HashtagSearchView(generics.ListAPIView):
+    """
+    Search hashtags with pagination
+    """
     serializer_class = HashtagSerializer
     permission_classes = [permissions.IsAuthenticated]
     pagination_class = HashtagPagination
@@ -222,9 +253,13 @@ class HashtagSearchView(generics.ListAPIView):
         return Hashtag.objects.filter(name__icontains=query).distinct()
     
 class ToggleCommentVisibilityView(APIView):
+    """
+    Moderation endpoint for comment visibility
+    """
     permission_classes = [permissions.IsAuthenticated]
 
     def patch(self, request, comment_id):
+        """Toggles comment's hidden status"""
         comment = get_object_or_404(Comment, id=comment_id)
         if comment.post.user != request.user:
             return Response({"error": "You do not have permission to hide/unhide this comment."}, status=status.HTTP_403_FORBIDDEN)
@@ -237,6 +272,10 @@ class ToggleCommentVisibilityView(APIView):
         }, status=status.HTTP_200_OK)
     
 class PostDeleteView(generics.DestroyAPIView):
+    """
+    Post deletion endpoint for owners
+    """
+
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -251,10 +290,15 @@ class PostDeleteView(generics.DestroyAPIView):
         }, status=status.HTTP_200_OK)
 
 class UserPostListView(generics.ListAPIView):
+    """
+    Retrieves user's posts with privacy checks
+    """
+
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        """Applies privacy rules and blocking filters"""
         username = self.kwargs.get("username")
         try:
             viewed_user = User.objects.get(username=username)
@@ -296,9 +340,14 @@ class UserPostListView(generics.ListAPIView):
             return Post.objects.filter(user=viewed_user, visibility='public').order_by('-created_at')
     
 class SavePostView(APIView):
+    """
+    Bookmarking system for posts
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, post_id):
+        """Saves post with validity checks"""
         try:
             post = Post.objects.get(id=post_id)
         except Post.DoesNotExist:
@@ -320,6 +369,10 @@ class SavePostView(APIView):
             return Response({"message": "Post already saved."}, status=status.HTTP_200_OK)
 
 class UnsavePostView(APIView):
+    """
+    Removes saved post bookmarks
+    """
+
     permission_classes = [permissions.IsAuthenticated]
 
     def delete(self, request, post_id):
@@ -331,10 +384,15 @@ class UnsavePostView(APIView):
             return Response({"error": "Post is not saved."}, status=status.HTTP_404_NOT_FOUND)
 
 class SavedPostListView(generics.ListAPIView):
+    """
+    Lists user's saved posts with filters
+    """
+
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = SavedPostSerializer
 
     def get_queryset(self):
+        """Applies blocking filters to saved posts"""
         user = self.request.user
         queryset = SavedPost.objects.filter(user=user).select_related('post', 'post__user')
         blocked_by_user = BlockedUser.objects.filter(blocker=user).values_list('blocked', flat=True)

@@ -3,6 +3,12 @@ from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost
 from accounts.serializers import UserSerializer
 
 class PostMediaSerializer(serializers.ModelSerializer):
+    """
+    Serializes media files with URLs:
+    - Generates absolute URLs for media files
+    - Includes thumbnail versions for images
+    """
+
     media_url = serializers.SerializerMethodField()
     thumbnail_url = serializers.SerializerMethodField()
 
@@ -11,6 +17,8 @@ class PostMediaSerializer(serializers.ModelSerializer):
         fields = ['id', 'media_url', 'media_type', 'thumbnail_url', 'order_index', 'created_at']
 
     def get_media_url(self, obj):
+        """Returns full URL for media file"""
+
         if obj.media_file:
             url = obj.media_file.url
             # print(f"MEdia URL: {url}")
@@ -18,13 +26,19 @@ class PostMediaSerializer(serializers.ModelSerializer):
         return None
     
     def get_thumbnail_url(self, obj):
+        """Returns thumbnail URL for images"""
+
         if obj.thumbnail_file:
             thumbnailurl = obj.thumbnail_file.url
-            print(thumbnailurl)
+            # print(thumbnailurl)
             return thumbnailurl
         return None
 
 class ReactionSerializer(serializers.ModelSerializer):
+    """
+    Serializes reactions with user details
+    """
+
     user = UserSerializer(read_only=True)
 
     class Meta:
@@ -32,6 +46,12 @@ class ReactionSerializer(serializers.ModelSerializer):
         fields = ['id', 'post', 'user', 'type', 'created_at']
 
 class CommentSerializer(serializers.ModelSerializer):
+    """
+    Hierarchical comment serializer:
+    - Nested replies implementation
+    - Hidden comment filtering
+    """
+
     user = serializers.ReadOnlyField(source='user.id')
     parent = serializers.PrimaryKeyRelatedField(queryset=Comment.objects.all(), required=False, allow_null=True)
     replies = serializers.SerializerMethodField()
@@ -41,11 +61,17 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = ['id', 'post', 'user', 'content', 'is_hidden', 'created_at', 'updated_at', 'parent', 'replies']
 
     def get_replies(self, obj):
+        """Recursive serialization of nested replies"""
+
         replies = obj.replies.filter(is_hidden=False)
         serializer = CommentSerializer(replies, many=True, context=self.context)
         return serializer.data
 
 class HashtagSerializer(serializers.ModelSerializer):
+    """
+    Serializes hashtags with usage statistics
+    """
+
     posts_count = serializers.IntegerField(source='posts.count', read_only=True)
 
     class Meta:
@@ -53,6 +79,13 @@ class HashtagSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'posts_count']
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    Main post serializer with nested relationships:
+    - Handles media uploads
+    - Manages hashtag creation
+    - Includes engagement metrics
+    """
+
     medias = PostMediaSerializer(many=True, read_only=True, source="media")
 
     hashtags = serializers.ListField(
@@ -65,6 +98,8 @@ class PostSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.id')
     comments = CommentSerializer(many=True, read_only=True)
     reactions = ReactionSerializer(many=True, read_only=True)
+
+    # Engagement metrics
     comments_count = serializers.IntegerField(source='comments.count', read_only=True)
     reactions_count = serializers.IntegerField(source='reactions.count', read_only=True)
 
@@ -73,6 +108,8 @@ class PostSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'content', 'visibility', 'medias', 'created_at', 'updated_at', 'comments', 'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display']
 
     def create(self, validated_data):
+        """Handles hashtag creation during post creation"""
+
         hashtag_data = validated_data.pop('hashtags', [])
         post = Post.objects.create(**validated_data)
         for tag in hashtag_data:
@@ -81,6 +118,10 @@ class PostSerializer(serializers.ModelSerializer):
         return post
     
 class SavedPostSerializer(serializers.ModelSerializer):
+    """
+    Serializes saved posts with full post details
+    """
+
     post = PostSerializer(read_only=True)
 
     class Meta:
