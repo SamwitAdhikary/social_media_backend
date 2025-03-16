@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import NotificationListView, MarkNotificationReadView
+from .views import NotificationListView, MarkNotificationReadView, MarkAllNotificationsReadView, MarkAllNotificationsUnreadView
 
 # Notifications Application URL Configuration
 # Handles notification retrieval and status updates
@@ -11,6 +11,10 @@ urlpatterns = [
     # ============== Notification Updates ==================
     path('<int:notification_id>/read/', MarkNotificationReadView.as_view(), name='mark-notification-read'),
     # PUT: Marks specific notification as read
+
+    path('mark-all-read/', MarkAllNotificationsReadView.as_view(), name='mark-all-read'),
+
+    path('mark-all-unread/', MarkAllNotificationsUnreadView.as_view(), name='mark-all-unread'),
 ]
 
 # URL Pattern Notes:

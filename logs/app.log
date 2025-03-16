@@ -1985,3 +1985,14 @@ INFO 2025-03-16 01:48:37,930 autoreload 16908 11376 C:\Users\samwi\Desktop\APPLI
 INFO 2025-03-16 01:48:39,782 autoreload 16128 5976 Watching for file changes with StatReloader
 INFO 2025-03-16 01:48:42,008 runserver 16128 1728 [mHTTP GET /api/connections/received/ 200 [0.03, 127.0.0.1:54075][0m
 INFO 2025-03-16 02:10:35,846 runserver 16128 1728 [mHTTP GET /api/connections/received/ 200 [0.02, 127.0.0.1:54152][0m
+INFO 2025-03-16 14:52:35,390 autoreload 1652 11512 Watching for file changes with StatReloader
+INFO 2025-03-16 14:53:41,441 runserver 1652 9208 [mHTTP POST /api/accounts/login/ 200 [1.33, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:53:58,761 runserver 1652 9208 [mHTTP GET /api/notifications/ 200 [0.03, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:54:39,505 runserver 1652 9208 [mHTTP POST /api/notifications/mark-all-read/ 200 [0.02, 127.0.0.1:62796][0m
+WARNING 2025-03-16 14:55:14,406 log 1652 13712 Unauthorized: /api/notifications/
+WARNING 2025-03-16 14:55:14,407 runserver 1652 9208 [31;1mHTTP GET /api/notifications/ 401 [0.01, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:55:30,408 runserver 1652 9208 [mHTTP GET /api/notifications/ 200 [0.01, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:55:42,518 runserver 1652 9208 [mHTTP POST /api/notifications/mark-all-unread/ 200 [0.04, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:55:58,379 runserver 1652 9208 [mHTTP GET /api/notifications/ 200 [0.01, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:56:22,281 runserver 1652 9208 [mHTTP POST /api/notifications/mark-all-read/ 200 [0.02, 127.0.0.1:62796][0m
+INFO 2025-03-16 14:56:25,819 runserver 1652 9208 [mHTTP GET /api/notifications/ 200 [0.01, 127.0.0.1:62796][0m
