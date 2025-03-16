@@ -8439,3 +8439,18 @@ ERROR 2025-03-16 16:23:53,760 runserver 15440 3724 [35;1mHTTP GET /api/posts/ha
 INFO 2025-03-16 16:24:11,054 autoreload 15440 3664 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
 INFO 2025-03-16 16:24:12,633 autoreload 8248 15424 Watching for file changes with StatReloader
 INFO 2025-03-16 16:24:15,128 runserver 8248 6096 [mHTTP GET /api/posts/hashtag/search/?search=django 200 [0.05, 127.0.0.1:64345][0m
+INFO 2025-03-16 16:47:33,837 autoreload 9756 3672 Watching for file changes with StatReloader
+INFO 2025-03-16 16:49:33,910 runserver 9756 7132 [mHTTP GET /api/posts/1/top-fan/ 200 [0.04, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:49:48,025 runserver 9756 7132 [mHTTP GET /api/posts/2/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
+WARNING 2025-03-16 16:49:52,823 log 9756 15384 Not Found: /api/posts//top-fan/3
+WARNING 2025-03-16 16:49:52,824 runserver 9756 7132 [33mHTTP GET /api/posts//top-fan/3 404 [0.02, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:50:06,320 runserver 9756 7132 [mHTTP GET /api/posts/3/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
+WARNING 2025-03-16 16:50:09,768 log 9756 15384 Not Found: /api/posts//top-fan/4
+WARNING 2025-03-16 16:50:09,769 runserver 9756 7132 [33mHTTP GET /api/posts//top-fan/4 404 [0.01, 127.0.0.1:53824][0m
+WARNING 2025-03-16 16:50:16,115 log 9756 15384 Not Found: /api/posts/4/top-fan/
+WARNING 2025-03-16 16:50:16,116 runserver 9756 7132 [33mHTTP GET /api/posts/4/top-fan/ 404 [0.01, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:50:24,079 runserver 9756 7132 [mHTTP GET /api/posts/5/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:50:31,083 runserver 9756 7132 [mHTTP GET /api/posts/6/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:50:37,860 runserver 9756 7132 [mHTTP GET /api/posts/50/top-fan/ 200 [0.02, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:50:48,416 runserver 9756 7132 [mHTTP GET /api/posts/1/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
+INFO 2025-03-16 16:50:53,068 runserver 9756 7132 [mHTTP GET /api/posts/2/top-fan/ 200 [0.01, 127.0.0.1:53824][0m

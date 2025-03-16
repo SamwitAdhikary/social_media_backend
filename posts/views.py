@@ -9,8 +9,9 @@ from rest_framework.views import APIView
 from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser, User
+from accounts.serializers import UserSerializer
 from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer
-from .models import Post, Hashtag, PostMedia, SavedPost
+from .models import Post, Hashtag, PostMedia, Reaction, SavedPost
 from django.utils import timezone
 from django.db.models import Q, Count, Case, When, Value, F, IntegerField
 from posts.models import Comment
@@ -399,3 +400,34 @@ class SavedPostListView(generics.ListAPIView):
         blocked_by_others = BlockedUser.objects.filter(blocked=user).values_list('blocker', flat=True)
         queryset = queryset.exclude(post__user__in=list(blocked_by_user) + list(blocked_by_others))
         return queryset
+    
+class TopFanView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+
+        reaction_counts = Reaction.objects.filter(post=post).values('user').annotate(reaction_count=Count('id'))
+
+        comment_counts = Comment.objects.filter(post=post).values('user').annotate(comment_count=Count("id"))
+
+        interaction_dict = {}
+        for rc in reaction_counts:
+            uid = rc['user']
+            interaction_dict[uid] = interaction_dict.get(uid, 0) + rc['reaction_count']
+
+        for cc in comment_counts:
+            uid = cc['user']
+            interaction_dict[uid] = interaction_dict.get(uid, 0) + cc['comment_count']
+
+        if not interaction_dict:
+            return Response({"message": "No interactions for this post."}, status=status.HTTP_200_OK)
+
+        top_fan_id = max(interaction_dict, key=interaction_dict.get)
+        top_fan_count = interaction_dict[top_fan_id]
+        top_fan = get_object_or_404(User, id=top_fan_id)
+        serializer = UserSerializer(top_fan, context={'request': request})
+        data = serializer.data
+        data['interaction_count'] = top_fan_count
+
+        return Response({"top_fan": data}, status=status.HTTP_200_OK)
