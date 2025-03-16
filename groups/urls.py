@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import GroupListCreateView, JoinGroupView, ApproveJoinRequestView, GroupMembersView, GroupDetailView, GroupSearchView, MostActiveMemberView
+from .views import GroupListCreateView, JoinGroupView, ApproveJoinRequestView, GroupMembersView, GroupDetailView, GroupSearchView, MostActiveMemberView, GroupPostView
 
 # Group Application URL Configuration
 # Handles group creation, mamberships, and content management
@@ -27,7 +27,9 @@ urlpatterns = [
     path('search/', GroupSearchView.as_view(), name='group-search'),
     # GET: Search groups by name/description (excludes secret groups)
 
-    path('<int:group_id>/most-active-member/', MostActiveMemberView.as_view(), name='most-active-member')
+    path('<int:group_id>/most-active-member/', MostActiveMemberView.as_view(), name='most-active-member'),
+
+    path('<int:group_id>/posts/', GroupPostView.as_view(), name='group-posts')
 ]
 
 # URL Pattern Notes:

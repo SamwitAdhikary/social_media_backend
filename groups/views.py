@@ -2,10 +2,11 @@ from rest_framework import generics, permissions, status, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
-
+from rest_framework.exceptions import PermissionDenied
 from accounts.models import User
 from accounts.serializers import UserSerializer
 from posts.models import Comment, Post, Reaction
+from posts.serializers import PostSerializer
 from .serializers import GroupDetailSerializer, GroupMembershipSerializer
 from .models import Group, GroupMembership
 from django.db.models import Q
@@ -195,3 +196,23 @@ class MostActiveMemberView(APIView):
         data['activity_score'] = score
 
         return Response({"group_id": group_id, "most_active_member": data}, status=status.HTTP_200_OK)
+    
+class GroupPostView(generics.ListAPIView):
+    """
+    Lists posts for a specific group.
+    - If the group's privacy is 'public' returns all posts.
+    - If the group's privacy is 'private' or 'secret', only returns posts if the required user is an approved member.
+    """
+
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        group_id = self.kwargs.get("group_id")
+        group = get_object_or_404(Group, id=group_id)
+
+        if group.privacy in ['private', 'secret']:
+            if not group.memberships.filter(user=self.request.user, status='approved').exists():
+                raise PermissionDenied("You are not a member of this group.")
+        
+        return Post.objects.filter(group=group).order_by("-created_at")

@@ -66,6 +66,8 @@ class CommentSerializer(serializers.ModelSerializer):
         replies = obj.replies.filter(is_hidden=False)
         serializer = CommentSerializer(replies, many=True, context=self.context)
         return serializer.data
+    
+
 
 class HashtagSerializer(serializers.ModelSerializer):
     """
@@ -73,10 +75,15 @@ class HashtagSerializer(serializers.ModelSerializer):
     """
 
     posts_count = serializers.IntegerField(source='posts.count', read_only=True)
+    posts = serializers.SerializerMethodField()
 
     class Meta:
         model = Hashtag
-        fields = ['id', 'name', 'posts_count']
+        fields = ['id', 'name', 'posts_count', 'posts']
+
+    def get_posts(self, obj):
+        posts_qs = obj.posts.all().order_by('-created_at')[:3]
+        return PostWithoutHashtag(posts_qs, many=True, context=self.context).data
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -105,7 +112,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id', 'user', 'content', 'visibility', 'medias', 'created_at', 'updated_at', 'comments', 'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display']
+        fields = ['id', 'user', 'content', 'group', 'visibility', 'medias', 'created_at', 'updated_at', 'comments', 'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display']
 
     def create(self, validated_data):
         """Handles hashtag creation during post creation"""
@@ -116,6 +123,10 @@ class PostSerializer(serializers.ModelSerializer):
             hashtag, created = Hashtag.objects.get_or_create(name=tag.lower())
             hashtag.posts.add(post)
         return post
+    
+class PostWithoutHashtag(PostSerializer):
+    class Meta(PostSerializer.Meta):
+        fields = [field for field in PostSerializer.Meta.fields if field not in ['hashtags', 'hashtags_display']]
     
 class SavedPostSerializer(serializers.ModelSerializer):
     """
