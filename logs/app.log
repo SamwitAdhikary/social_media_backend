@@ -1996,3 +1996,13 @@ INFO 2025-03-16 14:55:42,518 runserver 1652 9208 [mHTTP POST /api/notifications
 INFO 2025-03-16 14:55:58,379 runserver 1652 9208 [mHTTP GET /api/notifications/ 200 [0.01, 127.0.0.1:62796][0m
 INFO 2025-03-16 14:56:22,281 runserver 1652 9208 [mHTTP POST /api/notifications/mark-all-read/ 200 [0.02, 127.0.0.1:62796][0m
 INFO 2025-03-16 14:56:25,819 runserver 1652 9208 [mHTTP GET /api/notifications/ 200 [0.01, 127.0.0.1:62796][0m
+INFO 2025-03-16 15:19:12,702 autoreload 5512 15028 Watching for file changes with StatReloader
+WARNING 2025-03-16 15:19:58,730 log 5512 11584 Forbidden: /api/groups/1/most-active-member/
+WARNING 2025-03-16 15:19:58,731 runserver 5512 5980 [31;1mHTTP GET /api/groups/1/most-active-member/ 403 [0.02, 127.0.0.1:62706][0m
+INFO 2025-03-16 15:20:46,123 runserver 5512 5980 [mHTTP GET /api/groups/1/members/ 200 [0.03, 127.0.0.1:62706][0m
+INFO 2025-03-16 15:21:11,413 runserver 5512 5980 [mHTTP POST /api/accounts/login/ 200 [1.06, 127.0.0.1:62706][0m
+INFO 2025-03-16 15:21:30,258 runserver 5512 5980 [mHTTP GET /api/groups/1/members/ 200 [0.01, 127.0.0.1:62706][0m
+INFO 2025-03-16 15:21:44,117 runserver 5512 5980 [mHTTP GET /api/groups/1/most-active-member/ 200 [0.02, 127.0.0.1:62706][0m
+WARNING 2025-03-16 15:22:36,807 log 5512 11584 Not Found: /api/posts/user/sonali/posts/
+WARNING 2025-03-16 15:22:36,809 runserver 5512 5980 [33mHTTP GET /api/posts/user/sonali/posts/ 404 [0.02, 127.0.0.1:62706][0m
+INFO 2025-03-16 15:22:44,576 runserver 5512 5980 [mHTTP GET /api/posts/user/for/posts/ 200 [0.03, 127.0.0.1:62706][0m
