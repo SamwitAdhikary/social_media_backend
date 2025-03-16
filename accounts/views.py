@@ -7,6 +7,12 @@ import qrcode.constants
 from rest_framework import generics, status, permissions, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from connections.serializers import ConnectionSerializer
+from notifications.models import Notification
+from notifications.serializer import NotificationSerializer
+from posts.models import Post, SavedPost
+from posts.serializers import PostSerializer, SavedPostSerializer
 from .serializers import ChangePasswordSerializer, RegisterSerializer, LoginSerializer, ProfileSerializer, UserSerializer, BlockedUserSerializer, PasswordResetRequestSerializer, PasswordResetConfirmSerializer
 from .models import User, Profile, BlockedUser
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -16,6 +22,8 @@ from django.core.files.base import ContentFile
 from django.core.mail import send_mail
 from django.conf import settings
 from rest_framework.exceptions import PermissionDenied, NotFound
+from connections.models import Connection
+from django.db import transaction
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -497,3 +505,92 @@ class Enable2FAView(APIView):
             "otp_auth_url": otp_auth_url,
             "qr_code_link": qr_code_url
         }, status=status.HTTP_200_OK)
+
+class AccountDeletionView(generics.DestroyAPIView):
+    """
+    Deletes the authenticated user's account along with all related data:
+    - Profile, Posts, Saved Posts, Connections (sent and received)
+    - Notifications, etc.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = User.objects.all()
+
+    def get_object(self):
+        # Ensure only the authenticated user can delete their account.
+        return self.request.user
+    
+    @transaction.atomic
+    def delete(self, request, *args, **kwargs):
+        user = self.get_object()
+
+        # Delete related data explicitly if not already cascading:
+        if hasattr(user, 'profile'):
+            user.profile.delete()
+
+        # Delete all posts (and cascade will handle media, reactions, comments, etc.)
+        user.posts.all().delete()
+
+        # Delete saved posts (if not cascading)
+        if hasattr(user, 'saved_posts'):
+            user.saved_posts.all().delete()
+
+        # Delete connections (both sent and received)
+        user.sent_requests.all().delete()
+        user.received_requests.all().delete()
+
+        # Delete notifications (assuming Notifications has on_delete=models.CASCADE for user, but do it explicitly)
+        user.notifications.all().delete()
+
+        # Finally, delete the user account
+        self.perform_destroy(user)
+        return Response({"message": "Your account and all related data have been deleted."}, status=status.HTTP_200_OK)
+    
+class DownloadUserDataView(APIView):
+    """
+    Collects and returns all data for the authenticated user:
+    - Profile details
+    - Posts created by the user
+    - Connections (both sent and received)
+    - Notifications
+    - Saved Posts
+    The data is returned as a downloadable JSON file.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+
+        # Profile Data (Assumes ProfileSerializer is used to serialize the user's profile)
+        profile_data = ProfileSerializer(user.profile, context={'request': request}).data
+
+        # Posts created by the user
+        posts = Post.objects.filter(user=user).order_by('-created_at')
+        posts_data = PostSerializer(posts, many=True, context={'request': request}).data
+
+        # Connections: both sent and received friend/follow requests.
+        connections = Connection.objects.filter(Q(requester=user) | Q(target=user))
+        connections_data = ConnectionSerializer(connections, many=True, context={'request': request}).data
+
+        # Notification for the user
+        notifications = Notification.objects.filter(user=user).order_by('-created_at')
+        notifications_data = NotificationSerializer(notifications, many=True, context={'request': request}).data
+
+        # Saved posts
+        saved_posts = SavedPost.objects.filter(user=user)
+        saved_posts_data = SavedPostSerializer(saved_posts, many=True, context={"request":request}).data
+
+        # Aggredate all data
+        data = {
+            "profile": profile_data,
+            "posts": posts_data, 
+            "connections": connections_data,
+            "notifications": notifications_data,
+            "saved_posts": saved_posts_data,
+        }
+
+        # Return as a downloadable JSON file with proper headers
+        response = Response(data, status=status.HTTP_200_OK)
+        response['Content-Disposition'] = 'attachment; filename="user_data.json"'
+        return response

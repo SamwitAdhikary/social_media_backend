@@ -8462,3 +8462,8 @@ WARNING 2025-03-16 20:04:19,015 log 7 140477844158144 Not Found: /favicon.ico
 WARNING 2025-03-16 20:04:19,018 runserver 7 140477951973056 HTTP GET /favicon.ico 404 [0.04, 172.18.0.1:50438]
 INFO 2025-03-16 21:05:01,960 autoreload 7 140004393257856 Watching for file changes with StatReloader
 INFO 2025-03-17 01:18:59,458 autoreload 4000 13632 Watching for file changes with StatReloader
+INFO 2025-03-17 01:56:46,522 autoreload 7 140715665275776 Watching for file changes with StatReloader
+INFO 2025-03-17 01:58:25,491 runserver 7 140715606046400 HTTP POST /api/accounts/login/ 200 [1.50, 172.18.0.1:35190]
+INFO 2025-03-17 01:59:17,518 autoreload 13684 2444 Watching for file changes with StatReloader
+INFO 2025-03-17 01:59:28,080 runserver 13684 16648 [mHTTP POST /api/accounts/login/ 200 [2.23, 127.0.0.1:52407][0m
+INFO 2025-03-17 01:59:50,667 runserver 13684 16648 [mHTTP GET /api/accounts/download-data/ 200 [0.25, 127.0.0.1:52424][0m

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RegisterView, LoginView, ProfileDetailView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView
+from .views import RegisterView, LoginView, ProfileDetailView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView
 
 # Accounts Application URL Configuration
 # Defines endpoints for user management and authentication features
@@ -52,6 +52,10 @@ urlpatterns = [
      # ============ Security Features ================
     path('enable-2fa/', Enable2FAView.as_view(), name="enable-2fa"),
      # POST: Enables Two-Factor Authentication (generates QR code)
+
+     path('delete-account/', AccountDeletionView.as_view(), name="delete-account"),
+
+     path('download-data/', DownloadUserDataView.as_view(), name='download-user-data'),
 ]
 
 # URL Pattern Notes:
