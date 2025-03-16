@@ -8454,3 +8454,11 @@ INFO 2025-03-16 16:50:31,083 runserver 9756 7132 [mHTTP GET /api/posts/6/top-fa
 INFO 2025-03-16 16:50:37,860 runserver 9756 7132 [mHTTP GET /api/posts/50/top-fan/ 200 [0.02, 127.0.0.1:53824][0m
 INFO 2025-03-16 16:50:48,416 runserver 9756 7132 [mHTTP GET /api/posts/1/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
 INFO 2025-03-16 16:50:53,068 runserver 9756 7132 [mHTTP GET /api/posts/2/top-fan/ 200 [0.01, 127.0.0.1:53824][0m
+INFO 2025-03-16 19:56:27,717 autoreload 7 140118030793600 Watching for file changes with StatReloader
+INFO 2025-03-16 20:01:36,262 autoreload 7 140478011202432 Watching for file changes with StatReloader
+WARNING 2025-03-16 20:04:17,588 log 7 140477844158144 Not Found: /
+WARNING 2025-03-16 20:04:17,593 runserver 7 140477951973056 HTTP GET / 404 [0.08, 172.18.0.1:50438]
+WARNING 2025-03-16 20:04:19,015 log 7 140477844158144 Not Found: /favicon.ico
+WARNING 2025-03-16 20:04:19,018 runserver 7 140477951973056 HTTP GET /favicon.ico 404 [0.04, 172.18.0.1:50438]
+INFO 2025-03-16 21:05:01,960 autoreload 7 140004393257856 Watching for file changes with StatReloader
+INFO 2025-03-17 01:18:59,458 autoreload 4000 13632 Watching for file changes with StatReloader
