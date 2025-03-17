@@ -8718,3 +8718,232 @@ INFO 2025-03-17 18:31:24,864 runserver 15880 3756 [mHTTP GET /api/posts/user/2/
 INFO 2025-03-17 18:31:40,355 autoreload 15880 4712 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
 INFO 2025-03-17 18:31:43,127 autoreload 12968 8508 Watching for file changes with StatReloader
 INFO 2025-03-17 18:31:46,439 runserver 12968 13236 [mHTTP GET /api/posts/user/2/shared/ 200 [0.11, 127.0.0.1:58259][0m
+INFO 2025-03-17 18:55:21,105 autoreload 8320 12756 Watching for file changes with StatReloader
+INFO 2025-03-17 18:55:27,816 runserver 8320 17184 [mHTTP GET /api/posts/user/2/shared/ 200 [0.10, 127.0.0.1:55259][0m
+INFO 2025-03-17 18:59:52,248 autoreload 8320 12756 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-17 18:59:56,069 autoreload 6548 15564 Watching for file changes with StatReloader
+INFO 2025-03-17 19:10:29,167 autoreload 16532 16124 Watching for file changes with StatReloader
+INFO 2025-03-17 19:10:56,091 runserver 16532 8504 [mHTTP POST /api/accounts/login/ 200 [2.73, 127.0.0.1:56250][0m
+ERROR 2025-03-17 19:12:24,264 log 16532 5852 Internal Server Error: /api/posts/shared/2/react/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: posts_sharedpostreaction.shared_post_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 507, in post
+    serializer.save(user=request.user)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: posts_sharedpostreaction.shared_post_id
+ERROR 2025-03-17 19:12:24,862 runserver 16532 8504 [35;1mHTTP POST /api/posts/shared/2/react/ 500 [1.08, 127.0.0.1:56283][0m
+INFO 2025-03-17 19:13:12,408 runserver 16532 8504 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.59, 127.0.0.1:56283][0m
+ERROR 2025-03-17 19:13:47,617 log 16532 5852 Internal Server Error: /api/posts/shared/2/react/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: posts_sharedpostreaction.shared_post_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 507, in post
+    serializer.save(user=request.user)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: posts_sharedpostreaction.shared_post_id
+ERROR 2025-03-17 19:13:47,675 runserver 16532 8504 [35;1mHTTP POST /api/posts/shared/2/react/ 500 [0.30, 127.0.0.1:56283][0m
+INFO 2025-03-17 19:15:20,311 autoreload 16532 16124 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:15:26,672 autoreload 1332 17860 Watching for file changes with StatReloader
+INFO 2025-03-17 19:15:30,194 autoreload 1332 17860 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:15:33,773 autoreload 14768 18016 Watching for file changes with StatReloader
+INFO 2025-03-17 19:15:39,687 autoreload 14768 18016 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:15:43,417 autoreload 12236 11760 Watching for file changes with StatReloader
+INFO 2025-03-17 19:15:48,432 autoreload 12236 11760 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:15:53,022 autoreload 8508 15400 Watching for file changes with StatReloader
+INFO 2025-03-17 19:16:07,592 autoreload 8508 15400 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:16:10,971 autoreload 5976 10432 Watching for file changes with StatReloader
+INFO 2025-03-17 19:16:17,898 runserver 5976 16824 [mHTTP POST /api/posts/shared/2/react/ 201 [0.09, 127.0.0.1:56488][0m
+INFO 2025-03-17 19:16:37,077 runserver 5976 16824 [mHTTP GET /api/posts/user/2/shared/ 200 [0.10, 127.0.0.1:56488][0m
+INFO 2025-03-17 19:17:23,207 autoreload 5976 10432 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:17:26,448 autoreload 10968 2660 Watching for file changes with StatReloader
+INFO 2025-03-17 19:17:31,140 autoreload 10968 2660 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 19:17:34,532 autoreload 2944 11952 Watching for file changes with StatReloader
+INFO 2025-03-17 19:18:07,377 runserver 2944 17472 [mHTTP POST /api/posts/shared/2/comment/ 201 [0.08, 127.0.0.1:56565][0m
+INFO 2025-03-17 19:18:30,777 runserver 2944 17472 [mHTTP GET /api/posts/user/2/shared/ 200 [0.11, 127.0.0.1:56565][0m

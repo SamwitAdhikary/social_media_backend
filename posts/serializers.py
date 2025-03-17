@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost, SharedPost
+from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost, SharedPost, SharedPostComment, SharedPostReaction
 from accounts.serializers import UserSerializer
 
 class PostMediaSerializer(serializers.ModelSerializer):
@@ -128,13 +128,35 @@ class PostWithoutHashtag(PostSerializer):
     class Meta(PostSerializer.Meta):
         fields = [field for field in PostSerializer.Meta.fields if field not in ['hashtags', 'hashtags_display']]
     
+class SharedPostReactionSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    shared_post = serializers.PrimaryKeyRelatedField(queryset=SharedPost.objects.all(), write_only=True)
+
+    class Meta:
+        model = SharedPostReaction
+        fields = ['id', 'user', 'shared_post', 'type', 'created_at']
+
+class SharedPostCommentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    shared_post = serializers.PrimaryKeyRelatedField(queryset=SharedPost.objects.all(), write_only=True)
+
+    class Meta:
+        model = SharedPostComment
+        fields = ['id', 'user', 'content', 'shared_post', 'created_at', 'updated_at']
+
+
 class SharedPostSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     original_post = PostSerializer(read_only=True)
+    reactions = SharedPostReactionSerializer(many=True, read_only=True)
+    comments = SharedPostCommentSerializer(many=True, read_only=True)
+
+    comments_count = serializers.IntegerField(source='comments.count', read_only=True)
+    reactions_count = serializers.IntegerField(source='reactions.count', read_only=True)
 
     class Meta:
         model = SharedPost
-        fields = ['id', 'user', 'original_post', 'share_text', 'created_at']
+        fields = ['id', 'user', 'original_post', 'share_text', 'reactions', 'comments', 'reactions_count', 'comments_count', 'created_at']
 
 class SavedPostSerializer(serializers.ModelSerializer):
     """

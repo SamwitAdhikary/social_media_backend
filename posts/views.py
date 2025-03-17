@@ -10,7 +10,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser, User
 from accounts.serializers import UserSerializer
-from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostSerializer
+from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostCommentSerializer, SharedPostReactionSerializer, SharedPostSerializer
 from .models import Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost
 from django.utils import timezone
 from django.db.models import Q, Count, Case, When, Value, F, IntegerField
@@ -486,3 +486,42 @@ class UserSharedPostsView(generics.ListAPIView):
     def get_queryset(self):
         user_id = self.kwargs.get("user_id")
         return SharedPost.objects.filter(user__id=user_id).order_by('-created_at')
+
+class SharedPostReactionView(APIView):
+    """
+    Handles reactions for shared posts.
+    POST: Creates a reaction for a given shared post.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, shared_post_id):
+        # Ensure the shared post exists.
+        shared_post = get_object_or_404(SharedPost, id=shared_post_id)
+        # Prepare the data by including the shared_post ID.
+        data = request.data.copy()
+        data['shared_post'] = shared_post_id
+
+        serializer = SharedPostReactionSerializer(data=data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+class SharedPostCommentView(APIView):
+    """
+    Handles comments on shared posts.
+    POST: Create a new comment for a shared post.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, shared_post_id):
+        # Ensure the shared post exists.
+        shared_post = get_object_or_404(SharedPost, id=shared_post_id)
+        # Prepare data: add the shared_post ID to the data.
+        data = request.data.copy()
+        data['shared_post'] = shared_post_id
+        serializer = SharedPostCommentSerializer(data=data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
