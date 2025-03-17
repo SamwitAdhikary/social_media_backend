@@ -112,3 +112,23 @@ class SavedPost(models.Model):
 
     def __str__(self):
         return f"{self.user.username} saved Post #{self.post.id}"
+    
+class SharedPost(models.Model):
+    """
+    Represents a shared (reposted) post.
+    - user: The user who is sharing the post.
+    - original_post: The post being shared.
+    - share_text: Optional text/comment added by the sharing user.
+    - created_at: Timestamp when the share was created
+    """
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shared_posts')
+    original_post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='shared_by')
+    share_text = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.user.username} shared Post #{self.original_post.id}"

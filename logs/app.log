@@ -8467,3 +8467,245 @@ INFO 2025-03-17 01:58:25,491 runserver 7 140715606046400 HTTP POST /api/accounts
 INFO 2025-03-17 01:59:17,518 autoreload 13684 2444 Watching for file changes with StatReloader
 INFO 2025-03-17 01:59:28,080 runserver 13684 16648 [mHTTP POST /api/accounts/login/ 200 [2.23, 127.0.0.1:52407][0m
 INFO 2025-03-17 01:59:50,667 runserver 13684 16648 [mHTTP GET /api/accounts/download-data/ 200 [0.25, 127.0.0.1:52424][0m
+INFO 2025-03-17 02:05:06,319 autoreload 7 140604573772672 Watching for file changes with StatReloader
+INFO 2025-03-17 02:05:11,983 runserver 7 140604514543296 HTTP GET /api/accounts/download-data/ 200 [0.30, 172.18.0.1:45372]
+INFO 2025-03-17 17:36:39,489 autoreload 7 139865003420544 Watching for file changes with StatReloader
+INFO 2025-03-17 17:37:22,219 runserver 7 139864944191168 HTTP POST /api/accounts/login/ 200 [1.64, 172.18.0.1:43838]
+INFO 2025-03-17 17:37:55,864 runserver 7 139864944191168 HTTP GET /api/posts/feed/?sort=chronological 200 [1.26, 172.18.0.1:43838]
+ERROR 2025-03-17 17:40:13,767 log 7 139864904816320 Internal Server Error: /api/posts/36/share
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/posts/36/share/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-17 17:40:13,773 runserver 7 139864944191168 HTTP POST /api/posts/36/share 500 [0.07, 172.18.0.1:48502]
+INFO 2025-03-17 17:40:26,078 runserver 7 139864944191168 HTTP POST /api/posts/36/share/ 201 [0.09, 172.18.0.1:48502]
+INFO 2025-03-17 17:40:53,417 runserver 7 139864944191168 HTTP GET /api/posts/feed/?sort=chronological 200 [0.60, 172.18.0.1:48502]
+INFO 2025-03-17 17:42:00,492 runserver 7 139864944191168 HTTP GET /api/posts/user/2/shared/ 200 [0.05, 172.18.0.1:45510]
+INFO 2025-03-17 17:42:33,214 runserver 7 139864944191168 HTTP POST /api/posts/36/share/ 201 [0.08, 172.18.0.1:45510]
+INFO 2025-03-17 17:55:52,687 autoreload 7 139865003420544 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:55:55,397 autoreload 17 140453213825920 Watching for file changes with StatReloader
+INFO 2025-03-17 17:56:02,852 autoreload 17 140453213825920 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:56:04,647 autoreload 19 140009658628992 Watching for file changes with StatReloader
+INFO 2025-03-17 17:56:09,678 autoreload 19 140009658628992 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:56:11,813 autoreload 21 139900550331264 Watching for file changes with StatReloader
+INFO 2025-03-17 17:56:27,658 autoreload 21 139900550331264 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:56:30,262 autoreload 23 140090578402176 Watching for file changes with StatReloader
+INFO 2025-03-17 17:56:44,733 autoreload 23 140090578402176 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:56:47,146 autoreload 25 139849279380352 Watching for file changes with StatReloader
+INFO 2025-03-17 17:56:54,990 autoreload 25 139849279380352 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:56:59,318 autoreload 27 139883840760704 Watching for file changes with StatReloader
+INFO 2025-03-17 17:57:06,034 autoreload 27 139883840760704 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:57:08,009 autoreload 29 140020972522368 Watching for file changes with StatReloader
+INFO 2025-03-17 17:57:19,854 autoreload 29 140020972522368 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:57:26,368 autoreload 31 140463731882880 Watching for file changes with StatReloader
+INFO 2025-03-17 17:57:34,398 autoreload 31 140463731882880 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:57:40,267 autoreload 33 139803746859904 Watching for file changes with StatReloader
+INFO 2025-03-17 17:57:51,240 autoreload 33 139803746859904 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:57:54,931 autoreload 35 140696507411328 Watching for file changes with StatReloader
+INFO 2025-03-17 17:57:59,624 autoreload 35 140696507411328 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:58:01,423 autoreload 37 139945140296576 Watching for file changes with StatReloader
+INFO 2025-03-17 17:58:07,847 autoreload 37 139945140296576 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:58:09,663 autoreload 39 140390661041024 Watching for file changes with StatReloader
+INFO 2025-03-17 17:58:18,252 autoreload 39 140390661041024 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:58:21,106 autoreload 41 139841684073344 Watching for file changes with StatReloader
+INFO 2025-03-17 17:58:34,596 autoreload 41 139841684073344 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:58:39,041 autoreload 43 139792312220544 Watching for file changes with StatReloader
+INFO 2025-03-17 17:58:46,262 autoreload 43 139792312220544 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:58:50,887 autoreload 45 139691262299008 Watching for file changes with StatReloader
+INFO 2025-03-17 17:58:55,798 autoreload 45 139691262299008 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:59:00,469 autoreload 47 139962886130560 Watching for file changes with StatReloader
+INFO 2025-03-17 17:59:06,645 autoreload 47 139962886130560 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:59:09,136 autoreload 49 140263571524480 Watching for file changes with StatReloader
+INFO 2025-03-17 17:59:15,351 autoreload 49 140263571524480 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:59:20,643 autoreload 51 140011954662272 Watching for file changes with StatReloader
+INFO 2025-03-17 17:59:27,484 autoreload 51 140011954662272 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:59:32,904 autoreload 53 139625512897408 Watching for file changes with StatReloader
+INFO 2025-03-17 17:59:44,864 autoreload 53 139625512897408 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 17:59:50,019 autoreload 55 139882732968832 Watching for file changes with StatReloader
+INFO 2025-03-17 17:59:56,785 autoreload 55 139882732968832 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:00:01,295 autoreload 57 139943908432768 Watching for file changes with StatReloader
+INFO 2025-03-17 18:00:11,711 autoreload 57 139943908432768 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:00:16,016 autoreload 59 139748983929728 Watching for file changes with StatReloader
+INFO 2025-03-17 18:00:22,761 autoreload 59 139748983929728 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:00:26,313 autoreload 61 140182159264640 Watching for file changes with StatReloader
+INFO 2025-03-17 18:00:42,520 autoreload 61 140182159264640 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:00:47,413 autoreload 63 139868285930368 Watching for file changes with StatReloader
+INFO 2025-03-17 18:01:02,210 autoreload 63 139868285930368 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:01:06,409 autoreload 65 140350531046272 Watching for file changes with StatReloader
+INFO 2025-03-17 18:01:11,476 autoreload 65 140350531046272 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:01:17,416 autoreload 67 139867587455872 Watching for file changes with StatReloader
+INFO 2025-03-17 18:01:22,854 autoreload 67 139867587455872 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:01:28,156 autoreload 69 140341921602432 Watching for file changes with StatReloader
+INFO 2025-03-17 18:01:34,017 autoreload 69 140341921602432 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:01:39,839 autoreload 71 140277124782976 Watching for file changes with StatReloader
+INFO 2025-03-17 18:01:45,734 autoreload 71 140277124782976 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:01:47,712 autoreload 73 140049780312960 Watching for file changes with StatReloader
+INFO 2025-03-17 18:02:17,019 autoreload 73 140049780312960 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:02:18,739 autoreload 75 140291713092480 Watching for file changes with StatReloader
+INFO 2025-03-17 18:02:28,980 autoreload 75 140291713092480 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:02:30,972 autoreload 77 139929857088384 Watching for file changes with StatReloader
+INFO 2025-03-17 18:02:39,586 autoreload 77 139929857088384 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:02:41,932 autoreload 79 140218602707840 Watching for file changes with StatReloader
+INFO 2025-03-17 18:02:46,050 autoreload 79 140218602707840 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:02:50,190 autoreload 81 139665138953088 Watching for file changes with StatReloader
+INFO 2025-03-17 18:03:05,767 autoreload 81 139665138953088 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:03:07,820 autoreload 83 140683350399872 Watching for file changes with StatReloader
+INFO 2025-03-17 18:03:13,218 autoreload 83 140683350399872 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:03:14,847 autoreload 85 139767001295744 Watching for file changes with StatReloader
+INFO 2025-03-17 18:03:21,283 autoreload 85 139767001295744 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:03:27,575 autoreload 87 140254846557056 Watching for file changes with StatReloader
+INFO 2025-03-17 18:03:33,808 autoreload 87 140254846557056 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:03:38,352 autoreload 89 139958732180352 Watching for file changes with StatReloader
+INFO 2025-03-17 18:03:58,560 autoreload 89 139958732180352 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:04:01,048 autoreload 91 140243459951488 Watching for file changes with StatReloader
+INFO 2025-03-17 18:04:04,956 autoreload 91 140243459951488 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:04:07,566 autoreload 93 140606766263168 Watching for file changes with StatReloader
+INFO 2025-03-17 18:04:25,524 autoreload 93 140606766263168 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:04:27,828 autoreload 95 139913231965056 Watching for file changes with StatReloader
+INFO 2025-03-17 18:04:34,362 autoreload 95 139913231965056 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:04:39,447 autoreload 97 139978897042304 Watching for file changes with StatReloader
+INFO 2025-03-17 18:05:49,957 autoreload 97 139978897042304 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:05:54,504 autoreload 99 140147985095552 Watching for file changes with StatReloader
+INFO 2025-03-17 18:05:57,053 autoreload 99 140147985095552 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:06:01,421 autoreload 101 140529430580096 Watching for file changes with StatReloader
+INFO 2025-03-17 18:06:12,410 autoreload 101 140529430580096 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:06:14,702 autoreload 103 139783711181696 Watching for file changes with StatReloader
+INFO 2025-03-17 18:06:26,504 autoreload 103 139783711181696 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:06:32,991 autoreload 105 139872129379200 Watching for file changes with StatReloader
+INFO 2025-03-17 18:06:38,671 autoreload 105 139872129379200 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:06:44,477 autoreload 107 140581996698496 Watching for file changes with StatReloader
+INFO 2025-03-17 18:06:48,724 autoreload 107 140581996698496 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:06:54,715 autoreload 109 140046840851328 Watching for file changes with StatReloader
+INFO 2025-03-17 18:07:01,582 autoreload 109 140046840851328 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:07:05,367 autoreload 111 140139095587712 Watching for file changes with StatReloader
+INFO 2025-03-17 18:07:12,863 autoreload 111 140139095587712 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:07:18,613 autoreload 113 139658872232832 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:01,716 autoreload 113 139658872232832 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:03,608 autoreload 115 139817401207680 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:06,307 autoreload 115 139817401207680 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:10,340 autoreload 117 140038955469696 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:13,893 autoreload 117 140038955469696 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:17,550 autoreload 119 139959312096128 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:26,290 autoreload 119 139959312096128 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:30,092 autoreload 121 140124461812608 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:36,071 autoreload 121 140124461812608 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:40,029 autoreload 123 140417901542272 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:43,795 autoreload 123 140417901542272 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:45,663 autoreload 125 140101319965568 Watching for file changes with StatReloader
+INFO 2025-03-17 18:09:56,042 autoreload 125 140101319965568 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:09:58,153 autoreload 127 140122238393216 Watching for file changes with StatReloader
+INFO 2025-03-17 18:10:02,409 autoreload 127 140122238393216 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:10:06,245 autoreload 129 140481997355904 Watching for file changes with StatReloader
+INFO 2025-03-17 18:10:14,845 autoreload 129 140481997355904 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:10:25,563 autoreload 131 140394419018624 Watching for file changes with StatReloader
+INFO 2025-03-17 18:11:59,581 autoreload 131 140394419018624 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:12:03,690 autoreload 133 140620846005120 Watching for file changes with StatReloader
+INFO 2025-03-17 18:12:41,542 autoreload 133 140620846005120 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:12:45,548 autoreload 135 140648453843840 Watching for file changes with StatReloader
+INFO 2025-03-17 18:12:49,510 autoreload 135 140648453843840 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:12:53,216 autoreload 137 140008807250816 Watching for file changes with StatReloader
+INFO 2025-03-17 18:12:59,528 autoreload 137 140008807250816 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:13:03,501 autoreload 139 140467979479936 Watching for file changes with StatReloader
+INFO 2025-03-17 18:13:06,700 autoreload 139 140467979479936 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:13:09,690 autoreload 141 140448737393536 Watching for file changes with StatReloader
+INFO 2025-03-17 18:13:17,373 autoreload 141 140448737393536 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:13:24,088 autoreload 143 140222012758912 Watching for file changes with StatReloader
+INFO 2025-03-17 18:13:31,227 autoreload 143 140222012758912 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:13:36,240 autoreload 145 140518133025664 Watching for file changes with StatReloader
+INFO 2025-03-17 18:13:46,105 autoreload 145 140518133025664 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:13:52,819 autoreload 147 140461862775680 Watching for file changes with StatReloader
+INFO 2025-03-17 18:13:59,316 autoreload 147 140461862775680 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:01,207 autoreload 149 140327388765056 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:06,805 autoreload 149 140327388765056 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:11,775 autoreload 151 140557962615680 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:15,522 autoreload 151 140557962615680 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:20,072 autoreload 153 140429336906624 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:24,849 autoreload 153 140429336906624 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:27,014 autoreload 155 139845542710144 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:31,563 autoreload 155 139845542710144 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:36,551 autoreload 157 140107932019584 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:41,907 autoreload 157 140107932019584 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:43,690 autoreload 159 139923874245504 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:50,790 autoreload 159 139923874245504 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:14:54,339 autoreload 161 140348195773312 Watching for file changes with StatReloader
+INFO 2025-03-17 18:14:58,993 autoreload 161 140348195773312 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:15:01,837 autoreload 163 139897481976704 Watching for file changes with StatReloader
+INFO 2025-03-17 18:15:10,482 autoreload 163 139897481976704 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:15:14,767 autoreload 165 139771034880896 Watching for file changes with StatReloader
+INFO 2025-03-17 18:15:22,890 autoreload 165 139771034880896 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:15:26,991 autoreload 167 140546036374400 Watching for file changes with StatReloader
+INFO 2025-03-17 18:15:32,181 autoreload 167 140546036374400 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:15:39,171 autoreload 169 140359690619776 Watching for file changes with StatReloader
+INFO 2025-03-17 18:15:45,659 autoreload 169 140359690619776 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:15:52,425 autoreload 171 139950314486656 Watching for file changes with StatReloader
+INFO 2025-03-17 18:15:59,214 autoreload 171 139950314486656 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:16:04,209 autoreload 173 140517425687424 Watching for file changes with StatReloader
+INFO 2025-03-17 18:16:16,677 autoreload 173 140517425687424 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:16:21,087 autoreload 175 139689948191616 Watching for file changes with StatReloader
+INFO 2025-03-17 18:16:31,928 autoreload 175 139689948191616 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:16:35,752 autoreload 177 140281843891072 Watching for file changes with StatReloader
+INFO 2025-03-17 18:16:41,691 autoreload 177 140281843891072 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:16:48,059 autoreload 179 139687902428032 Watching for file changes with StatReloader
+INFO 2025-03-17 18:16:55,322 autoreload 179 139687902428032 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:16:59,706 autoreload 181 140121610836864 Watching for file changes with StatReloader
+INFO 2025-03-17 18:17:08,944 autoreload 181 140121610836864 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:17:14,097 autoreload 183 139825264581504 Watching for file changes with StatReloader
+INFO 2025-03-17 18:17:19,933 autoreload 183 139825264581504 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:17:24,217 autoreload 185 140119954660224 Watching for file changes with StatReloader
+INFO 2025-03-17 18:17:30,770 autoreload 185 140119954660224 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:17:34,934 autoreload 187 139974666247040 Watching for file changes with StatReloader
+INFO 2025-03-17 18:17:41,305 autoreload 187 139974666247040 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:17:44,945 autoreload 189 140325079006080 Watching for file changes with StatReloader
+INFO 2025-03-17 18:17:53,791 autoreload 189 140325079006080 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:17:59,820 autoreload 191 139830313991040 Watching for file changes with StatReloader
+INFO 2025-03-17 18:18:11,425 autoreload 191 139830313991040 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:18:16,878 autoreload 193 140613855845248 Watching for file changes with StatReloader
+INFO 2025-03-17 18:18:24,988 autoreload 193 140613855845248 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:18:32,120 autoreload 195 139688833895296 Watching for file changes with StatReloader
+INFO 2025-03-17 18:18:39,186 autoreload 195 139688833895296 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:18:46,371 autoreload 197 139922765384576 Watching for file changes with StatReloader
+INFO 2025-03-17 18:18:54,609 autoreload 197 139922765384576 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:19:00,580 autoreload 199 139883324410752 Watching for file changes with StatReloader
+INFO 2025-03-17 18:19:05,688 autoreload 199 139883324410752 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:19:11,899 autoreload 201 140194312698752 Watching for file changes with StatReloader
+INFO 2025-03-17 18:19:17,265 autoreload 201 140194312698752 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:19:22,537 autoreload 203 140663536900992 Watching for file changes with StatReloader
+INFO 2025-03-17 18:19:30,100 autoreload 203 140663536900992 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:19:37,176 autoreload 205 140456444537728 Watching for file changes with StatReloader
+INFO 2025-03-17 18:19:43,583 autoreload 205 140456444537728 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:19:49,959 autoreload 207 139828296489856 Watching for file changes with StatReloader
+INFO 2025-03-17 18:20:00,263 autoreload 207 139828296489856 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:20:04,971 autoreload 209 140625150573440 Watching for file changes with StatReloader
+INFO 2025-03-17 18:20:09,897 autoreload 209 140625150573440 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:20:13,836 autoreload 211 140402216733568 Watching for file changes with StatReloader
+INFO 2025-03-17 18:20:18,957 autoreload 211 140402216733568 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:20:23,161 autoreload 213 139622700772224 Watching for file changes with StatReloader
+INFO 2025-03-17 18:20:28,280 autoreload 213 139622700772224 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:20:31,994 autoreload 215 139820124564352 Watching for file changes with StatReloader
+INFO 2025-03-17 18:20:40,208 autoreload 215 139820124564352 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:20:45,941 autoreload 217 139993901493120 Watching for file changes with StatReloader
+INFO 2025-03-17 18:20:53,499 autoreload 217 139993901493120 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:20:59,521 autoreload 219 139686193781632 Watching for file changes with StatReloader
+INFO 2025-03-17 18:21:04,503 autoreload 219 139686193781632 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:21:09,668 autoreload 221 140237178289024 Watching for file changes with StatReloader
+INFO 2025-03-17 18:21:20,041 autoreload 221 140237178289024 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:21:25,815 autoreload 223 140660477758336 Watching for file changes with StatReloader
+INFO 2025-03-17 18:21:32,149 autoreload 223 140660477758336 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:21:37,463 autoreload 225 139942279076736 Watching for file changes with StatReloader
+INFO 2025-03-17 18:21:44,429 autoreload 225 139942279076736 /app/posts/views.py changed, reloading.
+INFO 2025-03-17 18:21:49,418 autoreload 227 140699647134592 Watching for file changes with StatReloader
+INFO 2025-03-17 18:22:10,209 runserver 227 140699587905216 HTTP GET /api/posts/feed/?sort=chronological 200 [1.38, 172.18.0.1:54174]

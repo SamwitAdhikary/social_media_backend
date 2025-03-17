@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PostCreateView, FeedView, ReactionView, CommentView, HashtagSearchView, ToggleCommentVisibilityView, SavePostView, UnsavePostView, SavedPostListView, PostDeleteView, UserPostListView, TopFanView
+from .views import PostCreateView, FeedView, ReactionView, CommentView, HashtagSearchView, SharePostView, ToggleCommentVisibilityView, SavePostView, UnsavePostView, SavedPostListView, PostDeleteView, UserPostListView, TopFanView, UserSharedPostsView
 
 # Posts Application URL Configuration
 # Handles content creation, interaction, and discovery
@@ -42,6 +42,10 @@ urlpatterns = [
     # GET: User's posts
 
     path('<int:post_id>/top-fan/', TopFanView.as_view(), name='top-fan'),
+
+    path('<int:post_id>/share/', SharePostView.as_view(), name='share-post'),
+
+    path('user/<int:user_id>/shared/', UserSharedPostsView.as_view(), name='user-shared-posts'),
 ]
 
 # URL Pattern Notes:

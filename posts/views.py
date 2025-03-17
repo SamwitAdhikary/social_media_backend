@@ -10,8 +10,8 @@ from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser, User
 from accounts.serializers import UserSerializer
-from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer
-from .models import Post, Hashtag, PostMedia, Reaction, SavedPost
+from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostSerializer
+from .models import Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost
 from django.utils import timezone
 from django.db.models import Q, Count, Case, When, Value, F, IntegerField
 from posts.models import Comment
@@ -87,7 +87,7 @@ class PostCreateView(generics.CreateAPIView):
             except Exception as e:
                 logger.error(f"Error uploading file {file.name}: {e}")
 
-class FeedView(generics.ListAPIView):
+class FeedView(APIView):
     """
     Personalized post feed:
     - Combines privacy settings and social connections
@@ -95,53 +95,76 @@ class FeedView(generics.ListAPIView):
     - Blocked content filtering
     """
 
-    serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        """Complex query logic for personalized feed"""
-        user = self.request.user
+    def get(self, request, *args, **kwargs):
+        user = request.user
 
-        friends_requester = Connection.objects.filter(requester=user, status__in='accepted', connection_type='friend').values_list('target', flat=True)
+        # Retrieve friend IDs for filtering posts.
+        friends_requester = Connection.objects.filter(
+            requester=user, status='accepted', connection_type='friend'
+        ).values_list('target', flat=True)
 
-        friends_target = Connection.objects.filter(target=user, status='accepted', connection_type='friend').values_list('requester', flat=True)
+        friends_target = Connection.objects.filter(
+            target=user, status='accepted', connection_type="friend"
+        ).values_list('requester', flat=True)
 
         friends_ids = list(set(list(friends_requester) + list(friends_target)))
 
-        base_qs = Post.objects.prefetch_related(
+        # Retrieve blocked user IDs.
+        blocked_users = list(BlockedUser.objects.filter(blocker=user).values_list('blocked', flat=True))
+
+        users_who_blocked_me = list(BlockedUser.objects.filter(blocked=user).values_list('blocker', flat=True))
+
+        # Retrieve regular post with filtering
+        posts_qs = Post.objects.prefetch_related(
             'comments', 'reactions', 'comments__user', 'reactions__user'
         ).filter(
             Q(visibility='public') |
             Q(user=user) |
             Q(user__in=friends_ids, visibility='friends')
+        ).exclude(
+            Q(user__in=blocked_users) | Q(user__in=users_who_blocked_me)
         )
 
-        blocked_users = BlockedUser.objects.filter(blocker=user).values_list('blocked', flat=True)
-
-        users_who_blocked_me = BlockedUser.objects.filter(blocked=user).values_list('blocker', flat=True)
-
-        base_qs = base_qs.exclude(user__in=blocked_users).exclude(user__in=users_who_blocked_me)
-
-        sort_param = self.request.query_params.get('sort', 'chronological')
-
+        # Apply sorting if requested
+        sort_param = request.query_params.get('sort', 'chronological')
         if sort_param == 'relevant':
-            qs = base_qs.annotate(
-                comment_count=Count('comments'),
-                reaction_count=Count('reactions'),
-                friend_bonus=Case(
+            posts_qs = posts_qs.annotate(
+                comment_count = Count('comments'),
+                reaction_counts = Count('reactions'),
+                friend_bonus = Case(
                     When(user__in=friends_ids, then=Value(50)),
                     default=Value(0),
                     output_field=IntegerField()
                 )
-            )
-
-            qs = qs.annotate(
-                ranking=F('friend_bonus') + F("comment_count") * 2 + F('reaction_count')
+            ).annotate(
+                ranking=F('friend_bonus') + F('comment_count') * 2 + F("reaction_count")
             ).order_by('-ranking', '-created_at')
-
-            return qs
         else:
-            return base_qs.order_by("-created_at")
+            posts_qs = posts_qs.order_by('-created_at')
+
+        posts_data = PostSerializer(posts_qs, many=True, context={'request': request}).data
+        for post in posts_data:
+            post['item_type'] = 'post'
+
+        # Retrieve shared posts.
+        shared_qs = SharedPost.objects.select_related('user', 'original_post').all().order_by('-created_at')
+
+        # Exclude shared posts if the sharer or the original post's user is blocked
+        shared_qs = shared_qs.exclude(
+            Q(user__in=blocked_users) | Q(user__in=users_who_blocked_me) | Q(original_post__user__in=blocked_users) | Q(original_post__user__in=users_who_blocked_me)
+        )
+        shared_data = SharedPostSerializer(shared_qs, many=True, context={'request': request}).data
+
+        for shared in shared_data:
+            shared['item_type'] = 'shared'
+
+        # Merge posts and shared posts, then sort by created_at descending
+        combined = posts_data + shared_data
+        combined_sorted = sorted(combined, key=lambda x: x['created_at'], reverse=True)
+
+        return Response(combined_sorted, status=status.HTTP_200_OK)
     
 class ReactionView(APIView):
     """
@@ -431,3 +454,35 @@ class TopFanView(APIView):
         data['interaction_count'] = top_fan_count
 
         return Response({"top_fan": data}, status=status.HTTP_200_OK)
+
+class SharePostView(generics.CreateAPIView):
+    """
+    Allows an authenticated user to share (repost) a post.
+    The original post is referenced, and an optional share text can be provided.
+    """
+
+    serializer_class = SharedPostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, post_id, *args, **kwargs):
+        original_post = get_object_or_404(Post, id=post_id)
+        share_text = request.data.get("share_text", "")
+        shared_post = SharedPost.objects.create(
+            user=request.user,
+            original_post=original_post,
+            share_text=share_text,
+        )
+        serializer = self.get_serializer(shared_post, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class UserSharedPostsView(generics.ListAPIView):
+    """
+    Retrieves all shared posts by a specific user.
+    """
+
+    serializer_class = SharedPostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user_id = self.kwargs.get("user_id")
+        return SharedPost.objects.filter(user__id=user_id).order_by('-created_at')

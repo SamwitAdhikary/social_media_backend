@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost
+from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost, SharedPost
 from accounts.serializers import UserSerializer
 
 class PostMediaSerializer(serializers.ModelSerializer):
@@ -128,6 +128,14 @@ class PostWithoutHashtag(PostSerializer):
     class Meta(PostSerializer.Meta):
         fields = [field for field in PostSerializer.Meta.fields if field not in ['hashtags', 'hashtags_display']]
     
+class SharedPostSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    original_post = PostWithoutHashtag(read_only=True)
+
+    class Meta:
+        model = SharedPost
+        fields = ['id', 'user', 'original_post', 'share_text', 'created_at']
+
 class SavedPostSerializer(serializers.ModelSerializer):
     """
     Serializes saved posts with full post details
