@@ -8709,3 +8709,12 @@ INFO 2025-03-17 18:21:37,463 autoreload 225 139942279076736 Watching for file ch
 INFO 2025-03-17 18:21:44,429 autoreload 225 139942279076736 /app/posts/views.py changed, reloading.
 INFO 2025-03-17 18:21:49,418 autoreload 227 140699647134592 Watching for file changes with StatReloader
 INFO 2025-03-17 18:22:10,209 runserver 227 140699587905216 HTTP GET /api/posts/feed/?sort=chronological 200 [1.38, 172.18.0.1:54174]
+INFO 2025-03-17 18:28:13,424 autoreload 1540 2100 Watching for file changes with StatReloader
+INFO 2025-03-17 18:28:20,458 runserver 1540 2768 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.20, 127.0.0.1:58179][0m
+INFO 2025-03-17 18:30:53,130 autoreload 1540 2100 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 18:30:55,894 autoreload 15880 4712 Watching for file changes with StatReloader
+INFO 2025-03-17 18:31:01,596 runserver 15880 3756 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.42, 127.0.0.1:58224][0m
+INFO 2025-03-17 18:31:24,864 runserver 15880 3756 [mHTTP GET /api/posts/user/2/shared/ 200 [0.06, 127.0.0.1:58224][0m
+INFO 2025-03-17 18:31:40,355 autoreload 15880 4712 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-17 18:31:43,127 autoreload 12968 8508 Watching for file changes with StatReloader
+INFO 2025-03-17 18:31:46,439 runserver 12968 13236 [mHTTP GET /api/posts/user/2/shared/ 200 [0.11, 127.0.0.1:58259][0m

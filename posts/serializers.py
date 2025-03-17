@@ -130,7 +130,7 @@ class PostWithoutHashtag(PostSerializer):
     
 class SharedPostSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
-    original_post = PostWithoutHashtag(read_only=True)
+    original_post = PostSerializer(read_only=True)
 
     class Meta:
         model = SharedPost
