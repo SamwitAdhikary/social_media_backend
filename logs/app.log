@@ -8947,3 +8947,240 @@ INFO 2025-03-17 19:17:31,140 autoreload 10968 2660 C:\Users\samwi\Desktop\APPLIC
 INFO 2025-03-17 19:17:34,532 autoreload 2944 11952 Watching for file changes with StatReloader
 INFO 2025-03-17 19:18:07,377 runserver 2944 17472 [mHTTP POST /api/posts/shared/2/comment/ 201 [0.08, 127.0.0.1:56565][0m
 INFO 2025-03-17 19:18:30,777 runserver 2944 17472 [mHTTP GET /api/posts/user/2/shared/ 200 [0.11, 127.0.0.1:56565][0m
+INFO 2025-03-18 00:38:08,340 autoreload 14976 8360 Watching for file changes with StatReloader
+INFO 2025-03-18 00:38:31,092 runserver 14976 9032 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.31, 127.0.0.1:62988][0m
+ERROR 2025-03-18 00:40:10,213 log 14976 2116 Internal Server Error: /api/posts/comment/1/react/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: posts_commentreaction.comment_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 542, in post
+    serializer.save(user=request.user)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: posts_commentreaction.comment_id
+ERROR 2025-03-18 00:40:10,258 runserver 14976 9032 [35;1mHTTP POST /api/posts/comment/1/react/ 500 [0.15, 127.0.0.1:63006][0m
+INFO 2025-03-18 00:41:57,053 autoreload 14976 8360 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:42:08,715 autoreload 8416 11092 Watching for file changes with StatReloader
+INFO 2025-03-18 00:44:24,857 autoreload 13992 10220 Watching for file changes with StatReloader
+INFO 2025-03-18 00:44:29,346 runserver 13992 12000 [mHTTP POST /api/posts/comment/1/react/ 201 [0.04, 127.0.0.1:63203][0m
+INFO 2025-03-18 00:44:52,363 runserver 13992 12000 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.19, 127.0.0.1:63203][0m
+INFO 2025-03-18 00:47:26,637 autoreload 13992 10220 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:47:29,707 autoreload 4132 4660 Watching for file changes with StatReloader
+INFO 2025-03-18 00:47:35,651 autoreload 4132 4660 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:47:37,752 autoreload 2220 9592 Watching for file changes with StatReloader
+INFO 2025-03-18 00:47:41,431 autoreload 2220 9592 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:47:44,763 autoreload 3696 6084 Watching for file changes with StatReloader
+INFO 2025-03-18 00:48:18,886 autoreload 3696 6084 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:48:21,479 autoreload 4652 9180 Watching for file changes with StatReloader
+INFO 2025-03-18 00:48:28,735 autoreload 4652 9180 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:48:30,875 autoreload 10920 14936 Watching for file changes with StatReloader
+INFO 2025-03-18 00:48:58,430 autoreload 10920 14936 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:48:59,889 autoreload 2580 5736 Watching for file changes with StatReloader
+INFO 2025-03-18 00:49:13,084 autoreload 2580 5736 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:49:14,338 autoreload 13632 5352 Watching for file changes with StatReloader
+INFO 2025-03-18 00:49:31,888 autoreload 13632 5352 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:49:33,169 autoreload 11452 10312 Watching for file changes with StatReloader
+INFO 2025-03-18 00:49:41,923 autoreload 11452 10312 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:49:44,298 autoreload 3580 508 Watching for file changes with StatReloader
+INFO 2025-03-18 00:49:49,788 autoreload 3580 508 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:49:53,764 autoreload 12920 1676 Watching for file changes with StatReloader
+INFO 2025-03-18 00:49:59,489 autoreload 12920 1676 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:50:02,725 autoreload 5932 5172 Watching for file changes with StatReloader
+INFO 2025-03-18 00:50:10,382 autoreload 5932 5172 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:50:11,647 autoreload 1160 2312 Watching for file changes with StatReloader
+INFO 2025-03-18 00:50:35,625 autoreload 1160 2312 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:50:39,923 autoreload 772 7372 Watching for file changes with StatReloader
+INFO 2025-03-18 00:50:47,640 autoreload 772 7372 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:50:51,145 autoreload 13452 10216 Watching for file changes with StatReloader
+INFO 2025-03-18 00:50:55,464 autoreload 13452 10216 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:50:58,490 autoreload 1916 2012 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:07,225 autoreload 1916 2012 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:51:10,860 autoreload 7320 2148 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:14,238 autoreload 7320 2148 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:51:18,318 autoreload 7424 10840 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:22,091 autoreload 7424 10840 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:51:24,301 autoreload 8108 13280 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:29,586 autoreload 8108 13280 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:51:31,329 autoreload 6976 8416 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:38,319 autoreload 6976 8416 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:51:42,050 autoreload 11100 3708 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:51,239 autoreload 11100 3708 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:51:52,656 autoreload 10700 6284 Watching for file changes with StatReloader
+INFO 2025-03-18 00:51:59,224 autoreload 10700 6284 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:00,509 autoreload 12800 13884 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:05,474 autoreload 12800 13884 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:06,725 autoreload 9860 5148 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:12,776 autoreload 9860 5148 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:15,009 autoreload 9824 1352 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:18,077 autoreload 9824 1352 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:22,089 autoreload 2860 3676 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:25,548 autoreload 2860 3676 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:29,809 autoreload 14288 14348 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:33,690 autoreload 14288 14348 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:37,745 autoreload 6520 15336 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:46,834 autoreload 6520 15336 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:48,895 autoreload 10152 5792 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:52,456 autoreload 10152 5792 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:54,423 autoreload 1996 772 Watching for file changes with StatReloader
+INFO 2025-03-18 00:52:56,407 autoreload 1996 772 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:52:57,853 autoreload 14416 6192 Watching for file changes with StatReloader
+INFO 2025-03-18 00:53:04,728 runserver 14416 14096 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.24, 127.0.0.1:63792][0m
+WARNING 2025-03-18 00:54:10,584 log 14416 4648 Not Found: /api/posts/shared-comment/2/react/
+WARNING 2025-03-18 00:54:10,585 runserver 14416 14096 [33mHTTP POST /api/posts/shared-comment/2/react/ 404 [0.02, 127.0.0.1:63815][0m
+INFO 2025-03-18 00:55:11,040 autoreload 14416 6192 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:55:13,083 autoreload 11296 13364 Watching for file changes with StatReloader
+INFO 2025-03-18 00:55:16,758 autoreload 11296 13364 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:55:18,556 autoreload 10608 3572 Watching for file changes with StatReloader
+INFO 2025-03-18 00:55:56,922 autoreload 10608 3572 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:55:58,596 autoreload 12712 14164 Watching for file changes with StatReloader
+INFO 2025-03-18 00:56:00,783 autoreload 12712 14164 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:56:01,993 autoreload 8432 14660 Watching for file changes with StatReloader
+INFO 2025-03-18 00:56:05,698 autoreload 8432 14660 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 00:56:07,164 autoreload 15180 6276 Watching for file changes with StatReloader
+INFO 2025-03-18 00:56:21,440 autoreload 15180 6276 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 00:56:23,164 autoreload 11560 12596 Watching for file changes with StatReloader
+WARNING 2025-03-18 00:57:06,233 log 11560 6696 Not Found: /api/posts/shared-comment/2/react/
+WARNING 2025-03-18 00:57:06,233 runserver 11560 13696 [33mHTTP POST /api/posts/shared-comment/2/react/ 404 [0.02, 127.0.0.1:63916][0m
+WARNING 2025-03-18 00:57:07,635 log 11560 6696 Not Found: /api/posts/shared-comment/2/react/
+WARNING 2025-03-18 00:57:07,637 runserver 11560 13696 [33mHTTP POST /api/posts/shared-comment/2/react/ 404 [0.01, 127.0.0.1:63916][0m
+INFO 2025-03-18 00:59:30,650 runserver 11560 13696 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:63942][0m
+INFO 2025-03-18 00:59:43,237 runserver 11560 13696 [mHTTP POST /api/posts/shared-comment/1/react/ 201 [0.02, 127.0.0.1:63942][0m
+INFO 2025-03-18 01:00:15,801 runserver 11560 13696 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.20, 127.0.0.1:63942][0m
+INFO 2025-03-18 01:00:57,384 autoreload 11560 12596 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:01:00,277 autoreload 2512 1716 Watching for file changes with StatReloader
+INFO 2025-03-18 01:01:25,405 autoreload 2512 1716 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:01:26,771 autoreload 700 8652 Watching for file changes with StatReloader
+INFO 2025-03-18 01:01:35,920 autoreload 700 8652 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:01:37,310 autoreload 6976 5840 Watching for file changes with StatReloader
+INFO 2025-03-18 01:01:40,473 autoreload 6976 5840 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:01:42,904 autoreload 2060 8484 Watching for file changes with StatReloader
+INFO 2025-03-18 01:01:47,129 autoreload 2060 8484 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:01:50,890 autoreload 3816 3720 Watching for file changes with StatReloader
+INFO 2025-03-18 01:01:55,887 autoreload 3816 3720 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:01:57,141 autoreload 12636 10916 Watching for file changes with StatReloader
+INFO 2025-03-18 01:02:02,681 autoreload 12636 10916 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-18 01:02:03,955 autoreload 2236 13892 Watching for file changes with StatReloader
+INFO 2025-03-18 01:02:08,193 runserver 2236 8232 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:64065][0m
+INFO 2025-03-18 01:02:31,283 autoreload 2236 13892 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:02:33,039 autoreload 4924 9952 Watching for file changes with StatReloader
+INFO 2025-03-18 01:02:39,008 autoreload 4924 9952 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:02:43,031 autoreload 11288 10540 Watching for file changes with StatReloader
+INFO 2025-03-18 01:02:51,235 autoreload 11288 10540 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:02:53,267 autoreload 2480 6512 Watching for file changes with StatReloader
+INFO 2025-03-18 01:02:57,085 autoreload 2480 6512 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:02:58,361 autoreload 12488 11592 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:01,036 autoreload 12488 11592 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:02,239 autoreload 9204 4396 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:05,193 autoreload 9204 4396 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:08,185 autoreload 8668 4652 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:11,132 autoreload 8668 4652 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:12,572 autoreload 5908 6480 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:16,198 autoreload 5908 6480 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:17,784 autoreload 8436 4860 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:22,735 autoreload 8436 4860 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:24,376 autoreload 1364 12964 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:27,593 autoreload 1364 12964 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:29,081 autoreload 3720 12720 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:34,587 autoreload 3720 12720 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:38,298 autoreload 13976 8068 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:41,823 autoreload 13976 8068 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:03:46,641 autoreload 4664 13104 Watching for file changes with StatReloader
+INFO 2025-03-18 01:03:58,616 autoreload 4664 13104 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:04:00,272 autoreload 6220 6752 Watching for file changes with StatReloader
+INFO 2025-03-18 01:04:05,143 autoreload 6220 6752 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:04:08,838 autoreload 10364 13044 Watching for file changes with StatReloader
+INFO 2025-03-18 01:04:16,878 autoreload 10364 13044 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 01:04:18,456 autoreload 6012 14240 Watching for file changes with StatReloader
+INFO 2025-03-18 01:04:21,819 runserver 6012 1628 [mHTTP POST /api/posts/shared-comment/1/react/ 201 [0.04, 127.0.0.1:64315][0m

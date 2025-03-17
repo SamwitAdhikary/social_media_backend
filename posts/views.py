@@ -10,8 +10,8 @@ from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser, User
 from accounts.serializers import UserSerializer
-from .serializers import PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostCommentSerializer, SharedPostReactionSerializer, SharedPostSerializer
-from .models import Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost
+from .serializers import CommentReactionSerializer, PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostCommentReactionSerializer, SharedPostCommentSerializer, SharedPostReactionSerializer, SharedPostSerializer
+from .models import Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost, SharedPostComment
 from django.utils import timezone
 from django.db.models import Q, Count, Case, When, Value, F, IntegerField
 from posts.models import Comment
@@ -525,3 +525,51 @@ class SharedPostCommentView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save(user=request.user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+class CommentReactionView(APIView):
+    """
+    Allows an authenticated user to react to a post comment.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, comment_id):
+        comment = get_object_or_404(Comment, id=comment_id)
+        data = request.data.copy()
+        data['comment'] = comment_id
+        serializer = CommentReactionSerializer(data=data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+
+        comment_serializer = CommentSerializer(comment, context={'request': request})
+
+        response_data = {
+            'reaction': serializer.data,
+            'comment': comment_serializer.data
+        }
+
+        return Response(response_data, status=status.HTTP_201_CREATED)
+
+class SharedPostCommentReactionView(APIView):
+    """
+    Allow an authenticated user to react to a shared post comment.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, shared_comment_id):
+        shared_comment = get_object_or_404(SharedPostComment, id=shared_comment_id)
+        data = request.data.copy()
+        data['shared_post_comment'] = shared_comment_id
+        serializer = SharedPostCommentReactionSerializer(data=data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+
+        shared_comment_serializer = SharedPostCommentSerializer(shared_comment, context={'request': request})
+
+        response_data = {
+            "reaction": serializer.data,
+            "shared_comment": shared_comment_serializer.data
+        }
+
+        return Response(response_data, status=status.HTTP_201_CREATED)

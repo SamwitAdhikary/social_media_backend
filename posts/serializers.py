@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, PostMedia, Reaction, Comment, Hashtag, SavedPost, SharedPost, SharedPostComment, SharedPostReaction
+from .models import CommentReaction, Post, PostMedia, Reaction, Comment, Hashtag, SavedPost, SharedPost, SharedPostComment, SharedPostCommentReaction, SharedPostReaction
 from accounts.serializers import UserSerializer
 
 class PostMediaSerializer(serializers.ModelSerializer):
@@ -45,6 +45,17 @@ class ReactionSerializer(serializers.ModelSerializer):
         model = Reaction
         fields = ['id', 'post', 'user', 'type', 'created_at']
 
+class CommentReactionSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    comment = serializers.PrimaryKeyRelatedField(
+        queryset=Comment.objects.all(),
+        write_only=True
+    )
+
+    class Meta:
+        model = CommentReaction
+        fields = ['id', 'comment', 'user', 'type', 'created_at']
+
 class CommentSerializer(serializers.ModelSerializer):
     """
     Hierarchical comment serializer:
@@ -55,10 +66,11 @@ class CommentSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.id')
     parent = serializers.PrimaryKeyRelatedField(queryset=Comment.objects.all(), required=False, allow_null=True)
     replies = serializers.SerializerMethodField()
+    reactions = CommentReactionSerializer(many=True, read_only=True)
 
     class Meta:
         model = Comment
-        fields = ['id', 'post', 'user', 'content', 'is_hidden', 'created_at', 'updated_at', 'parent', 'replies']
+        fields = ['id', 'post', 'user', 'content', 'is_hidden', 'created_at', 'updated_at', 'parent', 'replies', 'reactions']
 
     def get_replies(self, obj):
         """Recursive serialization of nested replies"""
@@ -136,13 +148,24 @@ class SharedPostReactionSerializer(serializers.ModelSerializer):
         model = SharedPostReaction
         fields = ['id', 'user', 'shared_post', 'type', 'created_at']
 
+class SharedPostCommentReactionSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    shared_post_comment = serializers.PrimaryKeyRelatedField(
+        queryset=SharedPostComment.objects.all(),
+        write_only=True
+    )
+
+    class Meta:
+        model = SharedPostCommentReaction
+        fields = ['id', 'shared_post_comment', 'user', 'type', 'created_at']
+
 class SharedPostCommentSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
-    shared_post = serializers.PrimaryKeyRelatedField(queryset=SharedPost.objects.all(), write_only=True)
+    reactions = SharedPostCommentReactionSerializer(many=True, read_only=True)
 
     class Meta:
         model = SharedPostComment
-        fields = ['id', 'user', 'content', 'shared_post', 'created_at', 'updated_at']
+        fields = ['id', 'user', 'content', 'reactions', 'created_at', 'updated_at']
 
 
 class SharedPostSerializer(serializers.ModelSerializer):
@@ -168,3 +191,5 @@ class SavedPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = SavedPost
         fields = ['id', 'post', 'saved_at']
+
+

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PostCreateView, FeedView, ReactionView, CommentView, HashtagSearchView, SharePostView, SharedPostCommentView, SharedPostReactionView, ToggleCommentVisibilityView, SavePostView, UnsavePostView, SavedPostListView, PostDeleteView, UserPostListView, TopFanView, UserSharedPostsView
+from .views import CommentReactionView, PostCreateView, FeedView, ReactionView, CommentView, HashtagSearchView, SharePostView, SharedPostCommentReactionView, SharedPostCommentView, SharedPostReactionView, ToggleCommentVisibilityView, SavePostView, UnsavePostView, SavedPostListView, PostDeleteView, UserPostListView, TopFanView, UserSharedPostsView
 
 # Posts Application URL Configuration
 # Handles content creation, interaction, and discovery
@@ -50,6 +50,10 @@ urlpatterns = [
     path('shared/<int:shared_post_id>/comment/', SharedPostCommentView.as_view(), name='shared-post-comment'),
 
     path('shared/<int:shared_post_id>/react/', SharedPostReactionView.as_view(), name='shared-post-react'),
+
+    path('comment/<int:comment_id>/react/', CommentReactionView.as_view(), name='comment-react'),
+
+    path('shared-comment/<int:shared_comment_id>/react/', SharedPostCommentReactionView.as_view(), name='shared-comment-react'),
 ]
 
 # URL Pattern Notes:

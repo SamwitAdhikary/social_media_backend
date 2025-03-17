@@ -166,3 +166,35 @@ class SharedPostComment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.user.username} on shared post {self.shared_post.id}"
+    
+class CommentReaction(models.Model):
+    REACTION_CHOICES = [
+        ('like', 'Like'),
+        ('love', 'Love'),
+        ('haha', 'Haha'),
+        ('sad', 'Sad'),
+    ]
+
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='reactions')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    type = models.CharField(max_length=20, choices=REACTION_CHOICES)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.user.username} reacted {self.type} on Comment #{self.comment.id}"
+
+class SharedPostCommentReaction(models.Model):
+    REACTION_CHOICES = [
+        ('like', 'Like'),
+        ('love', 'Love'),
+        ('haha', 'Haha'),
+        ('sad', 'Sad'),
+    ]
+
+    shared_post_comment = models.ForeignKey(SharedPostComment, on_delete=models.CASCADE, related_name='reactions')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    type = models.CharField(max_length=20, choices=REACTION_CHOICES)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.user.username} reacted {self.type} on SharedPostComment #{self.shared_post_comment.id}"
