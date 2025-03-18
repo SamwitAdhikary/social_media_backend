@@ -11,7 +11,7 @@ from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser, User
 from accounts.serializers import UserSerializer
 from .serializers import CommentReactionSerializer, PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostCommentReactionSerializer, SharedPostCommentSerializer, SharedPostReactionSerializer, SharedPostSerializer
-from .models import Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost, SharedPostComment
+from .models import CommentReaction, Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost, SharedPostComment, SharedPostCommentReaction, SharedPostReaction
 from django.utils import timezone
 from django.db.models import Q, Count, Case, When, Value, F, IntegerField
 from posts.models import Comment
@@ -170,32 +170,69 @@ class ReactionView(APIView):
     """
     Handles post reactions and notifications
     """
+    
+    permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, post_id):
-        """Creates reaction and sends real-time notification"""
-        serializer = ReactionSerializer(data={'post': post_id, **request.data})
-        serializer.is_valid(raise_exception=True)
-        reaction = serializer.save(user=request.user)
+        post = get_object_or_404(Post, id=post_id)
 
-        if reaction.post.user != request.user:
-            notification = Notification.objects.create(
-                user = reaction.post.user,
-                type = 'reaction',
-                reference_id=reaction.post.id,
-                message=f"{request.user.username} reacted on your post."
-            )
-            channel_layer = get_channel_layer()
-            async_to_sync(channel_layer.group_send)(
-                f"notifications_{notification.user.id}",
-                {
-                    "type": "send_notification",
-                    "notification": {
-                        "id": notification.id,
-                        "type": notification.type,
-                        "message": notification.message,
-                    }
-                }
-            )
+        """Creates reaction and sends real-time notification"""
+        reaction_type = request.data.get('type')
+        if not reaction_type:
+            return Response({"error": "Reaction type is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+        existing_reaction = Reaction.objects.filter(post=post, user=request.user).first()
+        if existing_reaction:
+            if existing_reaction.type == reaction_type:
+                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                existing_reaction.type = reaction_type
+                existing_reaction.save()
+                serializer = ReactionSerializer(existing_reaction, context={'request': request})
+
+                if post.user != request.user:
+                    notification = Notification.objects.create(
+                        user = post.user,
+                        type = 'reaction',
+                        reference_id=post.id,
+                        message=f"{request.user.username} updated their reaction on your post."
+                    )
+                    channel_layer = get_channel_layer()
+                    async_to_sync(channel_layer.group_send)(
+                        f"notifications_{notification.user.id}",
+                        {
+                            "type": "send_notification",
+                            "notification": {
+                                "id": notification.id,
+                                "type": notification.type,
+                                "message": notification.message,
+                            }
+                        }
+                    )
+                return Response({"message": "Reaction updated.", "reaction": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            serializer = ReactionSerializer(data={'post': post_id, **request.data}, context={'request': request})
+            serializer.is_valid(raise_exception=True)
+            reaction = serializer.save(user=request.user)
+            if reaction.post.user != request.user:
+                notification = Notification.objects.create(
+                        user = post.user,
+                        type = 'reaction',
+                        reference_id=post.id,
+                        message=f"{request.user.username} updated their reaction on your post."
+                    )
+                channel_layer = get_channel_layer()
+                async_to_sync(channel_layer.group_send)(
+                        f"notifications_{notification.user.id}",
+                        {
+                            "type": "send_notification",
+                            "notification": {
+                                "id": notification.id,
+                                "type": notification.type,
+                                "message": notification.message,
+                            }
+                        }
+                    )
 
         return Response({'message': 'Reaction recorder'}, status=status.HTTP_200_OK)
 
@@ -498,14 +535,32 @@ class SharedPostReactionView(APIView):
     def post(self, request, shared_post_id):
         # Ensure the shared post exists.
         shared_post = get_object_or_404(SharedPost, id=shared_post_id)
-        # Prepare the data by including the shared_post ID.
-        data = request.data.copy()
-        data['shared_post'] = shared_post_id
 
-        serializer = SharedPostReactionSerializer(data=data, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        serializer.save(user=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        reaction_type = request.data.get('type')
+        if not reaction_type:
+            return Response({"error": "Reaction type is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+        existing_reaction = SharedPostReaction.objects.filter(shared_post=shared_post, user=request.user).first()
+
+        if existing_reaction:
+            if existing_reaction.type == reaction_type:
+                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                existing_reaction.type = reaction_type
+                existing_reaction.save()
+
+                serializer = SharedPostReactionSerializer(existing_reaction, context={'request': request})
+                return Response({"message": "Reaction updated.", "reaction": serializer.data}, status=status.HTTP_200_OK)
+        else:
+
+        # Prepare the data by including the shared_post ID.
+            data = request.data.copy()
+            data['shared_post'] = shared_post_id
+
+            serializer = SharedPostReactionSerializer(data=data, context={'request': request})
+            serializer.is_valid(raise_exception=True)
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 class SharedPostCommentView(APIView):
     """
@@ -535,20 +590,42 @@ class CommentReactionView(APIView):
 
     def post(self, request, comment_id):
         comment = get_object_or_404(Comment, id=comment_id)
-        data = request.data.copy()
-        data['comment'] = comment_id
-        serializer = CommentReactionSerializer(data=data, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        serializer.save(user=request.user)
+        reaction_type = request.data.get('type')
 
-        comment_serializer = CommentSerializer(comment, context={'request': request})
+        if not reaction_type:
+            return Response({"error": "Reaction type is required."}, status=status.HTTP_400_BAD_REQUEST)
 
-        response_data = {
-            'reaction': serializer.data,
-            'comment': comment_serializer.data
-        }
+        existing_reaction = CommentReaction.objects.filter(comment=comment, user=request.user).first()
 
-        return Response(response_data, status=status.HTTP_201_CREATED)
+        if existing_reaction:
+            if existing_reaction.type == reaction_type:
+                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                existing_reaction.type = reaction_type
+                existing_reaction.save()
+                serializer = CommentReactionSerializer(existing_reaction, context={"request": request})
+                comment_serializer = CommentSerializer(comment, context={'request': request})
+                return Response({
+                    "message": "Reaction Updated.",
+                    "reaction": serializer.data,
+                    "comment": comment_serializer.data,
+                }, status=status.HTTP_200_OK)
+        else:
+            data = request.data.copy()
+            data['comment'] = comment_id
+            serializer = CommentReactionSerializer(data=data, context={'request': request})
+            serializer.is_valid(raise_exception=True)
+            serializer.save(user=request.user)
+
+            comment_serializer = CommentSerializer(comment, context={'request': request})
+
+            response_data = {
+                "message": "Reaction recorded",
+                'reaction': serializer.data,
+                'comment': comment_serializer.data
+            }
+
+            return Response(response_data, status=status.HTTP_201_CREATED)
 
 class SharedPostCommentReactionView(APIView):
     """
@@ -559,17 +636,37 @@ class SharedPostCommentReactionView(APIView):
 
     def post(self, request, shared_comment_id):
         shared_comment = get_object_or_404(SharedPostComment, id=shared_comment_id)
-        data = request.data.copy()
-        data['shared_post_comment'] = shared_comment_id
-        serializer = SharedPostCommentReactionSerializer(data=data, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        serializer.save(user=request.user)
 
-        shared_comment_serializer = SharedPostCommentSerializer(shared_comment, context={'request': request})
+        reaction_type = request.data.get('type')
+        if not reaction_type:
+            return Response({"error": "Reaction type is required."}, status=status.HTTP_400_BAD_REQUEST)
 
-        response_data = {
-            "reaction": serializer.data,
-            "shared_comment": shared_comment_serializer.data
-        }
+        existing_reaction = SharedPostCommentReaction.objects.filter(shared_post_comment=shared_comment, user=request.user).first()
 
-        return Response(response_data, status=status.HTTP_201_CREATED)
+        if existing_reaction:
+            if existing_reaction.type == reaction_type:
+                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                existing_reaction.type = reaction_type
+                existing_reaction.save()
+                serializer = SharedPostCommentReactionSerializer(existing_reaction, context={'request': request})
+                shared_comment_serializer = SharedPostCommentSerializer(shared_comment, context={'request': request})
+                return Response({
+                    "message": "Reaction updated.",
+                    "reaction": serializer.data,
+                    "shared_comment": shared_comment_serializer.data,
+                }, status=status.HTTP_200_OK)
+        else:
+            data = request.data.copy()
+            data['shared_post_comment'] = shared_comment_id
+            serializer = SharedPostCommentReactionSerializer(data=data, context={'request': request})
+            serializer.is_valid(raise_exception=True)
+            reaction = serializer.save(user=request.user)
+
+            shared_comment_serializer = SharedPostCommentSerializer(shared_comment, context={'request': request})
+
+            return Response({
+                "message": "Reaction recorded",
+                "reaction": serializer.data,
+                "shared_comment": shared_comment_serializer.data
+            }, status=status.HTTP_201_CREATED)
