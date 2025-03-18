@@ -169,6 +169,12 @@ class FeedView(APIView):
 class ReactionView(APIView):
     """
     Handles post reactions and notifications
+
+    Behaviour:
+    - If the user has not reacted, a new reaction is created.
+    - If the user has already reacted with the same type, the reaction is removed (unlike).
+    - If the user has already reacted with a different type, the reaction is updated.
+    - Real-time notifications are sent to the post owner if the reacting user is different. 
     """
     
     permission_classes = [permissions.IsAuthenticated]
@@ -183,8 +189,10 @@ class ReactionView(APIView):
 
         existing_reaction = Reaction.objects.filter(post=post, user=request.user).first()
         if existing_reaction:
+            # If existing_reaction is same, remove it (Unlike)
             if existing_reaction.type == reaction_type:
-                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+                existing_reaction.delete()
+                return Response({"message": "Reaction removed."}, status=status.HTTP_200_OK)
             else:
                 existing_reaction.type = reaction_type
                 existing_reaction.save()
@@ -544,7 +552,8 @@ class SharedPostReactionView(APIView):
 
         if existing_reaction:
             if existing_reaction.type == reaction_type:
-                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+                existing_reaction.delete()
+                return Response({"message": "Reaction removed."}, status=status.HTTP_200_OK)
             else:
                 existing_reaction.type = reaction_type
                 existing_reaction.save()
@@ -560,7 +569,13 @@ class SharedPostReactionView(APIView):
             serializer = SharedPostReactionSerializer(data=data, context={'request': request})
             serializer.is_valid(raise_exception=True)
             serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+            response = {
+                "message": "Reaction recorded",
+                "reaction": serializer.data,
+            }
+
+            return Response(response, status=status.HTTP_201_CREATED)
     
 class SharedPostCommentView(APIView):
     """
@@ -599,7 +614,8 @@ class CommentReactionView(APIView):
 
         if existing_reaction:
             if existing_reaction.type == reaction_type:
-                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+                existing_reaction.delete()
+                return Response({"message": "Reaction removed"}, status=status.HTTP_200_OK)
             else:
                 existing_reaction.type = reaction_type
                 existing_reaction.save()
@@ -645,7 +661,8 @@ class SharedPostCommentReactionView(APIView):
 
         if existing_reaction:
             if existing_reaction.type == reaction_type:
-                return Response({"error": "You have already reacted with this type."}, status=status.HTTP_400_BAD_REQUEST)
+                existing_reaction.delete()
+                return Response({"message": "Reaction removed."}, status=status.HTTP_200_OK)
             else:
                 existing_reaction.type = reaction_type
                 existing_reaction.save()
@@ -661,7 +678,7 @@ class SharedPostCommentReactionView(APIView):
             data['shared_post_comment'] = shared_comment_id
             serializer = SharedPostCommentReactionSerializer(data=data, context={'request': request})
             serializer.is_valid(raise_exception=True)
-            reaction = serializer.save(user=request.user)
+            serializer.save(user=request.user)
 
             shared_comment_serializer = SharedPostCommentSerializer(shared_comment, context={'request': request})
 

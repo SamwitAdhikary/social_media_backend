@@ -9219,3 +9219,65 @@ WARNING 2025-03-18 12:05:30,996 runserver 15156 13064 [31;1mHTTP POST /api/post
 INFO 2025-03-18 12:05:48,001 runserver 15156 13064 [mHTTP POST /api/posts/shared-comment/1/react/ 200 [0.04, 127.0.0.1:62086][0m
 INFO 2025-03-18 12:06:04,886 runserver 15156 13064 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.18, 127.0.0.1:62086][0m
 INFO 2025-03-18 12:07:52,359 runserver 15156 13064 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:62119][0m
+INFO 2025-03-18 12:56:23,000 autoreload 7 139831961381760 Watching for file changes with StatReloader
+INFO 2025-03-18 22:04:53,419 autoreload 5636 13640 Watching for file changes with StatReloader
+WARNING 2025-03-18 22:05:24,183 log 5636 17080 Unauthorized: /api/posts/feed/
+WARNING 2025-03-18 22:05:24,188 runserver 5636 9928 [31;1mHTTP GET /api/posts/feed/?sort=chronological 401 [0.09, 127.0.0.1:50991][0m
+INFO 2025-03-18 22:05:51,448 runserver 5636 9928 [mHTTP POST /api/accounts/login/ 200 [1.35, 127.0.0.1:50991][0m
+INFO 2025-03-18 22:06:07,287 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.32, 127.0.0.1:50991][0m
+INFO 2025-03-18 22:08:01,968 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.03, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:08,627 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.22, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:21,971 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.02, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:26,897 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.26, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:40,153 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.03, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:45,648 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.26, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:53,410 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.02, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:08:58,156 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.26, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:09:06,871 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.03, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:09:11,146 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.27, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:09:26,529 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.03, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:09:30,874 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.35, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:09:36,053 runserver 5636 9928 [mHTTP POST /api/posts/1/react/ 200 [0.03, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:09:39,154 runserver 5636 9928 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.29, 127.0.0.1:51061][0m
+INFO 2025-03-18 22:17:01,351 autoreload 12172 13336 Watching for file changes with StatReloader
+INFO 2025-03-18 22:17:29,898 runserver 12172 13832 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.23, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:18:06,230 runserver 12172 13832 [mHTTP POST /api/posts/36/react/ 200 [0.02, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:18:10,523 runserver 12172 13832 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.24, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:19:03,779 runserver 12172 13832 [mHTTP POST /api/posts/shared/2/react/ 200 [0.02, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:19:10,649 runserver 12172 13832 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:19:17,437 runserver 12172 13832 [mHTTP POST /api/posts/shared/2/react/ 201 [0.03, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:19:25,374 runserver 12172 13832 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.23, 127.0.0.1:51562][0m
+INFO 2025-03-18 22:20:42,278 runserver 12172 13832 [mHTTP POST /api/posts/shared/2/react/ 200 [0.02, 127.0.0.1:51635][0m
+INFO 2025-03-18 22:21:06,185 autoreload 12172 13336 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:21:08,383 autoreload 3128 2724 Watching for file changes with StatReloader
+INFO 2025-03-18 22:21:12,573 runserver 3128 8936 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.24, 127.0.0.1:51676][0m
+INFO 2025-03-18 22:21:16,534 runserver 3128 8936 [mHTTP POST /api/posts/shared/2/react/ 200 [0.02, 127.0.0.1:51676][0m
+INFO 2025-03-18 22:21:19,661 runserver 3128 8936 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:51676][0m
+INFO 2025-03-18 22:21:23,673 runserver 3128 8936 [mHTTP POST /api/posts/shared/2/react/ 201 [0.03, 127.0.0.1:51676][0m
+INFO 2025-03-18 22:22:42,198 autoreload 3128 2724 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:22:46,288 autoreload 9244 9764 Watching for file changes with StatReloader
+INFO 2025-03-18 22:22:50,152 autoreload 9244 9764 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:22:52,926 autoreload 3464 12024 Watching for file changes with StatReloader
+INFO 2025-03-18 22:23:00,616 autoreload 3464 12024 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:23:03,254 autoreload 9476 15400 Watching for file changes with StatReloader
+INFO 2025-03-18 22:23:08,799 autoreload 9476 15400 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:23:10,182 autoreload 3848 16880 Watching for file changes with StatReloader
+INFO 2025-03-18 22:23:26,453 autoreload 3848 16880 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:23:30,061 autoreload 2320 13108 Watching for file changes with StatReloader
+INFO 2025-03-18 22:23:37,115 autoreload 2320 13108 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:23:38,694 autoreload 9420 8604 Watching for file changes with StatReloader
+INFO 2025-03-18 22:23:44,106 autoreload 9420 8604 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-18 22:23:45,463 autoreload 13088 5636 Watching for file changes with StatReloader
+INFO 2025-03-18 22:23:57,501 runserver 13088 9012 [mHTTP POST /api/posts/shared/2/react/ 200 [0.03, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:24:12,739 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.24, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:24:24,437 runserver 13088 9012 [mHTTP POST /api/posts/shared/2/react/ 201 [0.03, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:24:28,128 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:24:50,900 runserver 13088 9012 [mHTTP POST /api/posts/shared/2/react/ 200 [0.02, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:24:54,544 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.21, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:25:00,998 runserver 13088 9012 [mHTTP POST /api/posts/shared/2/react/ 201 [0.02, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:25:04,702 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.22, 127.0.0.1:51830][0m
+INFO 2025-03-18 22:26:59,160 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.26, 127.0.0.1:51883][0m
+INFO 2025-03-18 22:27:01,873 runserver 13088 9012 [mHTTP POST /api/posts/comment/1/react/ 200 [0.02, 127.0.0.1:51883][0m
+INFO 2025-03-18 22:27:07,051 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.24, 127.0.0.1:51883][0m
+INFO 2025-03-18 22:27:12,489 runserver 13088 9012 [mHTTP POST /api/posts/comment/1/react/ 201 [0.03, 127.0.0.1:51883][0m
+INFO 2025-03-18 22:27:16,502 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.23, 127.0.0.1:51883][0m
