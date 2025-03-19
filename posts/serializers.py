@@ -117,6 +117,7 @@ class PostSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.id')
     comments = CommentSerializer(many=True, read_only=True)
     reactions = ReactionSerializer(many=True, read_only=True)
+    share_count = serializers.SerializerMethodField()
 
     # Engagement metrics
     comments_count = serializers.IntegerField(source='comments.count', read_only=True)
@@ -124,7 +125,10 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id', 'user', 'content', 'group', 'visibility', 'medias', 'created_at', 'updated_at', 'comments', 'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display']
+        fields = ['id', 'user', 'content', 'group', 'visibility', 'medias', 'created_at', 'updated_at', 'comments', 'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display', 'share_count']
+
+    def get_share_count(self, obj):
+        return obj.shared_by.count()
 
     def create(self, validated_data):
         """Handles hashtag creation during post creation"""
@@ -179,7 +183,7 @@ class SharedPostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SharedPost
-        fields = ['id', 'user', 'original_post', 'share_text', 'reactions', 'comments', 'reactions_count', 'comments_count', 'created_at']
+        fields = ['id', 'user', 'original_post', 'share_text', 'reactions', 'comments', 'reactions_count', 'comments_count', 'parent_share', 'created_at']
 
 class SavedPostSerializer(serializers.ModelSerializer):
     """

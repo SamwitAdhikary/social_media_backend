@@ -9492,3 +9492,58 @@ INFO 2025-03-19 23:37:27,503 autoreload 20520 1396 Watching for file changes wit
 INFO 2025-03-19 23:37:36,305 autoreload 20520 1396 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
 INFO 2025-03-19 23:37:38,785 autoreload 10584 14320 Watching for file changes with StatReloader
 INFO 2025-03-19 23:37:43,569 runserver 10584 19148 [mHTTP GET /api/posts/1/engagement/ 200 [0.02, 127.0.0.1:62558][0m
+INFO 2025-03-19 23:46:12,511 autoreload 18868 19380 Watching for file changes with StatReloader
+INFO 2025-03-19 23:46:18,144 runserver 18868 18024 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.27, 127.0.0.1:62789][0m
+INFO 2025-03-20 00:49:41,384 autoreload 16772 6900 Watching for file changes with StatReloader
+INFO 2025-03-20 00:50:13,840 runserver 16772 19164 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.33, 127.0.0.1:54590][0m
+INFO 2025-03-20 00:50:31,631 runserver 16772 19164 [mHTTP POST /api/posts/1/share/ 201 [0.05, 127.0.0.1:54590][0m
+INFO 2025-03-20 00:52:41,465 runserver 16772 19164 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.34, 127.0.0.1:54713][0m
+INFO 2025-03-20 00:55:51,745 autoreload 16772 6900 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:55:54,845 autoreload 19016 16948 Watching for file changes with StatReloader
+INFO 2025-03-20 00:55:59,959 autoreload 19016 16948 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:56:02,462 autoreload 19724 19356 Watching for file changes with StatReloader
+INFO 2025-03-20 00:56:07,527 autoreload 19724 19356 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:56:11,078 autoreload 14884 2064 Watching for file changes with StatReloader
+INFO 2025-03-20 00:56:12,985 autoreload 14884 2064 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:56:15,062 autoreload 3516 13696 Watching for file changes with StatReloader
+INFO 2025-03-20 00:56:19,271 autoreload 3516 13696 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:56:21,124 autoreload 21380 19124 Watching for file changes with StatReloader
+INFO 2025-03-20 00:56:24,001 autoreload 21380 19124 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:56:28,053 autoreload 11884 9136 Watching for file changes with StatReloader
+INFO 2025-03-20 00:56:32,309 autoreload 11884 9136 C:\Users\samwi\Desktop\APPLICATION\posts\models.py changed, reloading.
+INFO 2025-03-20 00:56:34,161 autoreload 19432 1884 Watching for file changes with StatReloader
+INFO 2025-03-20 01:01:13,138 autoreload 12148 17956 Watching for file changes with StatReloader
+INFO 2025-03-20 01:01:43,976 runserver 12148 10772 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.35, 127.0.0.1:55239][0m
+INFO 2025-03-20 01:01:54,929 runserver 12148 10772 [mHTTP POST /api/posts/1/share/ 201 [0.04, 127.0.0.1:55239][0m
+INFO 2025-03-20 01:02:35,050 runserver 12148 10772 [mHTTP POST /api/posts/1/share/?unwrap=false 201 [0.04, 127.0.0.1:55239][0m
+INFO 2025-03-20 01:03:44,302 runserver 12148 10772 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.32, 127.0.0.1:55270][0m
+INFO 2025-03-20 01:04:29,334 runserver 12148 10772 [mHTTP POST /api/posts/3/share/ 201 [0.06, 127.0.0.1:55270][0m
+INFO 2025-03-20 01:04:42,871 runserver 12148 10772 [mHTTP POST /api/posts/36/share/ 201 [0.08, 127.0.0.1:55270][0m
+INFO 2025-03-20 01:08:24,056 autoreload 12148 17956 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:08:31,938 autoreload 19824 17832 Watching for file changes with StatReloader
+INFO 2025-03-20 01:08:39,873 autoreload 19824 17832 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:08:42,642 autoreload 248 20348 Watching for file changes with StatReloader
+INFO 2025-03-20 01:08:46,868 autoreload 248 20348 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:08:48,506 autoreload 20236 18904 Watching for file changes with StatReloader
+INFO 2025-03-20 01:08:54,759 autoreload 20236 18904 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:09:00,043 autoreload 19092 1972 Watching for file changes with StatReloader
+INFO 2025-03-20 01:09:04,806 autoreload 19092 1972 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:09:09,828 autoreload 20992 16600 Watching for file changes with StatReloader
+INFO 2025-03-20 01:09:13,622 autoreload 20992 16600 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:09:18,193 autoreload 15424 19272 Watching for file changes with StatReloader
+INFO 2025-03-20 01:09:24,289 autoreload 15424 19272 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:09:29,421 autoreload 13960 17132 Watching for file changes with StatReloader
+INFO 2025-03-20 01:09:33,955 autoreload 13960 17132 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:09:39,200 autoreload 17860 17480 Watching for file changes with StatReloader
+INFO 2025-03-20 01:09:50,646 autoreload 17860 17480 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:09:53,466 autoreload 16620 16444 Watching for file changes with StatReloader
+INFO 2025-03-20 01:10:51,535 autoreload 16620 16444 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 01:10:53,206 autoreload 19180 21120 Watching for file changes with StatReloader
+INFO 2025-03-20 01:11:28,684 runserver 19180 7728 [mHTTP POST /api/posts/1/share/ 201 [0.07, 127.0.0.1:55545][0m
+INFO 2025-03-20 01:13:02,293 autoreload 19180 21120 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-20 01:13:04,032 autoreload 21428 3516 Watching for file changes with StatReloader
+INFO 2025-03-20 01:13:08,978 autoreload 21428 3516 C:\Users\samwi\Desktop\APPLICATION\posts\serializers.py changed, reloading.
+INFO 2025-03-20 01:13:10,753 autoreload 2220 2288 Watching for file changes with StatReloader
+INFO 2025-03-20 01:13:21,092 runserver 2220 20304 [mHTTP POST /api/posts/1/share/ 201 [0.06, 127.0.0.1:55611][0m
+INFO 2025-03-20 01:13:48,637 runserver 2220 20304 [mHTTP POST /api/posts/1/share/?is_shared=true 201 [0.04, 127.0.0.1:55611][0m
+INFO 2025-03-20 01:14:19,478 runserver 2220 20304 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.35, 127.0.0.1:55611][0m

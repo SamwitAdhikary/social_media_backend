@@ -128,6 +128,7 @@ class SharedPost(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shared_posts')
     original_post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='shared_by')
+    parent_share = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='child_shares')
     share_text = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now)
 

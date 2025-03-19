@@ -504,18 +504,29 @@ class SharePostView(generics.CreateAPIView):
     """
     Allows an authenticated user to share (repost) a post.
     The original post is referenced, and an optional share text can be provided.
+    If a shared post is attempted to be shared, it unwraps to share the original post.
     """
 
     serializer_class = SharedPostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, post_id, *args, **kwargs):
-        original_post = get_object_or_404(Post, id=post_id)
+        is_shared = request.query_params.get('is_shared', 'false').lower() == "true"
+
+        if is_shared:
+            shared_instance = get_object_or_404(SharedPost, id=post_id)
+            post = shared_instance.original_post
+            parent_share = shared_instance
+        else:
+            post = get_object_or_404(Post, id=post_id)
+            parent_share = None
+
         share_text = request.data.get("share_text", "")
         shared_post = SharedPost.objects.create(
             user=request.user,
-            original_post=original_post,
+            original_post=post,
             share_text=share_text,
+            parent_share=parent_share
         )
         serializer = self.get_serializer(shared_post, context={'request': request})
         return Response(serializer.data, status=status.HTTP_201_CREATED)
