@@ -687,3 +687,68 @@ class SharedPostCommentReactionView(APIView):
                 "reaction": serializer.data,
                 "shared_comment": shared_comment_serializer.data
             }, status=status.HTTP_201_CREATED)
+        
+
+class PostDetailView(APIView):
+    """
+    Retrieves a post's details and increments the view count.
+    """
+
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request, pk):
+        post = get_object_or_404(Post, pk=pk)
+        # Automatically increment view_count
+        post.view_count = F('view_count') + 1
+        post.save(update_fields=['view_count'])
+        post.refresh_from_db()  # get updated value
+        serializer = PostSerializer(post, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class PostClickView(APIView):
+    """
+    Increments the click count when a user clicks a post link.
+    """
+
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, pk):
+        post = get_object_or_404(Post, pk=pk)
+        post.click_count = F('click_count') + 1
+        post.save(update_fields=['click_count'])
+        post.refresh_from_db()
+        return Response({
+            "message": "Click recorded",
+            "click_count": post.click_count,
+        }, status=status.HTTP_200_OK)
+    
+class PostEngagementView(APIView):
+    """
+    Calculates and returns engagement metrics for a post.
+    Engagement is computed as the sum of:
+    - Number of reactions
+    - Number of comments
+    - Number of shares
+    """
+
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+        reaction_count = post.reactions.count()
+        comment_count = post.comments.count()
+        share_count = SharedPost.objects.filter(original_post=post).count()
+        view_count = post.view_count
+        click_count = post.click_count
+
+        engagement = reaction_count + comment_count + share_count + view_count + click_count
+
+        return Response({
+            "post_id": post.id,
+            "reaction_count": reaction_count,
+            "comment_count": comment_count,
+            "share_count": share_count,
+            "view_count": view_count,
+            "click_count": click_count,
+            "engagement": engagement,
+        }, status=status.HTTP_200_OK)

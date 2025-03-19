@@ -9281,3 +9281,214 @@ INFO 2025-03-18 22:27:01,873 runserver 13088 9012 [mHTTP POST /api/posts/commen
 INFO 2025-03-18 22:27:07,051 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.24, 127.0.0.1:51883][0m
 INFO 2025-03-18 22:27:12,489 runserver 13088 9012 [mHTTP POST /api/posts/comment/1/react/ 201 [0.03, 127.0.0.1:51883][0m
 INFO 2025-03-18 22:27:16,502 runserver 13088 9012 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.23, 127.0.0.1:51883][0m
+INFO 2025-03-19 23:25:00,887 autoreload 18256 20996 Watching for file changes with StatReloader
+WARNING 2025-03-19 23:25:07,411 log 18256 14632 Unauthorized: /api/posts/feed/
+WARNING 2025-03-19 23:25:07,412 runserver 18256 6276 [31;1mHTTP GET /api/posts/feed/?sort=chronological 401 [0.02, 127.0.0.1:62103][0m
+INFO 2025-03-19 23:25:38,303 runserver 18256 6276 [mHTTP POST /api/accounts/login/ 200 [1.38, 127.0.0.1:62103][0m
+ERROR 2025-03-19 23:25:58,380 log 18256 14632 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: posts_post.view_count
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 147, in get
+    posts_data = PostSerializer(posts_qs, many=True, context={'request': request}).data
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: posts_post.view_count
+ERROR 2025-03-19 23:25:58,419 runserver 18256 6276 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.15, 127.0.0.1:62103][0m
+INFO 2025-03-19 23:26:34,052 autoreload 13088 5916 Watching for file changes with StatReloader
+INFO 2025-03-19 23:26:37,853 runserver 13088 11364 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.25, 127.0.0.1:62162][0m
+INFO 2025-03-19 23:27:53,868 runserver 13088 11364 [32mHTTP GET /api/posts/1 301 [0.02, 127.0.0.1:62191][0m
+INFO 2025-03-19 23:27:53,915 runserver 13088 11364 [mHTTP GET /api/posts/1/ 200 [0.04, 127.0.0.1:62191][0m
+WARNING 2025-03-19 23:28:46,363 log 13088 19308 Method Not Allowed: /api/posts/1/click/
+WARNING 2025-03-19 23:28:46,364 runserver 13088 11364 [31;1mHTTP GET /api/posts/1/click/ 405 [0.01, 127.0.0.1:62191][0m
+INFO 2025-03-19 23:28:57,310 runserver 13088 11364 [mHTTP GET /api/posts/1/ 200 [0.04, 127.0.0.1:62191][0m
+INFO 2025-03-19 23:29:18,870 runserver 13088 11364 [mHTTP POST /api/posts/1/click/ 200 [0.02, 127.0.0.1:62191][0m
+ERROR 2025-03-19 23:29:43,163 log 13088 19308 Internal Server Error: /api/posts/1/engagement/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PostEngagementView.get() got an unexpected keyword argument 'post_id'
+ERROR 2025-03-19 23:29:43,177 runserver 13088 11364 [35;1mHTTP GET /api/posts/1/engagement/ 500 [0.05, 127.0.0.1:62191][0m
+INFO 2025-03-19 23:31:59,796 autoreload 13088 5916 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:32:03,232 autoreload 18032 19108 Watching for file changes with StatReloader
+INFO 2025-03-19 23:32:07,694 autoreload 18032 19108 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:32:09,298 autoreload 19096 21296 Watching for file changes with StatReloader
+ERROR 2025-03-19 23:32:15,209 log 19096 17284 Internal Server Error: /api/posts/1/engagement/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 739, in get
+    comment_count = post.comment.count()
+                    ^^^^^^^^^^^^
+AttributeError: 'Post' object has no attribute 'comment'. Did you mean: 'comments'?
+ERROR 2025-03-19 23:32:15,229 runserver 19096 2852 [35;1mHTTP GET /api/posts/1/engagement/ 500 [0.07, 127.0.0.1:62297][0m
+INFO 2025-03-19 23:32:39,555 autoreload 19096 21296 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:32:41,217 autoreload 16032 18776 Watching for file changes with StatReloader
+INFO 2025-03-19 23:32:43,900 runserver 16032 2720 [mHTTP GET /api/posts/1/engagement/ 200 [0.02, 127.0.0.1:62324][0m
+INFO 2025-03-19 23:36:10,253 autoreload 16032 18776 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:36:11,884 autoreload 20852 18680 Watching for file changes with StatReloader
+INFO 2025-03-19 23:36:22,330 autoreload 20852 18680 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:36:26,013 autoreload 9420 19748 Watching for file changes with StatReloader
+INFO 2025-03-19 23:36:30,635 autoreload 9420 19748 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:36:35,802 autoreload 13948 16068 Watching for file changes with StatReloader
+INFO 2025-03-19 23:36:44,232 autoreload 13948 16068 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:36:47,406 autoreload 21268 7852 Watching for file changes with StatReloader
+INFO 2025-03-19 23:36:52,541 autoreload 21268 7852 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:36:55,194 autoreload 15620 2748 Watching for file changes with StatReloader
+INFO 2025-03-19 23:37:07,843 autoreload 15620 2748 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:37:09,368 autoreload 20424 7456 Watching for file changes with StatReloader
+INFO 2025-03-19 23:37:17,668 autoreload 20424 7456 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:37:19,178 autoreload 19500 13360 Watching for file changes with StatReloader
+INFO 2025-03-19 23:37:23,294 autoreload 19500 13360 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:37:27,503 autoreload 20520 1396 Watching for file changes with StatReloader
+INFO 2025-03-19 23:37:36,305 autoreload 20520 1396 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-19 23:37:38,785 autoreload 10584 14320 Watching for file changes with StatReloader
+INFO 2025-03-19 23:37:43,569 runserver 10584 19148 [mHTTP GET /api/posts/1/engagement/ 200 [0.02, 127.0.0.1:62558][0m

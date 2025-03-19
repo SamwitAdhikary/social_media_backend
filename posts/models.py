@@ -25,6 +25,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=timezone.now)  # Creation timestamp
     updated_at = models.DateTimeField(auto_now=True)  # Last edit time
 
+    # Metrics fields
+    view_count = models.PositiveIntegerField(default=0)
+    click_count = models.PositiveIntegerField(default=0)
+
     class Meta:
         ordering = ['-created_at']  # Default chronological order
 
