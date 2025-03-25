@@ -1,6 +1,8 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status
 from django.utils import timezone
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 from .models import Story
 from .serializers import StorySerializer
 import io
@@ -120,3 +122,23 @@ class ListStoryView(generics.ListAPIView):
                 continue
 
         return Story.objects.filter(pk__in=allowed_ids).order_by("-created_at")
+    
+class StoryDeleteView(generics.DestroyAPIView):
+    """
+    Allows an authenticated user to manually delete their own story only if it hasn't expired yet (i.e. within 24 hours of creation).
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Story.objects.all()
+
+    def get_object(self):
+        # Ensure the story belongs to the authenticated user.
+        obj = get_object_or_404(Story, pk=self.kwargs['pk'], user=self.request.user)
+        return obj
+    
+    def delete(self, request, *args, **kwargs):
+        story = self.get_object()
+        if timezone.now() > story.expires_at:
+            return Response({"error": "Story has already expired and cannot be manually deleted."}, status=status.HTTP_400_BAD_REQUEST)
+        self.perform_destroy(story)
+        return Response({"message": "Story deleted successfully."}, status=status.HTTP_200_OK)

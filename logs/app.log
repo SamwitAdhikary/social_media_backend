@@ -9564,3 +9564,10 @@ INFO 2025-03-20 11:01:51,077 runserver 12368 12524 [mHTTP POST /api/posts/ 201 
 ERROR 2025-03-20 11:02:09,129 views 12368 20208 Error uploading file peacock-feather.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
 INFO 2025-03-20 11:02:09,147 runserver 12368 12524 [mHTTP POST /api/posts/ 201 [0.78, 127.0.0.1:55372][0m
 INFO 2025-03-20 11:04:02,846 runserver 12368 12524 [mHTTP POST /api/stories/create/ 201 [0.76, 127.0.0.1:55428][0m
+INFO 2025-03-25 13:00:01,571 autoreload 18516 15260 Watching for file changes with StatReloader
+INFO 2025-03-25 13:01:07,242 runserver 18516 2736 [mHTTP POST /api/accounts/login/ 200 [1.07, 127.0.0.1:60166][0m
+INFO 2025-03-25 13:02:15,179 runserver 18516 2736 [mHTTP GET /api/stories/list/ 200 [0.03, 127.0.0.1:60189][0m
+INFO 2025-03-25 13:02:23,603 runserver 18516 2736 [mHTTP POST /api/stories/create/ 201 [0.03, 127.0.0.1:60189][0m
+INFO 2025-03-25 13:02:29,293 runserver 18516 2736 [mHTTP GET /api/stories/list/ 200 [0.01, 127.0.0.1:60189][0m
+INFO 2025-03-25 13:03:50,961 runserver 18516 2736 [mHTTP DELETE /api/stories/21/delete/ 200 [0.02, 127.0.0.1:60205][0m
+INFO 2025-03-25 13:03:55,338 runserver 18516 2736 [mHTTP GET /api/stories/list/ 200 [0.02, 127.0.0.1:60205][0m
