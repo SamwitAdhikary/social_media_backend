@@ -9547,3 +9547,20 @@ INFO 2025-03-20 01:13:10,753 autoreload 2220 2288 Watching for file changes with
 INFO 2025-03-20 01:13:21,092 runserver 2220 20304 [mHTTP POST /api/posts/1/share/ 201 [0.06, 127.0.0.1:55611][0m
 INFO 2025-03-20 01:13:48,637 runserver 2220 20304 [mHTTP POST /api/posts/1/share/?is_shared=true 201 [0.04, 127.0.0.1:55611][0m
 INFO 2025-03-20 01:14:19,478 runserver 2220 20304 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.35, 127.0.0.1:55611][0m
+INFO 2025-03-20 10:56:25,994 autoreload 16872 15572 Watching for file changes with StatReloader
+INFO 2025-03-20 10:56:33,382 runserver 16872 10980 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.83, 127.0.0.1:55236][0m
+INFO 2025-03-20 10:56:39,408 runserver 16872 10980 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.36, 127.0.0.1:55236][0m
+ERROR 2025-03-20 10:57:47,321 views 16872 20572 Error uploading file peacock-feather.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-20 10:57:47,353 runserver 16872 10980 [mHTTP POST /api/posts/ 201 [1.30, 127.0.0.1:55261][0m
+INFO 2025-03-20 10:58:34,922 runserver 16872 10980 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.37, 127.0.0.1:55261][0m
+ERROR 2025-03-20 10:59:05,786 views 16872 17052 Error uploading file tree_image.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-20 10:59:05,798 runserver 16872 10980 [mHTTP POST /api/posts/ 201 [0.79, 127.0.0.1:55261][0m
+INFO 2025-03-20 11:01:12,119 autoreload 16872 15572 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 11:01:14,244 autoreload 9724 11172 Watching for file changes with StatReloader
+INFO 2025-03-20 11:01:36,557 autoreload 9724 11172 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-20 11:01:38,011 autoreload 12368 2764 Watching for file changes with StatReloader
+ERROR 2025-03-20 11:01:51,053 views 12368 6560 Error uploading file tree_image.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-20 11:01:51,077 runserver 12368 12524 [mHTTP POST /api/posts/ 201 [0.85, 127.0.0.1:55372][0m
+ERROR 2025-03-20 11:02:09,129 views 12368 20208 Error uploading file peacock-feather.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-20 11:02:09,147 runserver 12368 12524 [mHTTP POST /api/posts/ 201 [0.78, 127.0.0.1:55372][0m
+INFO 2025-03-20 11:04:02,846 runserver 12368 12524 [mHTTP POST /api/stories/create/ 201 [0.76, 127.0.0.1:55428][0m

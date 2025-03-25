@@ -10,6 +10,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.pagination import PageNumberPagination
 from accounts.models import BlockedUser, User
 from accounts.serializers import UserSerializer
+from utils.aws import upload_file_to_s3
 from .serializers import CommentReactionSerializer, PostSerializer, ReactionSerializer, CommentSerializer, HashtagSerializer, SavedPostSerializer, SharedPostCommentReactionSerializer, SharedPostCommentSerializer, SharedPostReactionSerializer, SharedPostSerializer
 from .models import CommentReaction, Post, Hashtag, PostMedia, Reaction, SavedPost, SharedPost, SharedPostComment, SharedPostCommentReaction, SharedPostReaction
 from django.utils import timezone
@@ -47,7 +48,43 @@ class PostCreateView(generics.CreateAPIView):
         media_files = self.request.FILES.getlist('media_files')
         post = serializer.save(user=self.request.user)
 
+        # for file in media_files:
+        #     media_type = 'image' if file.name.lower().endswith(('jpg', 'jpeg', 'png', 'gif')) else 'video'
+
+        #     try:
+        #         saved_path, s3_url = upload_file_to_s3(file, folder="post_media")
+        #         logger.info(f"File uploaded to s3: {s3_url}")
+
+        #         media = PostMedia.objects.create(
+        #             post=post,
+        #             media_type=media_type
+        #         )
+
+        #         media.media_file.name = saved_path
+        #         media.save()
+
+        #         if media_type == 'image':
+        #             file.seek(0)
+        #             try:
+        #                 image = Image.open(file)
+        #                 image.thumbnail((200, 200))
+        #                 thumb_io = io.BytesIO()
+        #                 image_format = image.format if image.format else 'JPEG'
+        #                 image.save(thumb_io, format=image_format)
+        #                 thumb_file = ContentFile(thumb_io.getvalue(), name=f"thumb_{file.name}")
+
+        #                 thumb_path, thumb_url = upload_file_to_s3(thumb_file, folder='post_media/thumbnails')
+        #                 media.thumbnail_file.name = thumb_path
+        #                 media.save()
+        #                 logger.info(f"Thumbnail saved to S3: {thumb_url}")
+        #             except Exception as e:
+        #                 logger.error(f"Error generating thumbnail for {file.name}: {e}")
+                
+        #     except Exception as e:
+        #         logger.error(f"Error uploading file {file.name}: {e}")
+
         s3_storage = S3Boto3Storage(bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
+
 
         for file in media_files:
             # Media processing logic
