@@ -45,10 +45,18 @@ class LoginSerializer(serializers.Serializer):
 
         email = data.get("email")
         password = data.get("password")
-        user = authenticate(email=email, password=password)
-        if not user:
-            raise serializers.ValidationError("Invalid Credentials.")
-        data['user'] = user
+        
+        # Check if user with the provided email exists.
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise serializers.ValidationError("Email not found.")
+
+        authenticated_user = authenticate(email=email, password=password)
+        if not authenticated_user:
+            raise serializers.ValidationError("Incorrect password.")
+        
+        data['user'] = authenticated_user
         return data
     
 class ProfileSerializer(serializers.ModelSerializer):
