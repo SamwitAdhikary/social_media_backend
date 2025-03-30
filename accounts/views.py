@@ -636,3 +636,14 @@ class DownloadUserDataView(APIView):
         response = Response(data, status=status.HTTP_200_OK)
         response['Content-Disposition'] = 'attachment; filename="user_data.json"'
         return response
+    
+class UserProfileView(APIView):
+    """
+    Returns authenticated user details
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        serializer = UserSerializer(request.user, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)

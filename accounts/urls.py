@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProfileMediaUpdateView, RegisterView, LoginView, ProfileDetailView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView
+from .views import ProfileMediaUpdateView, RegisterView, LoginView, ProfileDetailView, UserProfileView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView
 
 # Accounts Application URL Configuration
 # Defines endpoints for user management and authentication features
@@ -58,6 +58,8 @@ urlpatterns = [
      path('download-data/', DownloadUserDataView.as_view(), name='download-user-data'),
 
      path('profile/profile-update', ProfileMediaUpdateView.as_view(), name="profile-media-update"),
+
+     path("user/profile/", UserProfileView.as_view(), name="user-profile"),
 ]
 
 # URL Pattern Notes:

@@ -11317,3 +11317,56 @@ INFO 2025-03-30 15:31:43,297 runserver 10128 4532 [mHTTP GET /api/accounts/sear
 INFO 2025-03-30 15:32:33,975 views 10128 6908 File uploaded to s3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/diagram-export-3-17-2025-9_04_27-PM.png
 INFO 2025-03-30 15:32:35,980 views 10128 6908 Thumbnail saved to S3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_diagram-export-3-17-2025-9_04_27-PM.png
 INFO 2025-03-30 15:32:36,019 runserver 10128 4532 [mHTTP POST /api/posts/ 201 [3.96, 127.0.0.1:65415][0m
+INFO 2025-03-30 20:18:31,724 autoreload 11068 3456 Watching for file changes with StatReloader
+INFO 2025-03-30 20:19:25,762 autoreload 7840 18348 Watching for file changes with StatReloader
+WARNING 2025-03-30 20:19:51,817 log 7840 1324 Bad Request: /api/accounts/login/
+WARNING 2025-03-30 20:19:51,819 runserver 7840 3608 [31;1mHTTP POST /api/accounts/login/ 400 [7.47, 172.27.192.1:62285][0m
+INFO 2025-03-30 20:20:16,001 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [7.93, 172.27.192.1:62317][0m
+INFO 2025-03-30 20:20:16,403 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.04, 172.27.192.1:62328][0m
+INFO 2025-03-30 20:33:00,819 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.20, 172.27.192.1:63671][0m
+INFO 2025-03-30 20:33:13,534 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 172.27.192.1:63691][0m
+INFO 2025-03-30 20:34:19,842 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 172.27.192.1:63802][0m
+INFO 2025-03-30 20:35:22,081 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [2.98, 127.0.0.1:63913][0m
+INFO 2025-03-30 20:35:59,836 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 172.27.192.1:63993][0m
+INFO 2025-03-30 20:40:23,797 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [7.39, 172.27.192.1:64398][0m
+INFO 2025-03-30 20:40:35,081 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [2.41, 172.27.192.1:64422][0m
+INFO 2025-03-30 20:43:01,479 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [0.91, 172.27.192.1:64688][0m
+INFO 2025-03-30 20:44:27,491 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [0.94, 172.27.192.1:64830][0m
+INFO 2025-03-30 20:44:41,441 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [6.63, 172.27.192.1:64843][0m
+INFO 2025-03-30 20:45:00,537 runserver 7840 3608 [mHTTP POST /api/accounts/login/ 200 [1.65, 172.27.192.1:64889][0m
+INFO 2025-03-30 20:45:05,179 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.04, 172.27.192.1:64900][0m
+INFO 2025-03-30 20:48:01,798 runserver 7840 3608 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 172.27.192.1:65192][0m
+INFO 2025-03-30 20:53:18,279 autoreload 7840 18348 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:53:22,991 autoreload 11496 13568 Watching for file changes with StatReloader
+INFO 2025-03-30 20:53:27,985 autoreload 11496 13568 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:53:30,114 autoreload 8380 16688 Watching for file changes with StatReloader
+INFO 2025-03-30 20:53:35,115 autoreload 8380 16688 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:53:37,830 autoreload 7984 12140 Watching for file changes with StatReloader
+INFO 2025-03-30 20:53:44,695 autoreload 7984 12140 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:53:46,723 autoreload 8720 16396 Watching for file changes with StatReloader
+INFO 2025-03-30 20:53:50,891 autoreload 8720 16396 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:53:54,908 autoreload 7612 1324 Watching for file changes with StatReloader
+INFO 2025-03-30 20:54:09,408 autoreload 7612 1324 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:54:14,058 autoreload 5028 15132 Watching for file changes with StatReloader
+INFO 2025-03-30 20:54:23,643 autoreload 5028 15132 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:54:25,986 autoreload 11500 15996 Watching for file changes with StatReloader
+INFO 2025-03-30 20:54:31,780 autoreload 11500 15996 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:54:35,325 autoreload 6256 6412 Watching for file changes with StatReloader
+INFO 2025-03-30 20:54:40,303 autoreload 6256 6412 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:54:45,033 autoreload 12552 9208 Watching for file changes with StatReloader
+INFO 2025-03-30 20:54:51,036 autoreload 12552 9208 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:54:53,660 autoreload 19648 9936 Watching for file changes with StatReloader
+INFO 2025-03-30 20:54:58,767 autoreload 19648 9936 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-30 20:55:01,874 autoreload 18320 1596 Watching for file changes with StatReloader
+INFO 2025-03-30 20:55:19,299 autoreload 18320 1596 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-30 20:55:23,905 autoreload 16688 10284 Watching for file changes with StatReloader
+INFO 2025-03-30 20:55:30,112 autoreload 16688 10284 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-30 20:55:34,365 autoreload 8456 18884 Watching for file changes with StatReloader
+INFO 2025-03-30 20:55:39,811 autoreload 8456 18884 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-30 20:55:41,462 autoreload 11904 12960 Watching for file changes with StatReloader
+INFO 2025-03-30 20:55:46,740 autoreload 11904 12960 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-30 20:55:49,240 autoreload 7924 19088 Watching for file changes with StatReloader
+WARNING 2025-03-30 20:56:24,076 log 7924 6628 Method Not Allowed: /api/accounts/user/profile/
+WARNING 2025-03-30 20:56:24,078 runserver 7924 12344 [31;1mHTTP POST /api/accounts/user/profile/ 405 [0.03, 127.0.0.1:49866][0m
+INFO 2025-03-30 20:56:28,488 runserver 7924 12344 [mHTTP GET /api/accounts/user/profile/ 200 [0.01, 127.0.0.1:49866][0m
+INFO 2025-03-30 20:58:43,874 runserver 7924 12344 [mHTTP GET /api/accounts/user/profile/ 200 [0.01, 172.27.192.1:50145][0m
