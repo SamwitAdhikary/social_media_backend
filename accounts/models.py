@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.utils import timezone
 import pyotp
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 class User(AbstractUser):
@@ -65,8 +66,13 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=255)
     username = models.CharField(max_length=150, unique=True)
     bio = models.TextField(blank=True)
+
+    # profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
+    # cover_picture = models.ImageField(upload_to='cover_pictures/', blank=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
+
     profile_picture_url = models.URLField(blank=True)
     cover_picture_url = models.URLField(blank=True)
+
     date_of_birth = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=20, blank=True)
     location = models.CharField(max_length=255, blank=True)

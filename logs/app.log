@@ -9685,3 +9685,1635 @@ WARNING 2025-03-26 23:35:09,334 log 9712 20208 Bad Request: /api/accounts/login/
 WARNING 2025-03-26 23:35:09,336 runserver 9712 504 [31;1mHTTP POST /api/accounts/login/ 400 [0.02, 172.27.192.1:61752][0m
 INFO 2025-03-26 23:35:29,106 runserver 9712 504 [mHTTP POST /api/accounts/login/ 200 [7.00, 172.27.192.1:61765][0m
 INFO 2025-03-26 23:35:29,701 runserver 9712 504 [mHTTP GET /api/accounts/profile/for/ 200 [0.08, 172.27.192.1:61775][0m
+INFO 2025-03-28 11:00:39,116 autoreload 7660 3308 Watching for file changes with StatReloader
+WARNING 2025-03-28 11:01:18,704 log 7660 16468 Bad Request: /api/accounts/login/
+WARNING 2025-03-28 11:01:18,706 runserver 7660 5588 [31;1mHTTP POST /api/accounts/login/ 400 [0.05, 127.0.0.1:65087][0m
+INFO 2025-03-28 11:01:28,866 runserver 7660 5588 [mHTTP POST /api/accounts/login/ 200 [3.00, 127.0.0.1:65087][0m
+ERROR 2025-03-28 12:07:44,768 views 7660 148 Error uploading file peacock-feather.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 12:07:44,830 runserver 7660 5588 [mHTTP POST /api/posts/ 201 [1.56, 127.0.0.1:49501][0m
+ERROR 2025-03-28 12:08:05,905 views 7660 19048 Error uploading file tree_image.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 12:08:05,949 runserver 7660 5588 [mHTTP POST /api/posts/ 201 [1.06, 127.0.0.1:49501][0m
+INFO 2025-03-28 15:25:45,519 autoreload 12328 16420 Watching for file changes with StatReloader
+ERROR 2025-03-28 15:26:09,259 views 12328 9184 Error uploading file peacock-feather.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 15:26:09,289 runserver 12328 12788 [mHTTP POST /api/posts/ 201 [1.09, 127.0.0.1:51835][0m
+INFO 2025-03-28 15:41:57,285 autoreload 12328 16420 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-28 15:41:59,177 autoreload 6388 5984 Watching for file changes with StatReloader
+INFO 2025-03-28 15:42:06,701 autoreload 6388 5984 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-28 15:42:08,095 autoreload 17504 18188 Watching for file changes with StatReloader
+ERROR 2025-03-28 15:42:19,744 views 17504 8064 Error uploading file peacock-feather.jpg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 15:42:19,774 runserver 17504 11596 [mHTTP POST /api/posts/ 201 [0.83, 127.0.0.1:52853][0m
+INFO 2025-03-28 18:15:31,763 autoreload 13876 12336 Watching for file changes with StatReloader
+ERROR 2025-03-28 18:15:53,753 views 13876 18256 Error uploading file diagram-export-3-17-2025-9_04_27-PM.png: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 18:15:53,776 runserver 13876 8144 [mHTTP POST /api/posts/ 201 [0.98, 127.0.0.1:54334][0m
+INFO 2025-03-28 19:03:01,113 autoreload 21152 10228 Watching for file changes with StatReloader
+ERROR 2025-03-28 19:03:28,460 views 21152 18464 Error uploading file 01b2e951-a251-4fa4-b841-9103d987175f.jpeg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 19:03:28,503 runserver 21152 14608 [mHTTP POST /api/posts/ 201 [0.93, 127.0.0.1:64608][0m
+INFO 2025-03-28 19:10:34,722 autoreload 21152 10228 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-28 19:10:36,489 autoreload 1832 18688 Watching for file changes with StatReloader
+INFO 2025-03-28 19:10:42,008 autoreload 1832 18688 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-28 19:10:43,546 autoreload 5036 17224 Watching for file changes with StatReloader
+ERROR 2025-03-28 19:12:03,162 views 5036 8464 Error uploading file 01b2e951-a251-4fa4-b841-9103d987175f.jpeg: An error occurred (403) when calling the HeadObject operation: Forbidden
+INFO 2025-03-28 19:12:03,188 runserver 5036 9100 [mHTTP POST /api/posts/ 201 [2.06, 127.0.0.1:65366][0m
+INFO 2025-03-28 20:37:23,516 autoreload 15844 7868 Watching for file changes with StatReloader
+INFO 2025-03-28 20:37:39,119 views 15844 15820 Manually saved file to S3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/01b2e951-a251-4fa4-b841-9103d987175f.jpeg
+INFO 2025-03-28 20:37:39,488 views 15844 15820 Thumbnail saved to S3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_01b2e951-a251-4fa4-b841-9103d987175f.jpeg
+INFO 2025-03-28 20:37:39,555 runserver 15844 20764 [mHTTP POST /api/posts/ 201 [2.11, 127.0.0.1:50878][0m
+INFO 2025-03-28 20:39:11,798 runserver 15844 20764 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.42, 127.0.0.1:50954][0m
+INFO 2025-03-28 20:40:30,548 autoreload 15844 7868 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-28 20:40:32,394 autoreload 1132 3292 Watching for file changes with StatReloader
+INFO 2025-03-28 20:40:44,377 autoreload 1132 3292 C:\Users\samwi\Desktop\APPLICATION\posts\views.py changed, reloading.
+INFO 2025-03-28 20:40:45,816 autoreload 10436 19236 Watching for file changes with StatReloader
+INFO 2025-03-28 20:41:23,349 views 10436 17064 File uploaded to s3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/01b2e951-a251-4fa4-b841-9103d987175f_VTgA7HE.jpeg
+INFO 2025-03-28 20:41:24,794 views 10436 17064 Thumbnail saved to S3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_01b2e951-a251-4fa4-b841-9103d987175f_n8eSF0H.jpeg
+INFO 2025-03-28 20:41:24,839 runserver 10436 3588 [mHTTP POST /api/posts/ 201 [3.27, 127.0.0.1:51068][0m
+INFO 2025-03-28 20:41:54,998 runserver 10436 3588 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.46, 127.0.0.1:51068][0m
+INFO 2025-03-28 20:58:53,576 autoreload 10436 19236 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:58:55,927 autoreload 8760 2748 Watching for file changes with StatReloader
+INFO 2025-03-28 20:58:59,874 autoreload 8760 2748 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:59:01,350 autoreload 16572 15096 Watching for file changes with StatReloader
+INFO 2025-03-28 20:59:09,796 autoreload 16572 15096 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:59:11,194 autoreload 14340 672 Watching for file changes with StatReloader
+INFO 2025-03-28 20:59:22,159 autoreload 14340 672 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:59:25,258 autoreload 16888 17440 Watching for file changes with StatReloader
+INFO 2025-03-28 20:59:33,118 autoreload 16888 17440 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:59:34,471 autoreload 17640 15388 Watching for file changes with StatReloader
+INFO 2025-03-28 20:59:41,723 autoreload 17640 15388 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:59:43,039 autoreload 10912 8144 Watching for file changes with StatReloader
+INFO 2025-03-28 20:59:45,677 autoreload 10912 8144 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 20:59:46,986 autoreload 11684 2420 Watching for file changes with StatReloader
+INFO 2025-03-28 21:00:05,389 autoreload 11684 2420 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 21:00:06,684 autoreload 9688 7528 Watching for file changes with StatReloader
+INFO 2025-03-28 21:00:17,792 autoreload 9688 7528 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 21:00:20,075 autoreload 11040 19876 Watching for file changes with StatReloader
+INFO 2025-03-28 21:00:23,712 autoreload 11040 19876 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 21:00:25,386 autoreload 14600 15212 Watching for file changes with StatReloader
+INFO 2025-03-28 21:00:30,029 autoreload 14600 15212 C:\Users\samwi\Desktop\APPLICATION\accounts\models.py changed, reloading.
+INFO 2025-03-28 21:00:31,726 autoreload 15132 18928 Watching for file changes with StatReloader
+INFO 2025-03-28 21:31:36,950 autoreload 4348 19140 Watching for file changes with StatReloader
+ERROR 2025-03-28 21:31:44,559 log 4348 20312 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 184, in get
+    posts_data = PostSerializer(posts_qs, many=True, context={'request': request}).data
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py", line 194, in to_representation
+    "profile_picture_url": instance.profile.profile_picture_url,
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Profile' object has no attribute 'profile_picture_url'. Did you mean: 'profile_picture'?
+ERROR 2025-03-28 21:31:44,591 runserver 4348 11692 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.37, 127.0.0.1:53496][0m
+INFO 2025-03-28 21:32:19,188 autoreload 8140 11820 Watching for file changes with StatReloader
+ERROR 2025-03-28 21:32:22,419 log 8140 9188 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 184, in get
+    posts_data = PostSerializer(posts_qs, many=True, context={'request': request}).data
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py", line 194, in to_representation
+    "profile_picture_url": instance.profile.profile_picture_url,
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Profile' object has no attribute 'profile_picture_url'. Did you mean: 'profile_picture'?
+ERROR 2025-03-28 21:32:22,443 runserver 8140 12836 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.25, 127.0.0.1:53539][0m
+INFO 2025-03-28 21:34:08,323 autoreload 8140 11820 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:34:09,830 autoreload 16616 1916 Watching for file changes with StatReloader
+INFO 2025-03-28 21:34:12,581 autoreload 16616 1916 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:34:14,008 autoreload 17336 20788 Watching for file changes with StatReloader
+INFO 2025-03-28 21:34:17,907 autoreload 17336 20788 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:34:20,145 autoreload 15748 1820 Watching for file changes with StatReloader
+ERROR 2025-03-28 21:34:26,436 log 15748 14232 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 21:34:26,472 runserver 15748 21456 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.68, 127.0.0.1:53630][0m
+INFO 2025-03-28 21:37:43,162 autoreload 15748 1820 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:37:45,706 autoreload 20736 15404 Watching for file changes with StatReloader
+INFO 2025-03-28 21:37:51,012 autoreload 20736 15404 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:37:52,313 autoreload 16908 21020 Watching for file changes with StatReloader
+INFO 2025-03-28 21:37:57,191 autoreload 16908 21020 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:37:58,678 autoreload 14100 17624 Watching for file changes with StatReloader
+INFO 2025-03-28 21:38:02,357 autoreload 14100 17624 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:38:03,796 autoreload 7416 6524 Watching for file changes with StatReloader
+INFO 2025-03-28 21:38:07,817 autoreload 7416 6524 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:38:10,133 autoreload 17052 17168 Watching for file changes with StatReloader
+INFO 2025-03-28 21:38:25,218 autoreload 17052 17168 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:38:28,568 autoreload 21144 5420 Watching for file changes with StatReloader
+INFO 2025-03-28 21:38:34,047 autoreload 21144 5420 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:38:37,045 autoreload 20168 14732 Watching for file changes with StatReloader
+INFO 2025-03-28 21:38:40,329 autoreload 20168 14732 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:38:42,586 autoreload 21340 18020 Watching for file changes with StatReloader
+INFO 2025-03-28 21:38:48,611 autoreload 21340 18020 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:38:49,982 autoreload 16700 6736 Watching for file changes with StatReloader
+ERROR 2025-03-28 21:38:57,545 log 16700 3192 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 21:38:57,569 runserver 16700 2028 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.64, 127.0.0.1:53903][0m
+INFO 2025-03-28 21:40:33,024 autoreload 16700 6736 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:40:35,083 autoreload 10156 10636 Watching for file changes with StatReloader
+INFO 2025-03-28 21:40:38,957 autoreload 10156 10636 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:40:41,981 autoreload 4416 10332 Watching for file changes with StatReloader
+INFO 2025-03-28 21:40:47,769 autoreload 4416 10332 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:40:49,325 autoreload 14368 20936 Watching for file changes with StatReloader
+INFO 2025-03-28 21:40:54,823 autoreload 14368 20936 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:40:56,304 autoreload 16080 3880 Watching for file changes with StatReloader
+ERROR 2025-03-28 21:40:59,988 log 16080 11060 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 21:41:00,015 runserver 16080 14236 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.94, 127.0.0.1:54027][0m
+INFO 2025-03-28 21:41:25,215 autoreload 16080 3880 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:41:28,479 autoreload 13992 19572 Watching for file changes with StatReloader
+INFO 2025-03-28 21:41:32,825 autoreload 13992 19572 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 21:41:37,431 autoreload 17916 11380 Watching for file changes with StatReloader
+WARNING 2025-03-28 21:43:04,543 log 17916 876 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:43:04,546 runserver 17916 6376 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:54125][0m
+WARNING 2025-03-28 21:44:04,648 log 17916 876 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:44:04,651 runserver 17916 6376 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54156][0m
+WARNING 2025-03-28 21:44:09,509 log 17916 876 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:44:09,511 runserver 17916 6376 [31;1mHTTP POST /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54156][0m
+INFO 2025-03-28 21:45:48,956 autoreload 17916 11380 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:45:50,952 autoreload 9276 18112 Watching for file changes with StatReloader
+INFO 2025-03-28 21:46:04,538 autoreload 9276 18112 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:46:06,013 autoreload 4924 10032 Watching for file changes with StatReloader
+WARNING 2025-03-28 21:46:09,479 log 4924 14596 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:46:09,481 runserver 4924 7980 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:54241][0m
+INFO 2025-03-28 21:47:07,362 autoreload 1184 11572 Watching for file changes with StatReloader
+WARNING 2025-03-28 21:47:11,508 log 1184 20688 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:47:11,512 runserver 1184 14976 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.07, 127.0.0.1:54279][0m
+INFO 2025-03-28 21:48:11,198 autoreload 1184 11572 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:48:13,261 autoreload 21020 9068 Watching for file changes with StatReloader
+INFO 2025-03-28 21:48:16,635 autoreload 21020 9068 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:48:17,989 autoreload 15492 12184 Watching for file changes with StatReloader
+INFO 2025-03-28 21:48:33,661 autoreload 15492 12184 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:48:35,003 autoreload 3016 9748 Watching for file changes with StatReloader
+INFO 2025-03-28 21:48:50,406 autoreload 3016 9748 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:48:52,986 autoreload 19088 14884 Watching for file changes with StatReloader
+INFO 2025-03-28 21:49:15,540 autoreload 14596 7980 Watching for file changes with StatReloader
+WARNING 2025-03-28 21:49:25,473 log 14596 76 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:49:25,476 runserver 14596 18388 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54409][0m
+WARNING 2025-03-28 21:49:38,403 log 14596 76 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:49:38,404 runserver 14596 18388 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:54409][0m
+WARNING 2025-03-28 21:49:41,922 log 14596 76 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:49:41,924 runserver 14596 18388 [31;1mHTTP POST /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54409][0m
+WARNING 2025-03-28 21:49:47,322 log 14596 76 Not Found: /api/accounts/profile/media/
+WARNING 2025-03-28 21:49:47,324 runserver 14596 18388 [33mHTTP HEAD /api/accounts/profile/media/ 404 [0.02, 127.0.0.1:54409][0m
+WARNING 2025-03-28 21:49:55,498 log 14596 76 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:49:55,500 runserver 14596 18388 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:54409][0m
+INFO 2025-03-28 21:54:53,074 autoreload 14596 7980 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:54:54,746 autoreload 17212 9204 Watching for file changes with StatReloader
+INFO 2025-03-28 21:54:58,661 autoreload 17212 9204 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:55:00,318 autoreload 20452 6588 Watching for file changes with StatReloader
+INFO 2025-03-28 21:55:29,354 autoreload 20452 6588 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:55:30,766 autoreload 17820 3296 Watching for file changes with StatReloader
+INFO 2025-03-28 21:55:36,558 autoreload 17820 3296 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:55:38,487 autoreload 7224 7416 Watching for file changes with StatReloader
+INFO 2025-03-28 21:55:44,824 autoreload 7224 7416 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:55:46,813 autoreload 9124 1348 Watching for file changes with StatReloader
+INFO 2025-03-28 21:55:52,420 autoreload 9124 1348 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:55:56,919 autoreload 18628 18104 Watching for file changes with StatReloader
+INFO 2025-03-28 21:56:05,845 autoreload 18628 18104 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 21:56:07,600 autoreload 2208 21336 Watching for file changes with StatReloader
+WARNING 2025-03-28 21:57:02,135 log 2208 1852 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:57:02,136 runserver 2208 8104 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54706][0m
+WARNING 2025-03-28 21:57:03,508 log 2208 1852 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:57:03,510 runserver 2208 8104 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:54706][0m
+WARNING 2025-03-28 21:57:07,520 log 2208 1852 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:57:07,522 runserver 2208 8104 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:54706][0m
+WARNING 2025-03-28 21:57:10,604 log 2208 1852 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:57:10,606 runserver 2208 8104 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54706][0m
+INFO 2025-03-28 21:57:39,512 autoreload 11976 21340 Watching for file changes with StatReloader
+WARNING 2025-03-28 21:57:42,457 log 11976 17252 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 21:57:42,460 runserver 11976 10864 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:54751][0m
+INFO 2025-03-28 22:12:24,803 autoreload 11976 21340 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:12:26,282 autoreload 16744 21364 Watching for file changes with StatReloader
+WARNING 2025-03-28 22:12:54,240 log 16744 16556 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:12:54,242 runserver 16744 3576 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:55064][0m
+WARNING 2025-03-28 22:12:57,117 log 16744 16556 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:12:57,118 runserver 16744 3576 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:55064][0m
+INFO 2025-03-28 22:13:06,816 autoreload 16744 21364 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:13:08,401 autoreload 16144 17968 Watching for file changes with StatReloader
+WARNING 2025-03-28 22:13:12,878 log 16144 17584 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:13:12,880 runserver 16144 12512 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:55097][0m
+WARNING 2025-03-28 22:13:14,358 log 16144 17584 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:13:14,360 runserver 16144 12512 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:55097][0m
+INFO 2025-03-28 22:13:39,735 autoreload 16144 17968 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:13:42,997 autoreload 17124 2720 Watching for file changes with StatReloader
+INFO 2025-03-28 22:13:48,567 autoreload 17124 2720 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:13:50,393 autoreload 15096 10748 Watching for file changes with StatReloader
+INFO 2025-03-28 22:13:54,267 autoreload 15096 10748 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:13:56,755 autoreload 15024 6060 Watching for file changes with StatReloader
+INFO 2025-03-28 22:14:03,218 autoreload 15024 6060 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:14:05,451 autoreload 20444 18896 Watching for file changes with StatReloader
+WARNING 2025-03-28 22:14:09,777 log 20444 16248 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:14:09,778 runserver 20444 10112 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:55196][0m
+WARNING 2025-03-28 22:14:13,429 log 20444 16248 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:14:13,432 runserver 20444 10112 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.05, 127.0.0.1:55196][0m
+INFO 2025-03-28 22:18:06,828 autoreload 20444 18896 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:18:09,761 autoreload 10572 13336 Watching for file changes with StatReloader
+WARNING 2025-03-28 22:18:22,628 log 10572 18552 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:18:22,630 runserver 10572 960 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:65203][0m
+WARNING 2025-03-28 22:18:23,853 log 10572 18552 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:18:23,854 runserver 10572 960 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:65203][0m
+WARNING 2025-03-28 22:18:28,520 log 10572 18552 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:18:28,521 runserver 10572 960 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:65203][0m
+INFO 2025-03-28 22:19:18,319 autoreload 10572 13336 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:19:20,612 autoreload 1596 17880 Watching for file changes with StatReloader
+WARNING 2025-03-28 22:19:30,715 log 1596 11572 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:19:30,717 runserver 1596 2412 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:65268][0m
+WARNING 2025-03-28 22:19:32,161 log 1596 11572 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:19:32,164 runserver 1596 2412 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:65268][0m
+INFO 2025-03-28 22:33:00,539 autoreload 1596 17880 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:33:02,156 autoreload 17032 10676 Watching for file changes with StatReloader
+WARNING 2025-03-28 22:33:13,276 log 17032 17920 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:33:13,277 runserver 17032 19272 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:65495][0m
+WARNING 2025-03-28 22:33:14,524 log 17032 17920 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:33:14,526 runserver 17032 19272 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:65495][0m
+INFO 2025-03-28 22:35:15,752 runserver 17032 19272 [mHTTP POST /api/accounts/login/ 200 [1.33, 127.0.0.1:49344][0m
+WARNING 2025-03-28 22:38:54,891 log 17032 17920 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:38:54,893 runserver 17032 19272 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:49436][0m
+INFO 2025-03-28 22:48:08,458 views 17032 8528 File uploaded to s3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/01b2e951-a251-4fa4-b841-9103d987175f_Q8FAGA2.jpeg
+INFO 2025-03-28 22:48:09,776 views 17032 8528 Thumbnail saved to S3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_01b2e951-a251-4fa4-b841-9103d987175f_H8vikrZ.jpeg
+INFO 2025-03-28 22:48:09,820 runserver 17032 19272 [mHTTP POST /api/posts/ 201 [3.10, 127.0.0.1:49650][0m
+ERROR 2025-03-28 22:52:50,009 log 17032 17920 Internal Server Error: /api/accounts/profile/media
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/accounts/profile/media/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-28 22:52:50,023 runserver 17032 19272 [35;1mHTTP PATCH /api/accounts/profile/media 500 [0.07, 127.0.0.1:49745][0m
+WARNING 2025-03-28 22:53:06,538 log 17032 17920 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 22:53:06,540 runserver 17032 19272 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:49745][0m
+INFO 2025-03-28 22:54:32,339 autoreload 17032 10676 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:54:34,403 autoreload 17036 13296 Watching for file changes with StatReloader
+INFO 2025-03-28 22:54:38,958 autoreload 17036 13296 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:54:42,628 autoreload 18272 14740 Watching for file changes with StatReloader
+INFO 2025-03-28 22:54:50,885 autoreload 18272 14740 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:54:53,163 autoreload 6100 18244 Watching for file changes with StatReloader
+INFO 2025-03-28 22:54:59,479 autoreload 6100 18244 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:55:02,328 autoreload 21064 7196 Watching for file changes with StatReloader
+INFO 2025-03-28 22:55:07,002 autoreload 21064 7196 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:55:10,423 autoreload 17692 18588 Watching for file changes with StatReloader
+INFO 2025-03-28 22:55:15,574 autoreload 17692 18588 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:55:17,985 autoreload 17660 12048 Watching for file changes with StatReloader
+INFO 2025-03-28 22:55:24,044 autoreload 17660 12048 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:55:27,519 autoreload 11336 17712 Watching for file changes with StatReloader
+INFO 2025-03-28 22:55:31,805 autoreload 11336 17712 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:55:34,793 autoreload 17264 16688 Watching for file changes with StatReloader
+INFO 2025-03-28 22:55:54,631 autoreload 17264 16688 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:55:56,070 autoreload 14624 9844 Watching for file changes with StatReloader
+INFO 2025-03-28 22:56:02,892 autoreload 14624 9844 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:56:05,753 autoreload 2864 21236 Watching for file changes with StatReloader
+INFO 2025-03-28 22:56:13,258 autoreload 2864 21236 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:56:15,057 autoreload 8644 8800 Watching for file changes with StatReloader
+INFO 2025-03-28 22:56:26,715 autoreload 8644 8800 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:56:30,745 autoreload 10756 4564 Watching for file changes with StatReloader
+INFO 2025-03-28 22:56:40,245 autoreload 10756 4564 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:56:42,595 autoreload 9636 14004 Watching for file changes with StatReloader
+INFO 2025-03-28 22:56:46,004 autoreload 9636 14004 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:56:51,183 autoreload 17184 19056 Watching for file changes with StatReloader
+INFO 2025-03-28 22:56:56,076 autoreload 17184 19056 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:56:58,025 autoreload 19800 13896 Watching for file changes with StatReloader
+INFO 2025-03-28 22:57:12,616 autoreload 19800 13896 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:57:17,622 autoreload 20176 12264 Watching for file changes with StatReloader
+INFO 2025-03-28 22:57:27,349 autoreload 20176 12264 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:57:30,735 autoreload 3508 14324 Watching for file changes with StatReloader
+INFO 2025-03-28 22:57:39,057 autoreload 3508 14324 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:57:40,750 autoreload 18704 19420 Watching for file changes with StatReloader
+INFO 2025-03-28 22:57:46,071 autoreload 18704 19420 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:57:48,486 autoreload 9588 17160 Watching for file changes with StatReloader
+INFO 2025-03-28 22:57:55,796 autoreload 9588 17160 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:00,151 autoreload 14148 3112 Watching for file changes with StatReloader
+INFO 2025-03-28 22:58:04,833 autoreload 14148 3112 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:07,227 autoreload 12080 14412 Watching for file changes with StatReloader
+INFO 2025-03-28 22:58:12,828 autoreload 12080 14412 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:16,657 autoreload 18480 6316 Watching for file changes with StatReloader
+INFO 2025-03-28 22:58:24,844 autoreload 18480 6316 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:26,295 autoreload 21028 6864 Watching for file changes with StatReloader
+INFO 2025-03-28 22:58:32,811 autoreload 21028 6864 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:36,895 autoreload 10052 11248 Watching for file changes with StatReloader
+INFO 2025-03-28 22:58:44,619 autoreload 10052 11248 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:48,769 autoreload 15060 11008 Watching for file changes with StatReloader
+INFO 2025-03-28 22:58:54,134 autoreload 15060 11008 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:58:55,909 autoreload 15996 20552 Watching for file changes with StatReloader
+INFO 2025-03-28 22:59:02,996 autoreload 15996 20552 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:59:07,328 autoreload 19948 19116 Watching for file changes with StatReloader
+INFO 2025-03-28 22:59:11,828 autoreload 19948 19116 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:59:13,160 autoreload 13324 12248 Watching for file changes with StatReloader
+INFO 2025-03-28 22:59:17,028 autoreload 13324 12248 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:59:20,017 autoreload 6524 19592 Watching for file changes with StatReloader
+INFO 2025-03-28 22:59:31,560 autoreload 6524 19592 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:59:34,747 autoreload 14888 9956 Watching for file changes with StatReloader
+INFO 2025-03-28 22:59:52,473 autoreload 14888 9956 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 22:59:54,009 autoreload 6284 18804 Watching for file changes with StatReloader
+INFO 2025-03-28 22:59:59,754 autoreload 6284 18804 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:00:01,517 autoreload 2856 15964 Watching for file changes with StatReloader
+INFO 2025-03-28 23:00:09,781 autoreload 2856 15964 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:00:14,182 autoreload 10824 18008 Watching for file changes with StatReloader
+INFO 2025-03-28 23:00:20,470 autoreload 10824 18008 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:00:22,085 autoreload 17852 6468 Watching for file changes with StatReloader
+INFO 2025-03-28 23:00:29,499 autoreload 17852 6468 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:00:30,863 autoreload 9452 1232 Watching for file changes with StatReloader
+INFO 2025-03-28 23:00:35,081 autoreload 9452 1232 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:00:39,516 autoreload 10644 18472 Watching for file changes with StatReloader
+INFO 2025-03-28 23:00:45,486 autoreload 10644 18472 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:00:47,531 autoreload 18372 12264 Watching for file changes with StatReloader
+WARNING 2025-03-28 23:02:48,821 log 18372 9004 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 23:02:48,823 runserver 18372 18692 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.03, 127.0.0.1:50773][0m
+WARNING 2025-03-28 23:02:50,305 log 18372 9004 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 23:02:50,306 runserver 18372 18692 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:50773][0m
+WARNING 2025-03-28 23:02:59,217 log 18372 9004 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 23:02:59,218 runserver 18372 18692 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.02, 127.0.0.1:50773][0m
+INFO 2025-03-28 23:03:41,372 autoreload 18372 12264 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:03:44,687 autoreload 9444 20852 Watching for file changes with StatReloader
+INFO 2025-03-28 23:03:49,068 autoreload 9444 20852 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:03:50,877 autoreload 18740 2212 Watching for file changes with StatReloader
+INFO 2025-03-28 23:03:57,312 autoreload 18740 2212 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:00,032 autoreload 7496 1660 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:04,949 autoreload 7496 1660 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:07,077 autoreload 20680 21452 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:13,273 autoreload 20680 21452 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:16,023 autoreload 18660 3552 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:21,854 autoreload 18660 3552 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:26,126 autoreload 1480 19624 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:32,418 autoreload 1480 19624 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:37,399 autoreload 15680 12048 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:45,080 autoreload 15680 12048 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:46,341 autoreload 5664 9004 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:49,428 autoreload 5664 9004 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:51,038 autoreload 14276 17036 Watching for file changes with StatReloader
+INFO 2025-03-28 23:04:56,048 autoreload 14276 17036 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:04:57,315 autoreload 9272 1956 Watching for file changes with StatReloader
+INFO 2025-03-28 23:05:15,377 autoreload 9272 1956 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:05:16,673 autoreload 10332 21032 Watching for file changes with StatReloader
+INFO 2025-03-28 23:05:31,400 autoreload 10332 21032 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:05:32,944 autoreload 12072 6856 Watching for file changes with StatReloader
+INFO 2025-03-28 23:05:37,681 autoreload 12072 6856 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:05:39,219 autoreload 8608 9652 Watching for file changes with StatReloader
+INFO 2025-03-28 23:05:44,252 autoreload 8608 9652 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:05:47,598 autoreload 3768 3352 Watching for file changes with StatReloader
+INFO 2025-03-28 23:06:00,319 autoreload 3768 3352 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:06:01,707 autoreload 7488 6064 Watching for file changes with StatReloader
+INFO 2025-03-28 23:06:05,552 autoreload 7488 6064 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:06:06,897 autoreload 16552 9116 Watching for file changes with StatReloader
+INFO 2025-03-28 23:06:16,818 autoreload 11904 21156 Watching for file changes with StatReloader
+WARNING 2025-03-28 23:07:02,293 log 11904 16128 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 23:07:02,295 runserver 11904 16028 [31;1mHTTP PUT /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:51181][0m
+WARNING 2025-03-28 23:07:08,977 log 11904 16128 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 23:07:08,979 runserver 11904 16028 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.04, 127.0.0.1:51181][0m
+INFO 2025-03-28 23:07:22,021 runserver 11904 16028 [mHTTP PATCH /api/accounts/profile/media 200 [3.98, 127.0.0.1:51181][0m
+ERROR 2025-03-28 23:07:52,771 log 11904 16128 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:07:52,798 runserver 11904 16028 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [1.00, 127.0.0.1:51181][0m
+INFO 2025-03-28 23:10:10,670 autoreload 11904 21156 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:10:12,891 autoreload 7220 16972 Watching for file changes with StatReloader
+INFO 2025-03-28 23:10:17,626 autoreload 7220 16972 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:10:19,180 autoreload 6028 8516 Watching for file changes with StatReloader
+ERROR 2025-03-28 23:10:26,564 log 6028 19768 Internal Server Error: /api/accounts/profile/media
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/accounts/profile/media/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-28 23:10:26,573 runserver 6028 2932 [35;1mHTTP PATCH /api/accounts/profile/media 500 [0.07, 127.0.0.1:51467][0m
+WARNING 2025-03-28 23:10:36,983 log 6028 19768 Method Not Allowed: /api/accounts/profile/media/
+WARNING 2025-03-28 23:10:36,986 runserver 6028 2932 [31;1mHTTP PATCH /api/accounts/profile/media/ 405 [0.05, 127.0.0.1:51467][0m
+WARNING 2025-03-28 23:10:49,767 log 6028 19768 Method Not Allowed: /api/accounts/profile/media-update/
+WARNING 2025-03-28 23:10:49,769 runserver 6028 2932 [31;1mHTTP PATCH /api/accounts/profile/media-update/ 405 [0.04, 127.0.0.1:51467][0m
+WARNING 2025-03-28 23:10:51,879 log 6028 19768 Method Not Allowed: /api/accounts/profile/media-update/
+WARNING 2025-03-28 23:10:51,881 runserver 6028 2932 [31;1mHTTP PATCH /api/accounts/profile/media-update/ 405 [0.02, 127.0.0.1:51467][0m
+INFO 2025-03-28 23:11:21,804 autoreload 6028 8516 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:11:23,292 autoreload 10972 9276 Watching for file changes with StatReloader
+WARNING 2025-03-28 23:11:30,620 log 10972 248 Method Not Allowed: /api/accounts/profile/profilemedia-update/
+WARNING 2025-03-28 23:11:30,623 runserver 10972 4256 [31;1mHTTP PATCH /api/accounts/profile/profilemedia-update/ 405 [0.03, 127.0.0.1:51515][0m
+WARNING 2025-03-28 23:11:32,224 log 10972 248 Method Not Allowed: /api/accounts/profile/profilemedia-update/
+WARNING 2025-03-28 23:11:32,225 runserver 10972 4256 [31;1mHTTP PATCH /api/accounts/profile/profilemedia-update/ 405 [0.02, 127.0.0.1:51515][0m
+ERROR 2025-03-28 23:11:35,403 log 10972 248 Internal Server Error: /api/accounts/profile/profilemedia-update
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/accounts/profile/profilemedia-update/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-28 23:11:35,413 runserver 10972 4256 [35;1mHTTP PATCH /api/accounts/profile/profilemedia-update 500 [0.07, 127.0.0.1:51515][0m
+INFO 2025-03-28 23:11:41,440 autoreload 10972 9276 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:11:42,869 autoreload 13276 6064 Watching for file changes with StatReloader
+INFO 2025-03-28 23:11:51,773 runserver 13276 19092 [mHTTP PATCH /api/accounts/profile/profilemedia-update 200 [4.13, 127.0.0.1:51542][0m
+INFO 2025-03-28 23:14:46,193 autoreload 13276 6064 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:14:47,699 autoreload 20296 3436 Watching for file changes with StatReloader
+ERROR 2025-03-28 23:14:54,524 log 20296 7300 Internal Server Error: /api/accounts/profile/profilemedia-update
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/accounts/profile/profilemedia-update/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-28 23:14:54,535 runserver 20296 8728 [35;1mHTTP PATCH /api/accounts/profile/profilemedia-update 500 [0.06, 127.0.0.1:51604][0m
+INFO 2025-03-28 23:15:05,191 runserver 20296 8728 [mHTTP PATCH /api/accounts/profile/profile-update 200 [3.48, 127.0.0.1:51604][0m
+WARNING 2025-03-28 23:15:14,633 log 20296 7300 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:15:14,634 runserver 20296 8728 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.04, 127.0.0.1:51604][0m
+WARNING 2025-03-28 23:15:16,234 log 20296 7300 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:15:16,237 runserver 20296 8728 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:51604][0m
+WARNING 2025-03-28 23:15:17,370 log 20296 7300 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:15:17,372 runserver 20296 8728 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:51604][0m
+INFO 2025-03-28 23:17:17,737 runserver 20296 8728 [mHTTP PATCH /api/accounts/profile/profile-update 200 [2.41, 127.0.0.1:51638][0m
+INFO 2025-03-28 23:17:56,304 autoreload 20296 3436 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:17:57,964 autoreload 1540 4976 Watching for file changes with StatReloader
+INFO 2025-03-28 23:18:01,156 autoreload 1540 4976 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:18:02,577 autoreload 2584 2888 Watching for file changes with StatReloader
+ERROR 2025-03-28 23:18:12,852 log 2584 18408 Internal Server Error: /api/accounts/profile/profile-update
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/accounts/profile/profile-update/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-28 23:18:12,862 runserver 2584 14232 [35;1mHTTP PATCH /api/accounts/profile/profile-update 500 [0.07, 127.0.0.1:51684][0m
+WARNING 2025-03-28 23:18:21,941 log 2584 18408 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:18:21,944 runserver 2584 14232 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.04, 127.0.0.1:51684][0m
+INFO 2025-03-28 23:18:47,484 autoreload 2584 2888 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:18:48,831 autoreload 10556 8404 Watching for file changes with StatReloader
+WARNING 2025-03-28 23:18:56,135 log 10556 18828 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:18:56,137 runserver 10556 21320 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.03, 127.0.0.1:51709][0m
+ERROR 2025-03-28 23:19:00,108 log 10556 18828 Internal Server Error: /api/accounts/profile/profile-update
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\utils\deprecation.py", line 147, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via PATCH, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PATCH data. Change your form to point to localhost:8000/api/accounts/profile/profile-update/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-03-28 23:19:00,119 runserver 10556 21320 [35;1mHTTP PATCH /api/accounts/profile/profile-update 500 [0.06, 127.0.0.1:51709][0m
+INFO 2025-03-28 23:19:08,116 autoreload 10556 8404 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:19:10,283 autoreload 12292 11312 Watching for file changes with StatReloader
+INFO 2025-03-28 23:19:16,064 runserver 12292 19636 [mHTTP PATCH /api/accounts/profile/profile-update 200 [3.05, 127.0.0.1:51732][0m
+INFO 2025-03-28 23:20:48,861 autoreload 12292 11312 C:\Users\samwi\Desktop\APPLICATION\social_network\settings.py changed, reloading.
+INFO 2025-03-28 23:21:12,875 autoreload 3676 12316 Watching for file changes with StatReloader
+INFO 2025-03-28 23:21:18,406 runserver 3676 11152 [mHTTP PATCH /api/accounts/profile/profile-update 200 [2.87, 127.0.0.1:51795][0m
+INFO 2025-03-28 23:21:25,294 autoreload 3676 12316 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-28 23:21:26,867 autoreload 12464 16356 Watching for file changes with StatReloader
+WARNING 2025-03-28 23:21:31,126 log 12464 15668 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:21:31,127 runserver 12464 12144 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.03, 127.0.0.1:51822][0m
+INFO 2025-03-28 23:21:43,652 autoreload 12464 16356 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:21:45,639 autoreload 18516 7192 Watching for file changes with StatReloader
+INFO 2025-03-28 23:21:52,340 autoreload 18516 7192 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:21:54,420 autoreload 20828 21452 Watching for file changes with StatReloader
+INFO 2025-03-28 23:22:03,079 autoreload 20828 21452 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:22:05,138 autoreload 9256 13676 Watching for file changes with StatReloader
+INFO 2025-03-28 23:22:26,370 autoreload 9256 13676 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:22:27,869 autoreload 13992 7868 Watching for file changes with StatReloader
+INFO 2025-03-28 23:22:31,887 autoreload 13992 7868 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:22:33,405 autoreload 14528 1528 Watching for file changes with StatReloader
+INFO 2025-03-28 23:22:44,636 autoreload 14528 1528 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:22:47,089 autoreload 7536 19896 Watching for file changes with StatReloader
+INFO 2025-03-28 23:22:53,487 autoreload 7536 19896 C:\Users\samwi\Desktop\APPLICATION\accounts\views.py changed, reloading.
+INFO 2025-03-28 23:22:58,324 autoreload 8740 5840 Watching for file changes with StatReloader
+WARNING 2025-03-28 23:23:10,806 log 8740 20792 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:23:10,807 runserver 8740 11036 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.03, 127.0.0.1:51984][0m
+WARNING 2025-03-28 23:23:12,056 log 8740 20792 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:23:12,060 runserver 8740 11036 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.04, 127.0.0.1:51984][0m
+WARNING 2025-03-28 23:23:13,263 log 8740 20792 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:23:13,265 runserver 8740 11036 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:51984][0m
+WARNING 2025-03-28 23:23:15,213 log 8740 20792 Not Found: /api/accounts/profile/profile-update
+WARNING 2025-03-28 23:23:15,215 runserver 8740 11036 [33mHTTP PATCH /api/accounts/profile/profile-update 404 [0.03, 127.0.0.1:51984][0m
+WARNING 2025-03-28 23:23:20,757 log 8740 20792 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:23:20,758 runserver 8740 11036 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:51984][0m
+WARNING 2025-03-28 23:23:22,108 log 8740 20792 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:23:22,111 runserver 8740 11036 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:51984][0m
+ERROR 2025-03-28 23:24:02,263 log 8740 20792 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:24:02,287 runserver 8740 11036 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.68, 127.0.0.1:51984][0m
+WARNING 2025-03-28 23:28:13,122 log 15868 14276 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:28:13,124 runserver 15868 13580 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.03, 127.0.0.1:52212][0m
+WARNING 2025-03-28 23:28:15,090 log 15868 14276 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-28 23:28:15,091 runserver 15868 13580 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:52212][0m
+WARNING 2025-03-28 23:28:18,149 log 15868 14276 Not Found: /api/accounts/profile/profile-update
+WARNING 2025-03-28 23:28:18,151 runserver 15868 13580 [33mHTTP PATCH /api/accounts/profile/profile-update 404 [0.03, 127.0.0.1:52212][0m
+INFO 2025-03-28 23:29:12,723 autoreload 1924 17184 Watching for file changes with StatReloader
+INFO 2025-03-28 23:29:20,665 runserver 1924 21420 [mHTTP PATCH /api/accounts/profile/profile-update 200 [4.67, 127.0.0.1:52301][0m
+INFO 2025-03-28 23:30:15,391 autoreload 1924 17184 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 23:30:20,331 autoreload 14104 14504 Watching for file changes with StatReloader
+INFO 2025-03-28 23:30:26,251 autoreload 14104 14504 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 23:30:31,074 autoreload 16900 13416 Watching for file changes with StatReloader
+INFO 2025-03-28 23:30:41,834 autoreload 16900 13416 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 23:30:45,292 autoreload 19152 7552 Watching for file changes with StatReloader
+INFO 2025-03-28 23:31:29,552 runserver 19152 17252 [mHTTP PATCH /api/accounts/profile/profile-update 200 [4.16, 127.0.0.1:52451][0m
+ERROR 2025-03-28 23:31:49,294 log 19152 12068 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:31:49,318 runserver 19152 17252 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.67, 127.0.0.1:52451][0m
+INFO 2025-03-28 23:32:05,901 autoreload 6272 15868 Watching for file changes with StatReloader
+ERROR 2025-03-28 23:32:12,896 log 6272 18612 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:32:12,918 runserver 6272 11776 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.66, 127.0.0.1:52495][0m
+INFO 2025-03-28 23:32:51,197 autoreload 6272 15868 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 23:32:52,604 autoreload 6008 13864 Watching for file changes with StatReloader
+ERROR 2025-03-28 23:33:03,786 log 6008 21236 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:33:03,803 runserver 6008 16636 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.65, 127.0.0.1:52534][0m
+INFO 2025-03-28 23:42:06,537 autoreload 6008 13864 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 23:42:08,182 autoreload 2528 11104 Watching for file changes with StatReloader
+INFO 2025-03-28 23:42:12,694 autoreload 2528 11104 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-28 23:46:44,301 autoreload 17728 20764 Watching for file changes with StatReloader
+ERROR 2025-03-28 23:46:48,482 log 17728 13572 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:46:48,510 runserver 17728 2524 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.72, 127.0.0.1:53028][0m
+ERROR 2025-03-28 23:48:19,102 log 17728 13572 Internal Server Error: /api/accounts/search/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 49, in _get_file
+    self._require_file()
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'profile_picture' attribute has no file associated with it.
+ERROR 2025-03-28 23:48:19,117 runserver 17728 2524 [35;1mHTTP GET /api/accounts/search/?search=samwit 500 [0.06, 127.0.0.1:53083][0m
+ERROR 2025-03-28 23:48:27,496 log 17728 13572 Internal Server Error: /api/accounts/search/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 284, in _get_response_async
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\utils\encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                                  ^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 78, in __iter__
+    for chunk in self.chunks():
+                 ^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\db\models\fields\files.py", line 51, in _get_file
+    self._file = self.storage.open(self.name, "rb")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\storage\base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\files\storage\filesystem.py", line 81, in _open
+    return File(open(self.path(name), mode))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\samwi\\Desktop\\APPLICATION\\media\\profile_pictures\\01b2e951-a251-4fa4-b841-9103d987175f_mvRRNJQ.jpeg'
+ERROR 2025-03-28 23:48:27,512 runserver 17728 2524 [35;1mHTTP GET /api/accounts/search/?search=for 500 [0.06, 127.0.0.1:53083][0m
+INFO 2025-03-29 00:07:11,443 autoreload 14380 8344 Watching for file changes with StatReloader
+INFO 2025-03-29 00:07:34,160 autoreload 14380 8344 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-29 00:07:35,692 autoreload 19708 9080 Watching for file changes with StatReloader
+WARNING 2025-03-29 00:07:42,388 log 19708 8404 Method Not Allowed: /api/accounts/profile/profile-update/
+WARNING 2025-03-29 00:07:42,389 runserver 19708 10728 [31;1mHTTP PATCH /api/accounts/profile/profile-update/ 405 [0.02, 127.0.0.1:52315][0m
+INFO 2025-03-29 00:07:48,870 autoreload 19708 9080 C:\Users\samwi\Desktop\APPLICATION\accounts\urls.py changed, reloading.
+INFO 2025-03-29 00:07:50,434 autoreload 15124 17468 Watching for file changes with StatReloader
+INFO 2025-03-29 00:07:53,475 runserver 15124 11376 [mHTTP PATCH /api/accounts/profile/profile-update 200 [0.03, 127.0.0.1:52340][0m
+INFO 2025-03-29 00:08:15,853 runserver 15124 11376 [mHTTP PATCH /api/accounts/profile/profile-update 200 [2.75, 127.0.0.1:52340][0m
+ERROR 2025-03-29 00:08:33,211 log 15124 12292 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 184, in get
+    posts_data = PostSerializer(posts_qs, many=True, context={'request': request}).data
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py", line 215, in to_representation
+    "profile_picture": instance.profile.profile_picture,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Profile' object has no attribute 'profile_picture'. Did you mean: 'profile_picture_url'?
+ERROR 2025-03-29 00:08:33,233 runserver 15124 11376 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.27, 127.0.0.1:52340][0m
+INFO 2025-03-29 00:09:13,936 autoreload 15124 17468 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:09:15,856 autoreload 7264 4368 Watching for file changes with StatReloader
+INFO 2025-03-29 00:09:20,331 autoreload 7264 4368 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:09:21,777 autoreload 19124 20896 Watching for file changes with StatReloader
+INFO 2025-03-29 00:09:24,980 autoreload 19124 20896 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:09:26,448 autoreload 3552 16572 Watching for file changes with StatReloader
+ERROR 2025-03-29 00:09:32,684 log 3552 5008 Internal Server Error: /api/posts/feed/
+Traceback (most recent call last):
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\core\handlers\base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\posts\views.py", line 184, in get
+    posts_data = PostSerializer(posts_qs, many=True, context={'request': request}).data
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\appenv\Lib\site-packages\rest_framework\serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py", line 215, in to_representation
+    "profile_picture": instance.profile.profile_picture,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Profile' object has no attribute 'profile_picture'. Did you mean: 'profile_picture_url'?
+ERROR 2025-03-29 00:09:32,704 runserver 3552 18000 [35;1mHTTP GET /api/posts/feed/?sort=chronological 500 [0.26, 127.0.0.1:52442][0m
+INFO 2025-03-29 00:10:20,092 autoreload 3552 16572 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:10:21,625 autoreload 9080 15148 Watching for file changes with StatReloader
+INFO 2025-03-29 00:10:24,537 autoreload 9080 15148 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:10:26,014 autoreload 21036 6472 Watching for file changes with StatReloader
+INFO 2025-03-29 00:10:30,627 autoreload 21036 6472 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:10:32,329 autoreload 14556 8708 Watching for file changes with StatReloader
+INFO 2025-03-29 00:10:35,385 runserver 14556 17644 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.68, 127.0.0.1:52518][0m
+INFO 2025-03-29 00:10:45,059 runserver 14556 17644 [mHTTP GET /api/accounts/search/?search=for 200 [0.02, 127.0.0.1:52518][0m
+INFO 2025-03-29 00:12:09,158 autoreload 14556 8708 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:12:11,640 autoreload 16652 1572 Watching for file changes with StatReloader
+INFO 2025-03-29 00:12:21,013 autoreload 16652 1572 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:12:22,536 autoreload 2884 8844 Watching for file changes with StatReloader
+INFO 2025-03-29 00:12:39,809 autoreload 2884 8844 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-29 00:12:41,522 autoreload 4128 1184 Watching for file changes with StatReloader
+INFO 2025-03-29 00:12:48,093 runserver 4128 3580 [mHTTP POST /api/accounts/login/ 200 [1.11, 127.0.0.1:52614][0m
+INFO 2025-03-29 00:13:01,805 runserver 4128 3580 [mHTTP GET /api/accounts/search/?search=for 200 [0.02, 127.0.0.1:52614][0m
+INFO 2025-03-29 00:15:04,454 runserver 4128 3580 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 127.0.0.1:52656][0m
+INFO 2025-03-30 15:08:42,822 autoreload 4128 1184 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:12:19,941 autoreload 10372 5004 Watching for file changes with StatReloader
+WARNING 2025-03-30 15:12:32,412 log 10372 11520 Unauthorized: /api/accounts/profile/for/
+WARNING 2025-03-30 15:12:32,413 runserver 10372 12972 [31;1mHTTP GET /api/accounts/profile/for/ 401 [0.02, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:12:39,619 runserver 10372 12972 [mHTTP POST /api/accounts/login/ 200 [1.08, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:12:43,790 runserver 10372 12972 [mHTTP POST /api/accounts/login/ 200 [0.82, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:01,096 runserver 10372 12972 [mHTTP GET /api/posts/feed/?sort=chronological 200 [0.44, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:14,902 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=for 200 [0.02, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:16,595 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=for 200 [0.01, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:27,977 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=samwit 200 [0.02, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:34,160 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=cloud 200 [0.01, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:38,917 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=sonali 200 [0.02, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:50,887 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=nilu 200 [0.02, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:13:56,204 runserver 10372 12972 [mHTTP GET /api/accounts/search/?search=for 200 [0.02, 127.0.0.1:65469][0m
+INFO 2025-03-30 15:23:34,651 runserver 10372 12972 [mHTTP GET /api/accounts/profile/for/ 200 [0.02, 127.0.0.1:49238][0m
+INFO 2025-03-30 15:24:44,158 autoreload 10372 5004 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:24:45,762 autoreload 12016 4464 Watching for file changes with StatReloader
+INFO 2025-03-30 15:24:50,867 autoreload 12016 4464 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:24:53,466 autoreload 18992 248 Watching for file changes with StatReloader
+INFO 2025-03-30 15:24:56,484 autoreload 18992 248 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:24:58,892 autoreload 8784 7528 Watching for file changes with StatReloader
+INFO 2025-03-30 15:25:01,605 autoreload 8784 7528 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:25:02,975 autoreload 2180 10400 Watching for file changes with StatReloader
+INFO 2025-03-30 15:25:14,054 autoreload 2180 10400 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:25:22,012 autoreload 17032 11536 Watching for file changes with StatReloader
+INFO 2025-03-30 15:25:34,084 autoreload 17032 11536 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:25:37,836 autoreload 14988 16208 Watching for file changes with StatReloader
+INFO 2025-03-30 15:25:45,059 autoreload 14988 16208 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:25:46,643 autoreload 13864 6532 Watching for file changes with StatReloader
+INFO 2025-03-30 15:25:51,530 autoreload 13864 6532 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:25:53,685 autoreload 20524 7220 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:00,457 autoreload 20524 7220 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:26:02,031 autoreload 8684 12468 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:06,026 autoreload 8684 12468 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:26:07,941 autoreload 6108 17044 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:13,831 autoreload 6108 17044 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:26:15,406 autoreload 15404 12080 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:20,117 autoreload 15404 12080 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:26:21,953 autoreload 14556 20560 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:25,771 autoreload 14556 20560 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:26:27,414 autoreload 19792 21144 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:32,330 autoreload 19792 21144 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:26:33,897 autoreload 3808 19692 Watching for file changes with StatReloader
+INFO 2025-03-30 15:26:41,397 runserver 3808 14868 [mHTTP GET /api/accounts/search/?search=for 200 [0.03, 127.0.0.1:65168][0m
+INFO 2025-03-30 15:27:14,156 autoreload 3808 19692 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:27:15,653 autoreload 14888 20856 Watching for file changes with StatReloader
+INFO 2025-03-30 15:27:19,822 autoreload 14888 20856 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:27:21,319 autoreload 2856 21016 Watching for file changes with StatReloader
+INFO 2025-03-30 15:28:37,860 runserver 2856 6360 [mHTTP GET /api/accounts/search/?search=samwit 200 [0.03, 127.0.0.1:65243][0m
+INFO 2025-03-30 15:29:36,388 autoreload 2856 21016 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:29:44,850 autoreload 15400 14508 Watching for file changes with StatReloader
+INFO 2025-03-30 15:29:49,131 autoreload 15400 14508 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:29:53,802 autoreload 18420 8232 Watching for file changes with StatReloader
+INFO 2025-03-30 15:30:16,944 autoreload 18420 8232 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:30:18,434 autoreload 6100 18788 Watching for file changes with StatReloader
+INFO 2025-03-30 15:31:00,243 autoreload 6100 18788 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:31:02,084 autoreload 20528 12080 Watching for file changes with StatReloader
+INFO 2025-03-30 15:31:09,764 autoreload 20528 12080 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:31:11,569 autoreload 11008 17560 Watching for file changes with StatReloader
+INFO 2025-03-30 15:31:19,890 autoreload 11008 17560 C:\Users\samwi\Desktop\APPLICATION\accounts\serializers.py changed, reloading.
+INFO 2025-03-30 15:31:23,474 autoreload 10128 3200 Watching for file changes with StatReloader
+INFO 2025-03-30 15:31:36,510 runserver 10128 4532 [mHTTP GET /api/accounts/search/?search=samwit 200 [0.02, 127.0.0.1:65415][0m
+INFO 2025-03-30 15:31:43,297 runserver 10128 4532 [mHTTP GET /api/accounts/search/?search=for 200 [0.01, 127.0.0.1:65415][0m
+INFO 2025-03-30 15:32:33,975 views 10128 6908 File uploaded to s3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/diagram-export-3-17-2025-9_04_27-PM.png
+INFO 2025-03-30 15:32:35,980 views 10128 6908 Thumbnail saved to S3: https://instabucketnew.s3.ap-south-1.amazonaws.com/media/post_media/thumbnails/thumb_diagram-export-3-17-2025-9_04_27-PM.png
+INFO 2025-03-30 15:32:36,019 runserver 10128 4532 [mHTTP POST /api/posts/ 201 [3.96, 127.0.0.1:65415][0m

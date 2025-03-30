@@ -7,6 +7,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
+
 class RegisterSerializer(serializers.ModelSerializer):
     """
     Handles user registration with:
@@ -28,7 +29,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
         Profile.objects.create(user=user, username=user.username)
         return user
-    
+
+
 class LoginSerializer(serializers.Serializer):
     """
     Handles user authentication:
@@ -45,7 +47,7 @@ class LoginSerializer(serializers.Serializer):
 
         email = data.get("email")
         password = data.get("password")
-        
+
         # Check if user with the provided email exists.
         try:
             user = User.objects.get(email=email)
@@ -55,10 +57,11 @@ class LoginSerializer(serializers.Serializer):
         authenticated_user = authenticate(email=email, password=password)
         if not authenticated_user:
             raise serializers.ValidationError("Incorrect password.")
-        
+
         data['user'] = authenticated_user
         return data
-    
+
+
 class ProfileSerializer(serializers.ModelSerializer):
     """
     Serializes profile data with privacy-aware field exposure:
@@ -112,21 +115,21 @@ class ProfileSerializer(serializers.ModelSerializer):
         # If the logged-in user is viewing their own profile, show everything.
         if request and profile_owner == request.user:
             return representation
-        
+
         # Checking if the viewer is a friend
         is_friend = False
         if request and request.user.is_authenticated:
             is_friend = Connection.objects.filter(
                 (Q(requester=request.user, target=profile_owner) |
                  Q(requester=profile_owner, target=request.user)),
-                 status='accepted',
-                 connection_type = 'friend'
+                status='accepted',
+                connection_type='friend'
             ).exists()
-        
+
         # if profile is public, show everything
         if privacy == 'public':
             return representation
-        
+
         # if profile is set to 'friends', you may want to check if the viewer is a friend.
         if privacy == 'friends' and is_friend:
             return representation
@@ -134,7 +137,21 @@ class ProfileSerializer(serializers.ModelSerializer):
             **basic_fields,
             "bio": representation.get('bio')
         }
-    
+
+
+class ProfileMediaUpdateSerializer(serializers.ModelSerializer):
+    """
+    Serializer to update profile and cover pictures.
+    Expects image files for profile_picture and cover_picture
+    """
+
+    profile_picture = serializers.ImageField(required=False)
+    cover_picture = serializers.ImageField(required=False)
+
+    class Meta:
+        model = Profile
+        fields = ['profile_picture', 'cover_picture']
+
 class UserSerializer(serializers.ModelSerializer):
     """
     Serializes user data with privacy considerations:
@@ -147,12 +164,34 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
+    def get_full_details(self, instance):
+        return {
+            'id': instance.id,
+            'username': instance.username,
+            'email': instance.email,
+            'first_name': instance.first_name,
+            'last_name': instance.last_name,
+            'full_name': instance.profile.full_name,
+            'profile_picture_url': instance.profile.profile_picture_url,
+            'cover_picture_url': instance.profile.cover_picture_url,
+            'date_of_birth': instance.profile.date_of_birth,
+            'gender': instance.profile.gender,
+            'location': instance.profile.location,
+            'education': instance.profile.education,
+            'work': instance.profile.work,
+            'bio': instance.profile.bio,
+        }
+
     def to_representation(self, instance):
         """Enhances user data with profile information and privacy checks"""
 
         request = self.context.get("request")
         force_full = self.context.get("force_full", False)
-        privacy = instance.profile.privacy_settings.get("profile_visibility", 'public')
+        privacy = instance.profile.privacy_settings.get(
+            "profile_visibility", 'public')
+
+        if request and request.user == instance:
+            return self.get_full_details(instance)
 
         if not force_full and privacy == 'friends' and (not request or request.user != instance):
             return {
@@ -160,13 +199,10 @@ class UserSerializer(serializers.ModelSerializer):
                 "username": instance.username,
                 "profile_picture_url": instance.profile.profile_picture_url,
             }
-        
-        ret = super().to_representation(instance)
-        ret['full_name'] = instance.profile.full_name
-        ret['profile_picture_url'] = instance.profile.profile_picture_url
-        ret['bio'] = instance.profile.bio
-        return ret
-    
+
+        return self.get_full_details(instance)
+
+
 class BlockedUserSerializer(serializers.ModelSerializer):
     """
     Serializes blocked user relationships:
@@ -178,6 +214,7 @@ class BlockedUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlockedUser
         fields = '__all__'
+
 
 class PasswordResetRequestSerializer(serializers.Serializer):
     """
@@ -192,9 +229,11 @@ class PasswordResetRequestSerializer(serializers.Serializer):
         """Ensures email belongs to an active user account"""
 
         if not User.objects.filter(email__iexact=value, is_active=True).exists():
-            raise serializers.ValidationError("No active user with this email was found.")
+            raise serializers.ValidationError(
+                "No active user with this email was found.")
         return value
-    
+
+
 class PasswordResetConfirmSerializer(serializers.Serializer):
     """
     Handles password reset confirmation:
@@ -217,10 +256,11 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
 
         token_generator = PasswordResetTokenGenerator()
         if not token_generator.check_token(user, data['token']):
-            raise serializers.ValidationError({"token": "Invalid or expired token."})
+            raise serializers.ValidationError(
+                {"token": "Invalid or expired token."})
         data['user'] = user
         return data
-    
+
     def save(self):
         """Updates user password after successful validation"""
         user = self.validated_data['user']
@@ -228,7 +268,8 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
         user.set_password(new_password)
         user.save()
         return user
-    
+
+
 class ChangePasswordSerializer(serializers.Serializer):
     """Handles password change for authenticated users:
     - Validates old password correctness
@@ -237,8 +278,10 @@ class ChangePasswordSerializer(serializers.Serializer):
     """
 
     old_password = serializers.CharField(required=True, write_only=True)
-    new_password = serializers.CharField(required=True, write_only=True, min_length=8)
-    confirm_new_password = serializers.CharField(required=True, write_only=True, min_length=8)
+    new_password = serializers.CharField(
+        required=True, write_only=True, min_length=8)
+    confirm_new_password = serializers.CharField(
+        required=True, write_only=True, min_length=8)
 
     def validate_old_password(self, value):
         """Verifies current password matches user's actual password"""
@@ -247,14 +290,15 @@ class ChangePasswordSerializer(serializers.Serializer):
         if not user.check_password(value):
             raise serializers.ValidationError("old password is not correct.")
         return value
-    
+
     def validate(self, data):
         """Ensures new password fields match"""
 
         if data['new_password'] != data['confirm_new_password']:
-            raise serializers.ValidationError("New password fields didn't match.")
+            raise serializers.ValidationError(
+                "New password fields didn't match.")
         return data
-    
+
     def save(self, **kwargs):
         """Updates user's password after validation"""
 

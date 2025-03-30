@@ -7,13 +7,15 @@ import qrcode.constants
 from rest_framework import generics, status, permissions, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 
 from connections.serializers import ConnectionSerializer
 from notifications.models import Notification
 from notifications.serializer import NotificationSerializer
 from posts.models import Post, SavedPost
 from posts.serializers import PostSerializer, SavedPostSerializer
-from .serializers import ChangePasswordSerializer, RegisterSerializer, LoginSerializer, ProfileSerializer, UserSerializer, BlockedUserSerializer, PasswordResetRequestSerializer, PasswordResetConfirmSerializer
+from utils.aws import upload_file_to_s3
+from .serializers import ChangePasswordSerializer, ProfileMediaUpdateSerializer, RegisterSerializer, LoginSerializer, ProfileSerializer, UserSerializer, BlockedUserSerializer, PasswordResetRequestSerializer, PasswordResetConfirmSerializer
 from .models import User, Profile, BlockedUser
 from rest_framework_simplejwt.tokens import RefreshToken
 import random
@@ -271,7 +273,47 @@ class ProfileUpdateView(generics.RetrieveUpdateAPIView):
         context = super().get_serializer_context()
         context['request'] = self.request
         return context
+    
+class ProfileMediaUpdateView(APIView):
+    """
+    Allows an authenticated user to update their profile picture and cover picture.
+    Expects multipart/form-data with:
+    - profile_picture: image file (optional)
+    - cover_picture: image file (optional)
+    """
 
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request, *args, **kwargs):
+        return self.handle_media_update(request)
+
+    def put(self, request, *args, **kwargs):
+        return self.handle_media_update(request)
+
+    def patch(self, request):
+        profile = get_object_or_404(Profile, user=request.user)
+        updated_fields = {}
+
+        if 'profile_picture' in request.FILES:
+            file = request.FILES['profile_picture']
+            try:
+                saved_path, s3_url = upload_file_to_s3(file, folder='profile_pictures')
+                profile.profile_picture_url = s3_url
+                updated_fields['profile_picture'] = s3_url
+            except Exception as e:
+                return Response({"error": f"Error uploading profile picture: {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        if 'cover_picture' in request.FILES:
+            file = request.FILES['cover_picture']
+            try:
+                saved_path, s3_url = upload_file_to_s3(file, folder='cover_pictures')
+                profile.cover_picture_url = s3_url
+                updated_fields['cover_picture'] = s3_url
+            except Exception as e:
+                return Response({"error": f"Error uploading cover picture: {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        profile.save()
+        return Response({"message": "Profile media updated successfully", "data": updated_fields}, status=status.HTTP_200_OK)
 
 class UserPagination(PageNumberPagination):
     """Custom pagination settings for user listings"""
