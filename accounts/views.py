@@ -8,6 +8,7 @@ from rest_framework import generics, status, permissions, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
+from rest_framework_simplejwt.views import TokenVerifyView
 
 from connections.serializers import ConnectionSerializer
 from notifications.models import Notification
@@ -247,6 +248,42 @@ class ProfileDetailView(generics.RetrieveAPIView):
         return obj
 
 
+class UserDetailByidView(generics.RetrieveAPIView):
+    """
+    Retrieves full user data based on the user's ID.
+    This endpoin requires authentication.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+    # queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    # lookup_field = 'user'
+
+    def get_queryset(self):
+        """Filters out profiles form blocked/blocking users"""
+
+        user = self.request.user
+
+        blocked_users = BlockedUser.objects.filter(
+            blocker=user).values_list('blocked', flat=True)
+
+        users_who_blocked_me = BlockedUser.objects.filter(
+            blocked=user).values_list('blocker', flat=True)
+
+        return Profile.objects.exclude(user__in=blocked_users).exclude(user__in=users_who_blocked_me)
+
+    def get_object(self):
+        """Checks for blocking relationships before returning profile"""
+
+        user_id = self.kwargs.get('id')
+        obj = get_object_or_404(self.get_queryset(), user__id=user_id)
+
+        # obj = super().get_object()
+        if obj.user in BlockedUser.objects.filter(blocker=self.request.user).values_list('blocked', flat=True) or obj.user in BlockedUser.objects.filter(blocked=self.request.user).values_list('blocker', flat=True):
+            raise NotFound("This profile is not available.")
+        return obj
+
+
 class ProfileUpdateView(generics.RetrieveUpdateAPIView):
     """
     Handles profile updates:
@@ -273,7 +310,8 @@ class ProfileUpdateView(generics.RetrieveUpdateAPIView):
         context = super().get_serializer_context()
         context['request'] = self.request
         return context
-    
+
+
 class ProfileMediaUpdateView(APIView):
     """
     Allows an authenticated user to update their profile picture and cover picture.
@@ -297,7 +335,8 @@ class ProfileMediaUpdateView(APIView):
         if 'profile_picture' in request.FILES:
             file = request.FILES['profile_picture']
             try:
-                saved_path, s3_url = upload_file_to_s3(file, folder='profile_pictures')
+                saved_path, s3_url = upload_file_to_s3(
+                    file, folder='profile_pictures')
                 profile.profile_picture_url = s3_url
                 updated_fields['profile_picture'] = s3_url
             except Exception as e:
@@ -306,7 +345,8 @@ class ProfileMediaUpdateView(APIView):
         if 'cover_picture' in request.FILES:
             file = request.FILES['cover_picture']
             try:
-                saved_path, s3_url = upload_file_to_s3(file, folder='cover_pictures')
+                saved_path, s3_url = upload_file_to_s3(
+                    file, folder='cover_pictures')
                 profile.cover_picture_url = s3_url
                 updated_fields['cover_picture'] = s3_url
             except Exception as e:
@@ -314,6 +354,7 @@ class ProfileMediaUpdateView(APIView):
 
         profile.save()
         return Response({"message": "Profile media updated successfully", "data": updated_fields}, status=status.HTTP_200_OK)
+
 
 class UserPagination(PageNumberPagination):
     """Custom pagination settings for user listings"""
@@ -548,6 +589,7 @@ class Enable2FAView(APIView):
             "qr_code_link": qr_code_url
         }, status=status.HTTP_200_OK)
 
+
 class AccountDeletionView(generics.DestroyAPIView):
     """
     Deletes the authenticated user's account along with all related data:
@@ -561,7 +603,7 @@ class AccountDeletionView(generics.DestroyAPIView):
     def get_object(self):
         # Ensure only the authenticated user can delete their account.
         return self.request.user
-    
+
     @transaction.atomic
     def delete(self, request, *args, **kwargs):
         user = self.get_object()
@@ -587,7 +629,8 @@ class AccountDeletionView(generics.DestroyAPIView):
         # Finally, delete the user account
         self.perform_destroy(user)
         return Response({"message": "Your account and all related data have been deleted."}, status=status.HTTP_200_OK)
-    
+
+
 class DownloadUserDataView(APIView):
     """
     Collects and returns all data for the authenticated user:
@@ -605,28 +648,35 @@ class DownloadUserDataView(APIView):
         user = request.user
 
         # Profile Data (Assumes ProfileSerializer is used to serialize the user's profile)
-        profile_data = ProfileSerializer(user.profile, context={'request': request}).data
+        profile_data = ProfileSerializer(
+            user.profile, context={'request': request}).data
 
         # Posts created by the user
         posts = Post.objects.filter(user=user).order_by('-created_at')
-        posts_data = PostSerializer(posts, many=True, context={'request': request}).data
+        posts_data = PostSerializer(posts, many=True, context={
+                                    'request': request}).data
 
         # Connections: both sent and received friend/follow requests.
-        connections = Connection.objects.filter(Q(requester=user) | Q(target=user))
-        connections_data = ConnectionSerializer(connections, many=True, context={'request': request}).data
+        connections = Connection.objects.filter(
+            Q(requester=user) | Q(target=user))
+        connections_data = ConnectionSerializer(
+            connections, many=True, context={'request': request}).data
 
         # Notification for the user
-        notifications = Notification.objects.filter(user=user).order_by('-created_at')
-        notifications_data = NotificationSerializer(notifications, many=True, context={'request': request}).data
+        notifications = Notification.objects.filter(
+            user=user).order_by('-created_at')
+        notifications_data = NotificationSerializer(
+            notifications, many=True, context={'request': request}).data
 
         # Saved posts
         saved_posts = SavedPost.objects.filter(user=user)
-        saved_posts_data = SavedPostSerializer(saved_posts, many=True, context={"request":request}).data
+        saved_posts_data = SavedPostSerializer(
+            saved_posts, many=True, context={"request": request}).data
 
         # Aggredate all data
         data = {
             "profile": profile_data,
-            "posts": posts_data, 
+            "posts": posts_data,
             "connections": connections_data,
             "notifications": notifications_data,
             "saved_posts": saved_posts_data,
@@ -636,7 +686,8 @@ class DownloadUserDataView(APIView):
         response = Response(data, status=status.HTTP_200_OK)
         response['Content-Disposition'] = 'attachment; filename="user_data.json"'
         return response
-    
+
+
 class UserProfileView(APIView):
     """
     Returns authenticated user details
@@ -647,3 +698,12 @@ class UserProfileView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class CustomTokenVerifyView(TokenVerifyView):
+    """
+    This endpoint verifies the validity of the provided JWT.
+    If the token is valid, it returns a 200 response; otherwise, a 401 is returned.
+    """
+
+    pass

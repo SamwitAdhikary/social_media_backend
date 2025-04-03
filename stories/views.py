@@ -3,8 +3,9 @@ from django.utils import timezone
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from .models import Story
+from .models import Story, StoryView, StoryReaction
 from .serializers import StorySerializer
+from rest_framework.views import APIView
 import io
 import logging
 from django.conf import settings
@@ -142,3 +143,51 @@ class StoryDeleteView(generics.DestroyAPIView):
             return Response({"error": "Story has already expired and cannot be manually deleted."}, status=status.HTTP_400_BAD_REQUEST)
         self.perform_destroy(story)
         return Response({"message": "Story deleted successfully."}, status=status.HTTP_200_OK)
+    
+class MarkStorySeenView(APIView):
+    """
+    Marks a story as seen by the authenticated user.
+    Creates a storyview record if not already present.
+    Returns the updated view count.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, story_id):
+        story = get_object_or_404(Story, id=story_id)
+        if not story.views.filter(user=request.user).exists():
+            StoryView.objects.create(story=story, user=request.user)
+        seen_count = story.views.count()
+        return Response({"message": "Story marked as seen", "seen_count": seen_count}, status=status.HTTP_200_OK)
+
+class StoryReactionView(generics.GenericAPIView):
+    """
+    Handles reacting to a story (e.g., "love" reaction).
+    - If a reaction alreay exists and is the same, it removes it (unlike).
+    - If a reaction exists but different (for stories, only 'love' is supported),
+    - Otherwise, it creates a new reaction.
+    """
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, story_id):
+        story = get_object_or_404(Story, id=story_id)
+        reaction_type = request.data.get('type')
+        if reaction_type != "love":
+            return Response({"error": "Only 'love' reaction is supported."}, status=status.HTTP_400_BAD_REQUEST)
+
+        existing_reaction = story.reactions.filter(user=request.user).first()
+        if existing_reaction:
+            if existing_reaction.type == reaction_type:
+                existing_reaction.delete()
+                return Response({"message": "Reaction removed"}, status=status.HTTP_200_OK)
+            else:
+                existing_reaction.type = reaction_type
+                existing_reaction.save()
+                serializer = StorySerializer(existing_reaction, context={"request": request})
+                return Response({"message": "Reaction updated.", "reaction": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            serializer = StorySerializer(data={'story': story_id, 'type': reaction_type}, context={'request': request})
+            serializer.is_valid(raise_exception=True)
+            reaction = serializer.save(user=request.user)
+            return Response({"message": "Reaction recorded", "reaction": serializer.data}, status=status.HTTP_200_OK)

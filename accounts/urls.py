@@ -1,65 +1,84 @@
 from django.urls import path
-from .views import ProfileMediaUpdateView, RegisterView, LoginView, ProfileDetailView, UserProfileView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView
+from .views import ProfileMediaUpdateView, RegisterView, LoginView, ProfileDetailView, UserDetailByidView, UserProfileView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView, CustomTokenVerifyView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 # Accounts Application URL Configuration
 # Defines endpoints for user management and authentication features
 
 urlpatterns = [
-     # ============ Authentication Endpoints ================
+    # ============ Authentication Endpoints ================
     path('register/', RegisterView.as_view(), name='register'),
-     #  POST: Creates new user account with email verification
+    #  POST: Creates new user account with email verification
 
     path('login/', LoginView.as_view(), name='login'),
-     # POST: Authenticates user and returns JWT tokens
+    # POST: Authenticates user and returns JWT tokens
 
-     # ============ Email Verification Flow ================
-     path('verify-email-otp/', VerifyEmailOTPView.as_view(), name='verify-email-otp'),
-     # POST: Validates email verification OTP
+    # ============ Email Verification Flow ================
+    path('verify-email-otp/', VerifyEmailOTPView.as_view(),
+         name='verify-email-otp'),
+    # POST: Validates email verification OTP
 
-     path('resend-otp/', ResendOTPView.as_view(), name='resend-otp'),
-     # POST: Resends email verication OTP
+    path('resend-otp/', ResendOTPView.as_view(), name='resend-otp'),
+    # POST: Resends email verication OTP
 
-     # ============ Profile Management ================
-    path('profile/<str:username>/',ProfileDetailView.as_view(), name='profile-details'),
-     # GET: Retrieves profile details (privacy-aware)
-     
-    path('profile/<str:username>/update/',ProfileUpdateView.as_view(), name='profile-update'),
-     # PUT: Updates profile information (owner only)
+    # ============ Profile Management ================
+    path('profile/<str:username>/',
+         ProfileDetailView.as_view(), name='profile-details'),
 
-     # ============ User Search & Relations ================
+    # GET: Retrieves profile details (privacy-aware)
+
+    path('user/<int:id>/', UserDetailByidView.as_view(),
+         name='user-detail-by-id'),
+
+    path('profile/<str:username>/update/',
+         ProfileUpdateView.as_view(), name='profile-update'),
+    # PUT: Updates profile information (owner only)
+
+    # ============ User Search & Relations ================
     path('search/', UserSearchView.as_view(), name='user-search'),
-     # GET: Searchs user by username or full name
+    # GET: Searchs user by username or full name
 
     path("block-user/", BlockedUserView.as_view(), name='block-user'),
-     # POST: Blocks specific user
+    # POST: Blocks specific user
 
     path('unblock-user/', UnblockUserView.as_view(), name='unblock-user'),
-     # POST: Removes block from specific user
+    # POST: Removes block from specific user
 
     path('blocked-users/', BlockedUserListView.as_view(), name='blocked-users'),
-     # GET: List all blocked users
+    # GET: List all blocked users
 
-     # ============ Password Management ================
-    path('password-reset/', PasswordResetRequestView.as_view(),name='password-reset-request'),
-     # POST: Initiates password reset process
-     
-    path('password-reset-confirm/', PasswordResetConfirmView.as_view(),name='password-reset-confirm'),
-     # POST: Confirms password reset with token
+    # ============ Password Management ================
+    path('password-reset/', PasswordResetRequestView.as_view(),
+         name='password-reset-request'),
+    # POST: Initiates password reset process
+
+    path('password-reset-confirm/', PasswordResetConfirmView.as_view(),
+         name='password-reset-confirm'),
+    # POST: Confirms password reset with token
 
     path('change-password/', ChangePasswordView.as_view(), name='change-password'),
-     # PUT: Changes password for authenticated user
+    # PUT: Changes password for authenticated user
 
-     # ============ Security Features ================
+    # ============ Security Features ================
     path('enable-2fa/', Enable2FAView.as_view(), name="enable-2fa"),
-     # POST: Enables Two-Factor Authentication (generates QR code)
+    # POST: Enables Two-Factor Authentication (generates QR code)
 
-     path('delete-account/', AccountDeletionView.as_view(), name="delete-account"),
+    path('delete-account/', AccountDeletionView.as_view(), name="delete-account"),
 
-     path('download-data/', DownloadUserDataView.as_view(), name='download-user-data'),
+    path('download-data/', DownloadUserDataView.as_view(),
+         name='download-user-data'),
 
-     path('profile/profile-update', ProfileMediaUpdateView.as_view(), name="profile-media-update"),
+    path('profile/profile-update', ProfileMediaUpdateView.as_view(),
+         name="profile-media-update"),
 
-     path("user/profile/", UserProfileView.as_view(), name="user-profile"),
+    path("user/profile/", UserProfileView.as_view(), name="user-profile"),
+
+    path('token/verify/', CustomTokenVerifyView.as_view(), name='token-verify'),
+
+    path('token/', TokenObtainPairView.as_view(), name='token-obtain-pair'),
+
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
 ]
 
 # URL Pattern Notes:
