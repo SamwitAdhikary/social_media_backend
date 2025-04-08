@@ -14,6 +14,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 # import accounts.routing
 import notifications.routing
 from notifications.middleware import JWTAuthMiddleware
+import posts.routing
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'social_network.settings')
 
@@ -21,7 +22,7 @@ application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": JWTAuthMiddleware(
         URLRouter(
-            notifications.routing.websocket_urlpatterns
+            notifications.routing.websocket_urlpatterns + posts.routing.websocket_urlpatterns
         )
     ),
 })

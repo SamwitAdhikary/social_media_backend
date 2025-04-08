@@ -4,7 +4,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from .models import Story, StoryView, StoryReaction
-from .serializers import StorySerializer
+from .serializers import StoryReactionSerializer, StorySerializer
 from rest_framework.views import APIView
 import io
 import logging
@@ -19,6 +19,8 @@ from connections.models import Connection
 logger = logging.getLogger(__name__)
 
 # Create your views here.
+
+
 class CreateStoryView(generics.CreateAPIView):
     serializer_class = StorySerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -28,10 +30,12 @@ class CreateStoryView(generics.CreateAPIView):
         media_files = self.request.FILES.getlist("media_files")
         story = serializer.save(user=self.request.user)
 
-        s3_storage = S3Boto3Storage(bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
+        s3_storage = S3Boto3Storage(
+            bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
 
         for file in media_files:
-            media_type = 'image' if file.name.lower().endswith(("jpg", "jpeg", "png", "gif")) else "video"
+            media_type = 'image' if file.name.lower().endswith(
+                ("jpg", "jpeg", "png", "gif")) else "video"
 
             try:
                 file.seek(0)
@@ -42,7 +46,8 @@ class CreateStoryView(generics.CreateAPIView):
                     continue
                 file_content = ContentFile(data)
 
-                file_path = s3_storage.save(f"stories/{file.name}", file_content)
+                file_path = s3_storage.save(
+                    f"stories/{file.name}", file_content)
                 s3_url = s3_storage.url(file_path)
                 logger.info(f"Story file saved to S3: {s3_url}")
 
@@ -61,17 +66,22 @@ class CreateStoryView(generics.CreateAPIView):
                         thumb_io = io.BytesIO()
                         image_format = image.format if image.format else 'JPEG'
                         image.save(thumb_io, format=image_format)
-                        thumb_file = ContentFile(thumb_io.getvalue(), name=f"thumb_{file.name}")
+                        thumb_file = ContentFile(
+                            thumb_io.getvalue(), name=f"thumb_{file.name}")
 
-                        thumb_path = s3_storage.save(f"stories/thumbnails/{thumb_file.name}", thumb_file)
+                        thumb_path = s3_storage.save(
+                            f"stories/thumbnails/{thumb_file.name}", thumb_file)
                         story.thumbnail_file.name = thumb_path
                         story.save()
-                        logger.info(f"Thumbnail saved to S3: {s3_storage.url(thumb_path)}")
+                        logger.info(
+                            f"Thumbnail saved to S3: {s3_storage.url(thumb_path)}")
                     except Exception as e:
-                        logger.error(f"Error generating thumbnail for {file.name}: {e}")
+                        logger.error(
+                            f"Error generating thumbnail for {file.name}: {e}")
 
             except Exception as e:
                 logger.error(f"Error uploading story file {file.name}: {e}")
+
 
 class ListStoryView(generics.ListAPIView):
     serializer_class = StorySerializer
@@ -79,12 +89,15 @@ class ListStoryView(generics.ListAPIView):
 
     def get_queryset(self):
         now = timezone.now()
-        
-        all_stories = Story.objects.filter(expires_at__gt=now).order_by('-created_at')
+
+        all_stories = Story.objects.filter(
+            expires_at__gt=now).order_by('-created_at')
         request_user = self.request.user
 
-        blocked_by_user = BlockedUser.objects.filter(blocker=request_user).values_list("blocked", flat=True)
-        blocked_by_others = BlockedUser.objects.filter(blocked=request_user).values_list("blocker", flat=True)
+        blocked_by_user = BlockedUser.objects.filter(
+            blocker=request_user).values_list("blocked", flat=True)
+        blocked_by_others = BlockedUser.objects.filter(
+            blocked=request_user).values_list("blocker", flat=True)
         blocked_ids = set(list(blocked_by_user) + list(blocked_by_others))
 
         allowed_ids = []
@@ -98,7 +111,8 @@ class ListStoryView(generics.ListAPIView):
 
             privacy = 'public'
             if story.user.profile.privacy_settings:
-                privacy = story.user.profile.privacy_settings.get("profile_visibility", "public")
+                privacy = story.user.profile.privacy_settings.get(
+                    "profile_visibility", "public")
 
             if privacy == "public":
                 allowed_ids.append(story.pk)
@@ -123,7 +137,8 @@ class ListStoryView(generics.ListAPIView):
                 continue
 
         return Story.objects.filter(pk__in=allowed_ids).order_by("-created_at")
-    
+
+
 class StoryDeleteView(generics.DestroyAPIView):
     """
     Allows an authenticated user to manually delete their own story only if it hasn't expired yet (i.e. within 24 hours of creation).
@@ -134,16 +149,18 @@ class StoryDeleteView(generics.DestroyAPIView):
 
     def get_object(self):
         # Ensure the story belongs to the authenticated user.
-        obj = get_object_or_404(Story, pk=self.kwargs['pk'], user=self.request.user)
+        obj = get_object_or_404(
+            Story, pk=self.kwargs['pk'], user=self.request.user)
         return obj
-    
+
     def delete(self, request, *args, **kwargs):
         story = self.get_object()
         if timezone.now() > story.expires_at:
             return Response({"error": "Story has already expired and cannot be manually deleted."}, status=status.HTTP_400_BAD_REQUEST)
         self.perform_destroy(story)
         return Response({"message": "Story deleted successfully."}, status=status.HTTP_200_OK)
-    
+
+
 class MarkStorySeenView(APIView):
     """
     Marks a story as seen by the authenticated user.
@@ -160,6 +177,7 @@ class MarkStorySeenView(APIView):
         seen_count = story.views.count()
         return Response({"message": "Story marked as seen", "seen_count": seen_count}, status=status.HTTP_200_OK)
 
+
 class StoryReactionView(generics.GenericAPIView):
     """
     Handles reacting to a story (e.g., "love" reaction).
@@ -169,6 +187,7 @@ class StoryReactionView(generics.GenericAPIView):
     """
 
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = StoryReactionSerializer
 
     def post(self, request, story_id):
         story = get_object_or_404(Story, id=story_id)
@@ -184,10 +203,31 @@ class StoryReactionView(generics.GenericAPIView):
             else:
                 existing_reaction.type = reaction_type
                 existing_reaction.save()
-                serializer = StorySerializer(existing_reaction, context={"request": request})
+                serializer = StoryReactionSerializer(
+                    existing_reaction, context={"request": request})
                 return Response({"message": "Reaction updated.", "reaction": serializer.data}, status=status.HTTP_200_OK)
         else:
-            serializer = StorySerializer(data={'story': story_id, 'type': reaction_type}, context={'request': request})
+            serializer = StoryReactionSerializer(
+                data={'story': story_id, 'type': reaction_type}, context={'request': request})
             serializer.is_valid(raise_exception=True)
             reaction = serializer.save(user=request.user)
             return Response({"message": "Reaction recorded", "reaction": serializer.data}, status=status.HTTP_200_OK)
+
+
+class StoryDetailView(generics.RetrieveAPIView):
+    """
+    Retrieve detailed information for a story.
+    - If the request user is the owner, additional details such as viewers_list and reactors_list are included.
+    - All users get is_seen, seen_count, react, and reaction_count.
+    """
+
+    serializer_class = StorySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        now = timezone.now()
+        return Story.objects.filter(expires_at__gt=now)
+
+    def get_object(self):
+        story = get_object_or_404(self.get_queryset(), pk=self.kwargs['pk'])
+        return story

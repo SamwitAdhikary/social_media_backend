@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CreateStoryView, ListStoryView, StoryDeleteView, MarkStorySeenView, StoryReactionView
+from .views import CreateStoryView, ListStoryView, StoryDeleteView, MarkStorySeenView, StoryReactionView, StoryDetailView
 
 urlpatterns = [
     path('create/', CreateStoryView.as_view(), name='story-create'),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('<int:pk>/delete/', StoryDeleteView.as_view(), name='story-delete'),
     path('<int:story_id>/seen/', MarkStorySeenView.as_view(), name='story-mark-seen'),
     path('<int:story_id>/react/', StoryReactionView.as_view(), name='story-react'),
+    path('<int:pk>/detail/', StoryDetailView.as_view(), name='story-detail'),
 ]
