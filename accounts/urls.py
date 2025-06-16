@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProfileMediaUpdateView, RegisterView, LoginView, ProfileDetailView, UserDetailByidView, UserProfileView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView, CustomTokenVerifyView
+from .views import ProfileMediaUpdateView, RegisterView, LoginView, ProfileDetailView, UserDetailByidView, UserProfileView, VerifyEmailOTPView, ResendOTPView, ProfileUpdateView, UserSearchView, BlockedUserView, UnblockUserView, BlockedUserListView, PasswordResetConfirmView, PasswordResetRequestView, ChangePasswordView, Enable2FAView, AccountDeletionView, DownloadUserDataView, CustomTokenVerifyView, CheckUsernameView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 # Accounts Application URL Configuration
@@ -9,6 +9,8 @@ urlpatterns = [
     # ============ Authentication Endpoints ================
     path('register/', RegisterView.as_view(), name='register'),
     #  POST: Creates new user account with email verification
+
+    path("check-username/", CheckUsernameView.as_view(), name='check-username'),
 
     path('login/', LoginView.as_view(), name='login'),
     # POST: Authenticates user and returns JWT tokens

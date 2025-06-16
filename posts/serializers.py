@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import CommentReaction, Post, PostMedia, Reaction, Comment, Hashtag, SavedPost, SharedPost, SharedPostComment, SharedPostCommentReaction, SharedPostReaction
 from accounts.serializers import UserSerializer
 
+
 class PostMediaSerializer(serializers.ModelSerializer):
     """
     Serializes media files with URLs:
@@ -14,7 +15,8 @@ class PostMediaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PostMedia
-        fields = ['id', 'media_url', 'media_type', 'thumbnail_url', 'order_index', 'created_at']
+        fields = ['id', 'media_url', 'media_type',
+                  'thumbnail_url', 'order_index', 'created_at']
 
     def get_media_url(self, obj):
         """Returns full URL for media file"""
@@ -24,7 +26,7 @@ class PostMediaSerializer(serializers.ModelSerializer):
             # print(f"MEdia URL: {url}")
             return url
         return None
-    
+
     def get_thumbnail_url(self, obj):
         """Returns thumbnail URL for images"""
 
@@ -33,6 +35,7 @@ class PostMediaSerializer(serializers.ModelSerializer):
             # print(thumbnailurl)
             return thumbnailurl
         return None
+
 
 class ReactionSerializer(serializers.ModelSerializer):
     """
@@ -45,6 +48,7 @@ class ReactionSerializer(serializers.ModelSerializer):
         model = Reaction
         fields = ['id', 'post', 'user', 'type', 'created_at']
 
+
 class CommentReactionSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     comment = serializers.PrimaryKeyRelatedField(
@@ -56,6 +60,7 @@ class CommentReactionSerializer(serializers.ModelSerializer):
         model = CommentReaction
         fields = ['id', 'comment', 'user', 'type', 'created_at']
 
+
 class CommentSerializer(serializers.ModelSerializer):
     """
     Hierarchical comment serializer:
@@ -63,22 +68,24 @@ class CommentSerializer(serializers.ModelSerializer):
     - Hidden comment filtering
     """
 
-    user = serializers.ReadOnlyField(source='user.id')
-    parent = serializers.PrimaryKeyRelatedField(queryset=Comment.objects.all(), required=False, allow_null=True)
+    user = UserSerializer(read_only=True)
+    parent = serializers.PrimaryKeyRelatedField(
+        queryset=Comment.objects.all(), required=False, allow_null=True)
     replies = serializers.SerializerMethodField()
     reactions = CommentReactionSerializer(many=True, read_only=True)
 
     class Meta:
         model = Comment
-        fields = ['id', 'post', 'user', 'content', 'is_hidden', 'created_at', 'updated_at', 'parent', 'replies', 'reactions']
+        fields = ['id', 'post', 'user', 'content', 'is_hidden',
+                  'created_at', 'updated_at', 'parent', 'replies', 'reactions']
 
     def get_replies(self, obj):
         """Recursive serialization of nested replies"""
 
         replies = obj.replies.filter(is_hidden=False)
-        serializer = CommentSerializer(replies, many=True, context=self.context)
+        serializer = CommentSerializer(
+            replies, many=True, context=self.context)
         return serializer.data
-    
 
 
 class HashtagSerializer(serializers.ModelSerializer):
@@ -86,7 +93,8 @@ class HashtagSerializer(serializers.ModelSerializer):
     Serializes hashtags with usage statistics
     """
 
-    posts_count = serializers.IntegerField(source='posts.count', read_only=True)
+    posts_count = serializers.IntegerField(
+        source='posts.count', read_only=True)
     posts = serializers.SerializerMethodField()
 
     class Meta:
@@ -96,6 +104,7 @@ class HashtagSerializer(serializers.ModelSerializer):
     def get_posts(self, obj):
         posts_qs = obj.posts.all().order_by('-created_at')[:3]
         return PostWithoutHashtag(posts_qs, many=True, context=self.context).data
+
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -112,20 +121,32 @@ class PostSerializer(serializers.ModelSerializer):
         write_only=True,
         required=False
     )
-    hashtags_display = HashtagSerializer(source='hashtags', many=True, read_only=True)
+    hashtags_display = HashtagSerializer(
+        source='hashtags', many=True, read_only=True)
     # media = serializers.SerializerMethodField()
-    user = serializers.ReadOnlyField(source='user.id')
+    user = UserSerializer(read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
     reactions = ReactionSerializer(many=True, read_only=True)
     share_count = serializers.SerializerMethodField()
 
     # Engagement metrics
-    comments_count = serializers.IntegerField(source='comments.count', read_only=True)
-    reactions_count = serializers.IntegerField(source='reactions.count', read_only=True)
+    comments_count = serializers.IntegerField(
+        source='comments.count', read_only=True)
+    reactions_count = serializers.IntegerField(
+        source='reactions.count', read_only=True)
+    tags = serializers.SlugRelatedField(
+        many=True,
+        read_only=True,
+        slug_field='name',
+        source='hashtags'
+    )
 
     class Meta:
         model = Post
-        fields = ['id', 'user', 'content', 'group', 'visibility', 'medias', 'created_at', 'updated_at', 'comments', 'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display', 'share_count']
+        # fields = ['id', 'user', 'content', 'group', 'visibility', 'medias', 'created_at', 'updated_at', 'comments',
+        #           'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display', 'share_count', 'tags']
+        fields = ['id', 'user', 'content', 'group', 'visibility', 'medias', 'created_at', 'updated_at', 'comments',
+                  'reactions', 'comments_count', 'reactions_count', 'hashtags', 'hashtags_display', 'share_count', 'tags']
 
     def get_share_count(self, obj):
         return obj.shared_by.count()
@@ -139,18 +160,23 @@ class PostSerializer(serializers.ModelSerializer):
             hashtag, created = Hashtag.objects.get_or_create(name=tag.lower())
             hashtag.posts.add(post)
         return post
-    
+
+
 class PostWithoutHashtag(PostSerializer):
     class Meta(PostSerializer.Meta):
-        fields = [field for field in PostSerializer.Meta.fields if field not in ['hashtags', 'hashtags_display']]
-    
+        fields = [field for field in PostSerializer.Meta.fields if field not in [
+            'hashtags', 'hashtags_display']]
+
+
 class SharedPostReactionSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
-    shared_post = serializers.PrimaryKeyRelatedField(queryset=SharedPost.objects.all(), write_only=True)
+    shared_post = serializers.PrimaryKeyRelatedField(
+        queryset=SharedPost.objects.all(), write_only=True)
 
     class Meta:
         model = SharedPostReaction
         fields = ['id', 'user', 'shared_post', 'type', 'created_at']
+
 
 class SharedPostCommentReactionSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
@@ -163,13 +189,15 @@ class SharedPostCommentReactionSerializer(serializers.ModelSerializer):
         model = SharedPostCommentReaction
         fields = ['id', 'shared_post_comment', 'user', 'type', 'created_at']
 
+
 class SharedPostCommentSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     reactions = SharedPostCommentReactionSerializer(many=True, read_only=True)
 
     class Meta:
         model = SharedPostComment
-        fields = ['id', 'user', 'content', 'reactions', 'created_at', 'updated_at']
+        fields = ['id', 'user', 'content',
+                  'reactions', 'created_at', 'updated_at']
 
 
 class SharedPostSerializer(serializers.ModelSerializer):
@@ -178,12 +206,16 @@ class SharedPostSerializer(serializers.ModelSerializer):
     reactions = SharedPostReactionSerializer(many=True, read_only=True)
     comments = SharedPostCommentSerializer(many=True, read_only=True)
 
-    comments_count = serializers.IntegerField(source='comments.count', read_only=True)
-    reactions_count = serializers.IntegerField(source='reactions.count', read_only=True)
+    comments_count = serializers.IntegerField(
+        source='comments.count', read_only=True)
+    reactions_count = serializers.IntegerField(
+        source='reactions.count', read_only=True)
 
     class Meta:
         model = SharedPost
-        fields = ['id', 'user', 'original_post', 'share_text', 'reactions', 'comments', 'reactions_count', 'comments_count', 'parent_share', 'created_at']
+        fields = ['id', 'user', 'original_post', 'share_text', 'reactions', 'comments',
+                  'reactions_count', 'comments_count', 'parent_share', 'created_at']
+
 
 class SavedPostSerializer(serializers.ModelSerializer):
     """
@@ -195,5 +227,3 @@ class SavedPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = SavedPost
         fields = ['id', 'post', 'saved_at']
-
-

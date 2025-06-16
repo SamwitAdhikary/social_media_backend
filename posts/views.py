@@ -53,7 +53,7 @@ class PostCreateView(generics.CreateAPIView):
         channel_layer = get_channel_layer()
         post_data = PostSerializer(
             post, context={"request": self.request}).data
-        
+
         print(f"\n=========== New Post Created ==========")
         print(f"Author: {user.id} | Visibility: {post.visibility}")
 
@@ -125,7 +125,7 @@ class PostCreateView(generics.CreateAPIView):
                     "post": post_data
                 }
             )
-        
+
         elif post.visibility == 'friends':
             print("\nChecking friends...")
 
@@ -165,6 +165,13 @@ class PostCreateView(generics.CreateAPIView):
                 )
 
 
+class FeedPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    page_query_param = 'page'
+    max_page_size = 50
+
+
 class FeedView(APIView):
     """
     Personalized post feed:
@@ -174,6 +181,7 @@ class FeedView(APIView):
     """
 
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = FeedPagination
 
     def get(self, request, *args, **kwargs):
         user = request.user
@@ -250,7 +258,10 @@ class FeedView(APIView):
         combined_sorted = sorted(
             combined, key=lambda x: x['created_at'], reverse=True)
 
-        return Response(combined_sorted, status=status.HTTP_200_OK)
+        paginator = self.pagination_class()
+        page = paginator.paginate_queryset(combined_sorted, request, view=self)
+
+        return paginator.get_paginated_response(page)
 
 
 class ReactionView(APIView):
@@ -454,7 +465,8 @@ class PostDeleteView(generics.DestroyAPIView):
         return Response({
             "message": "Post deleted successfully."
         }, status=status.HTTP_200_OK)
-    
+
+
 class PostPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = "limit"
@@ -477,6 +489,10 @@ class UserPostListView(generics.ListAPIView):
             viewed_user = User.objects.get(username=username)
         except User.DoesNotExist:
             raise NotFound("User Not Found.")
+
+        # If the owner looking at own profile, show absolutely everything:
+        if self.request.user == viewed_user:
+            return Post.objects.filter(user=viewed_user).order_by('-created_at')
 
         blocked_by_user = set(BlockedUser.objects.filter(
             blocker=self.request.user).values_list('blocked', flat=True))

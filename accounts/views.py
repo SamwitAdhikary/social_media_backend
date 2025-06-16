@@ -32,6 +32,7 @@ from django.db.models import Q
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
+from rest_framework.throttling import ScopedRateThrottle
 
 # Create your views here.
 
@@ -93,6 +94,17 @@ class RegisterView(generics.CreateAPIView):
             "user_id": user.id,
             "token": jwt_token
         }, status=status.HTTP_201_CREATED)
+
+
+class CheckUsernameView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        username = request.query_params.get("username", '').strip()
+        if not username:
+            return Response({"available": False, 'error': "No username provided"}, status=status.HTTP_400_BAD_REQUEST)
+        exists = User.objects.filter(username__iexact=username).exists()
+        return Response({'available': not exists})
 
 
 class VerifyEmailOTPView(APIView):
@@ -184,6 +196,8 @@ class LoginView(APIView):
     - JWT token generation
     """
 
+    throttle_scope = 'login'
+    throttle_classes = [ScopedRateThrottle]
     permission_classes = [permissions.AllowAny]
     serializer_class = LoginSerializer
 
@@ -198,13 +212,32 @@ class LoginView(APIView):
         if user.is_2fa_enabled:
             otp = request.data.get("otp")
             if not otp:
-                return Response({"error": "OTP is required for two-factor authentication."}, status=status.HTTP_400_BAD_REQUEST)
+                # return Response({"error": "OTP is required for two-factor authentication."}, status=status.HTTP_400_BAD_REQUEST)
+                otp = generate_otp()
+                user.email_otp = otp
+                user.otp_created_at = timezone.now()
+                user.save()
+                send_mail(
+                    subject="Your Two-Factor Authentication OTP",
+                    message=f"Your OTP is: {otp}. It is valid for 10 minutes.",
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[user.email],
+                    fail_silently=False,
+                )
+                return Response({"message": "OTP sent to email. Please provide the OTP to complete login."}, status=status.HTTP_201_CREATED)
+            else:
+                if user.otp_created_at:
+                    elapsed = (timezone.now() -
+                               user.otp_created_at).total_seconds()
+                    if elapsed > 600:
+                        return Response({'error': 'OTP expired. Please login again to receive a new OTP.'}, status=status.HTTP_400_BAD_REQUEST)
 
-            # TOTP validation
-            totp = pyotp.TOTP(user.otp_secret_key)
-            current_valid_otp = totp.now()
-            if not totp.verify(otp, valid_window=1):
-                return Response({"error": "Invalid OTP. Please try again."}, status=status.HTTP_400_BAD_REQUEST)
+                if user.email_otp != otp:
+                    return Response({"error": "Invalid OTP. Please try again."}, status=status.HTTP_400_BAD_REQUEST)
+
+                user.email_otp = ''
+                user.otp_created_at = None
+                user.save()
 
         # Generate authentication tokens
         token = get_tokens_for_user(user)
@@ -548,45 +581,13 @@ class Enable2FAView(APIView):
         """Generates and store 2FA secret, returns QR code"""
 
         user = request.user
-        otp_auth_url = user.get_otp_auth_url()
-
-        # Generate QR code
-        qr = qrcode.QRCode(
-            # version=None,
-            error_correction=qrcode.constants.ERROR_CORRECT_H,
-            box_size=15,
-            border=4
-        )
-        qr.add_data(otp_auth_url)
-        qr.make(fit=True)
-        img = qr.make_image(fill_color="black",
-                            back_color="white").convert("RGB")
-
-        # Save QR to buffer
-        buffer = io.BytesIO()
-        img.save(buffer, format="PNG")
-        buffer.seek(0)
-
-        # Upload to S3 Storage
-        s3_storage = S3Boto3Storage(
-            bucket_name=settings.AWS_STORAGE_BUCKET_NAME)
-        file_name = f"2fa_qrcodes/{user.id}_{int(timezone.now().timestamp())}.png"
-        content_file = ContentFile(buffer.getvalue(), name=file_name)
-
-        try:
-            saved_path = s3_storage.save(file_name, content_file)
-            qr_code_url = s3_storage.url(saved_path)
-        except Exception as e:
-            return Response({"error": f"Error uploading QR code {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         # Enable 2FA for user
         user.is_2fa_enabled = True
         user.save()
 
         return Response({
-            "message": "Scan the QR code with your authenticator app",
-            "otp_auth_url": otp_auth_url,
-            "qr_code_link": qr_code_url
+            "message": "Two-Factor Authentication via email OTP has been enabled.",
         }, status=status.HTTP_200_OK)
 
 
