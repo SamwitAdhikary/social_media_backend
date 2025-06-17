@@ -61,14 +61,11 @@ social_media_backend_v1.0/
 ├── stories/                # Story creation, views, reactions
 ├── utils/
 │   └── aws.py              # S3 upload helper
-├── fixtures/
-│   └── demo_data.json      # Sample users, posts, etc.
 └── docs/                   # Guides & API reference
     ├── installation.md
     ├── configuration.md
     ├── usage.md
-    ├── api_reference.md
-    └── postman_collection.json
+    └── api_reference.md
 ```
 ---
 
@@ -110,7 +107,6 @@ cp .env.example .env
 
 # 4. Apply migrations & load demo data
 python manage.py migrate
-python manage.py loaddata fixtures/demo_data.json
 
 # 5. Run development server
 python manage.py runserver
@@ -147,7 +143,6 @@ Refer to docs/configuration.md for full details.
 - **Configuration Guide**: `docs/configuration.md`
 - **Usage Examples**: `docs/usage.md`
 - **Full API Reference**: `docs/api_reference.md`
-- **Postman Collection**: `docs/postman_collection.json`
 
 ---
 
